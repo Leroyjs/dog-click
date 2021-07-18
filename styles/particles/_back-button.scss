@@ -1,0 +1,38 @@
+.back-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    .back-button {
+      &__arrow {
+        transform: translateX(-4px);
+      }
+
+      &__text {
+        color: $mainHover;
+      }
+    }
+
+    path {
+      stroke: $mainHover;
+    }
+  }
+
+  &:active {
+    .back-button {
+      &__text {
+        color: $mainClick;
+      }
+    }
+
+    path {
+      stroke: $mainClick;
+    }
+  }
+
+  &__arrow {
+    transition: transform .3s;
+    margin-right: 20px;
+  }
+}

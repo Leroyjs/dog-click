@@ -1,0 +1,58 @@
+.pagination {
+  display: flex;
+
+  &__arrow-wrapper {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      path {
+        stroke: $mainHover;
+      }
+    }
+
+    &:active {
+      path {
+        stroke: $mainClick;
+      }
+    }
+  }
+
+  &__main {
+    display: flex;
+  }
+
+  &__item {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:not(:last-of-type) {
+      margin-right: 10px;
+    }
+
+    &:hover:not(.pagination__item_active) {
+      background-color: $grayBG;
+    }
+
+    &_active {
+      border: 2px solid $mainColor;
+      color: $mainColor;
+    }
+  }
+
+  &__more-item {
+    display: flex;
+    align-items: flex-end;
+    margin-right: 10px;
+    padding-bottom: 10px;
+  }
+}

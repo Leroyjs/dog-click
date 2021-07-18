@@ -1,0 +1,51 @@
+.detail-card-main-section {
+  margin-top: 95px;
+
+  &__title {
+    margin-top: 16px;
+  }
+
+  &__button-item {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    cursor: pointer;
+
+    .text {
+      margin-left: 9px;
+    }
+
+    &:hover {
+      path {
+        stroke: $mainHover;
+      }
+
+      .text {
+        color: $mainHover;
+      }
+    }
+
+    &:active {
+      path {
+        stroke: $mainClick;
+      }
+
+      .text {
+        color: $mainClick;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    width: 33%;
+  }
+
+  &__row-head {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 32px;
+  }
+}

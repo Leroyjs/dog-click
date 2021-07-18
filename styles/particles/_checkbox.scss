@@ -1,0 +1,33 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__main:checked+&__box {
+    background-color: $mainColor;
+    border: 2px solid $mainColor;
+
+    .checkbox__inner {
+      display: block;
+    }
+  }
+
+  &__main {
+    display: none;
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 2px solid $gray;
+    border-radius: 2px;
+    margin-right: 20px;
+  }
+
+  &__inner {
+    display: none;
+  }
+}

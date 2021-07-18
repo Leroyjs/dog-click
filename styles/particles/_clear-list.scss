@@ -1,0 +1,33 @@
+.clear-list {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__text {
+    margin-left: 10px;
+  }
+
+  &:hover {
+    .clear-list {
+      &__text {
+        color: $mainHover;
+      }
+    }
+
+    path {
+      fill: $mainHover;
+    }
+  }
+
+  &:active {
+    .clear-list {
+      &__text {
+        color: $mainClick;
+      }
+    }
+
+    path {
+      fill: $mainClick;
+    }
+  }
+}

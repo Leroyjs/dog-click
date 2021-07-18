@@ -1,0 +1,37 @@
+.favorites-main-section {
+  margin-top: 95px;
+
+  &__title {
+    margin-top: 16px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 32px;
+  }
+
+  &__items-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item-wrapper {
+    width: calc(33% - 20px);
+    margin-right: 30px;
+    margin-bottom: 30px;
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+
+  &__pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+  }
+}

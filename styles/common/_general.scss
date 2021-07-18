@@ -1,0 +1,168 @@
+* {
+  font-family: $fontMain;
+}
+
+.main-padding {
+  padding-left: 164px;
+  padding-right: 164px;
+}
+
+.text {
+  &_type {
+    &_nav {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    &_main-title {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 64px;
+    }
+
+    &_h2 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 30px;
+    }
+
+    &_h3 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+    }
+
+    &_h4 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+    }
+
+    &_h6 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 200%;
+    }
+
+    &_main {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 190%;
+    }
+
+    &_desc {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    &_sub-desc {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    &_name {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    &_cost {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+    }
+  }
+
+  &_color {
+    &_main {
+      color: $mainColor;
+    }
+
+    &_gray {
+      color: $gray;
+    }
+
+    &_white {
+      color: $white;
+    }
+
+    &_black {
+      color: $black
+    }
+  }
+}
+
+.button {
+  padding: 10px 54px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color .2s;
+
+  &__arrow {
+    transition: .3s;
+    margin-left: 10px;
+  }
+
+  &_color {
+    &_main {
+      border: 2px solid $mainColor;
+      background-color: $mainColor;
+      color: $white;
+
+      &:hover {
+        border: 2px solid $mainHover;
+        background-color: $mainHover;
+        color: $white;
+      }
+
+      &:active {
+        border: 2px solid $mainClick;
+        background-color: $mainClick;
+        color: $white;
+      }
+    }
+  }
+
+  &_type {
+    &_main {
+      border: 2px solid transparent;
+    }
+
+    &_border {
+      background-color: transparent;
+      color: $mainColor;
+    }
+
+    &_arrow {
+      padding: 0px;
+      border: none;
+      background-color: transparent;
+
+      &:hover {
+        color: $mainHover;
+
+        path {
+          stroke: $mainHover;
+        }
+
+        .button__arrow {
+          transform: translateX(8px);
+        }
+      }
+
+      &:active {
+        color: $mainClick;
+
+        path {
+          stroke: $mainClick;
+        }
+      }
+    }
+  }
+}

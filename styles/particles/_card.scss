@@ -1,0 +1,67 @@
+.card {
+  width: 100%;
+  background: $white;
+  /* Dogclick 2 */
+
+  border: 1px solid $gray;
+  overflow: hidden;
+  border-radius: 10px;
+  display: block;
+  cursor: pointer;
+  transition: box-shadow .3s;
+
+  &:hover {
+    box-shadow: 0px 8px 70px rgba(36, 28, 41, 0.15);
+    z-index: 1;
+  }
+
+  &__img {
+    position: relative;
+    height: 240px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../../media/testDog.jpg');
+  }
+
+  &__icon {
+    position: absolute;
+    right: 20px;
+
+    &_favorite {
+      top: 20px;
+    }
+
+    &_comparison {
+      top: 70px;
+    }
+  }
+
+  &__text {
+    padding: 20px;
+  }
+
+  &__breed {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  &__breeder {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  &__desc-row {
+    display: flex;
+    justify-content: space-between;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+  }
+}

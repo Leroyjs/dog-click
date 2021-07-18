@@ -1,0 +1,36 @@
+.filters {
+  min-width: calc(33% - 20px);
+  margin-right: 30px;
+
+  &__title {
+    margin-bottom: 20px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+
+    &:not(:first-of-type) {
+      margin-top: 30px;
+    }
+  }
+
+  &__checkbox-wrapper {
+    margin-bottom: 2px;
+  }
+
+  &__show-all {
+    margin-top: 20px;
+    cursor: pointer;
+
+    &:hover {
+      color: $mainHover;
+    }
+
+    &:active {
+      color: $mainClick;
+    }
+  }
+
+  &__button {
+    margin-top: 30px;
+  }
+}

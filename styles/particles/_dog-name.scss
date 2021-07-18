@@ -1,0 +1,8 @@
+.dog-name {
+  display: flex;
+  align-items: center;
+
+  &__name {
+    margin-left: 13px;
+  }
+}
