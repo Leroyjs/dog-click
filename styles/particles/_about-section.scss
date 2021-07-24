@@ -32,3 +32,33 @@
     margin-bottom: -85px;
   }
 }
+
+@media screen and (max-width:1600px) {
+  .about-section {
+    margin-top: 160px;
+  
+    &__main {
+      width: 50%;
+      border: 1px dashed $mainColor;
+      border-radius: 10px;
+      padding: 30px;
+    }
+  
+    &__title {
+      margin-bottom: 12px;
+    }
+  
+    &__text {
+      margin-bottom: 22px;
+    }
+  
+    &__desc {
+      margin-bottom: 22px;
+    }
+  
+    &__img-wrapper {
+      margin-top: -110px;
+      margin-bottom: -85px;
+    }
+  }
+}

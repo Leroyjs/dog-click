@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import { DetailSlider } from '../common/DetailSlider';
+import { DogName } from '../common/DogName';
+import { Location } from '../common/Location';
 import { BackButton } from '../UI/BackButton';
 import { Description } from '../UI/Description';
+import { ButtonMain } from '../UI/ButtonMain'
+import { ParentCard } from '../common/ParentCard';
 
 export const DetailCardMainSection = ({}) => {
     return (
@@ -73,8 +77,59 @@ export const DetailCardMainSection = ({}) => {
             <div className="detail-card-main-section__main-row">
                 <div className="detail-card-main-section__slider">
                     <DetailSlider />
+                    <section className="detail-card-main-section__desc-section">
+                        <div className="text text_type_h5 detail-card-main-section__sub-title">Описание</div>
+                        <div className="text text_type_main">
+                            Продается шикарная девочка лабрадора шоколадного окраса, возраст 1 месяц, 
+                            очень красивая и бесконечно добрая. Имеется вет. паспорт и метрика щенка. 
+                            По всем вопросам звоните, пишите. 
+                        </div>
+                        <div className="text text_type_h5 detail-card-main-section__sub-title">Родители щенка</div>
+                        <div className="detail-card-main-section__cards">
+                            <div className="detail-card-main-section__card-wrapper">
+                                <ParentCard />
+                            </div>
+                            <div className="detail-card-main-section__card-wrapper">
+                                <ParentCard />
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <div className="detail-card-main-section__info"></div>
+                <div className="detail-card-main-section__info">
+                    <DogName isMale={true}>Умка, 2 месяца</DogName>
+                    <div className="text text_type_cost text_color_main detail-card-main-section__cost">35 000 ₽</div>
+                    <div className="text text_type_h5">Иванов Иван Иванович</div>
+                    <div className="text text_type_desc text_color_main detail-card-main-section__farm">Питомник: Собакен</div>
+                    <Location>Москва</Location>
+                    <div className="text text_type_desc text_color_gray detail-card-main-section__desc">м. Кантемировская, ул. Кошкина 12 </div>
+                    <ButtonMain>Показать контакты</ButtonMain>
+                    <ul className="detail-card-main-section__table">
+                        <li className="detail-card-main-section__table-item">
+                            <div className="detail-card-main-section__table-title">Пол</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">Девочка</div>
+                        </li>
+                        <li className="detail-card-main-section__table-item">
+                            <div className="detail-card-main-section__table-title">Дата рождения</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">Девочка</div>
+                        </li>
+                        <li className="detail-card-main-section__table-item">
+                            <div className="detail-card-main-section__table-title">Размер</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">Девочка</div>
+                        </li>
+                        <li className="detail-card-main-section__table-item">
+                            <div className="detail-card-main-section__table-title">Окрас</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">Девочка</div>
+                        </li>
+                        <li className="detail-card-main-section__table-item">
+                            <div className="detail-card-main-section__table-title">Клеймо/чип</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">Девочка</div>
+                        </li>
+                        <li className="detail-card-main-section__table-item">
+                            <div className="detail-card-main-section__table-title">Вакцинация</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">Девочка</div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
     );

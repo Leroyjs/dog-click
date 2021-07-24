@@ -5,7 +5,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  height: 80px;
+  height: 5vw;
   width: 100%;
   z-index: 100;
   transition: background-color .3s;
@@ -15,11 +15,20 @@
   }
 
   &__logo {
-    width: 220px;
+    width: 13.75vw;
+    a{
+      height: 2.5vw;
+      width: 5.6875vw;
+      display: flex;
+    }
+    div{
+      height: 100%;
+      width: 100%;
+    }
   }
 
   &__sub-links {
-    width: 220px;
+    width: 13.75vw;
     display: flex;
     align-items: center;
   }
@@ -47,36 +56,40 @@
 }
 
 .header-sub-link {
-  margin-left: 21px;
+  margin-left: 1.3125vw;
   display: flex;
   align-items: center;
 
   &__text {
-    margin-left: 9px;
+    margin-left: 0.5625vw;
   }
 
   &__count {
     right: 0;
     transform: translateX(50%);
-    border: 1px solid $white;
-    height: 16px;
-    min-width: 16px;
-    padding: 0 4px;
+    border: 2px solid $white;
+    height: 1vw;
+    min-width: 1vw;
+    padding: 0 0.25vw;
     background-color: $mainColor;
     position: absolute;
     color: $white;
     font-style: normal;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.875vw;
     display: flex;
     align-items: center;
     justify-content: center;
     align-items: center;
-    border-radius: 16px;
+    border-radius: 1vw;
   }
 
   &__img-wrapper {
     position: relative;
+    height: 1.5vw;
+    svg{
+      height: 100%;
+    }
   }
 
   &:hover {
@@ -87,6 +100,43 @@
     path,
     line {
       stroke: $mainColor;
+    }
+  }
+}
+@media screen and (max-width:1600px) {
+  .header {
+    height: 80px;
+
+    &__logo {
+      width: 220px;
+      a{
+        width: 91.36px;
+        height: 40px;
+      }
+    }
+  
+    &__sub-links {
+      width: 220px;
+    }
+  }
+  
+  .header-sub-link {
+    margin-left: 21px;
+  
+    &__text {
+      margin-left: 9px;
+    }
+    &__img-wrapper {
+      height: 24px;
+    }
+  
+    &__count {
+      border: 1px solid $white;
+      height: 16px;
+      min-width: 16px;
+      padding: 0 4px;
+      font-size: 14px;
+      border-radius: 16px;
     }
   }
 }

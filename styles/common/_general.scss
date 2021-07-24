@@ -3,8 +3,8 @@
 }
 
 .main-padding {
-  padding-left: 164px;
-  padding-right: 164px;
+  padding-left: 10.25vw;
+  padding-right: 10.25vw;
 }
 
 .text {
@@ -12,69 +12,73 @@
     &_nav {
       font-style: normal;
       font-weight: 500;
-      font-size: 18px;
+      font-size: 1.125vw; 
     }
 
     &_main-title {
       font-style: normal;
       font-weight: bold;
-      font-size: 64px;
+      font-size: 4vw;
     }
 
     &_h2 {
       font-style: normal;
       font-weight: 600;
-      font-size: 30px;
+      font-size: 1.875vw;
     }
 
     &_h3 {
       font-style: normal;
       font-weight: 500;
-      font-size: 24px;
+      font-size: 1.5vw;
     }
 
     &_h4 {
       font-style: normal;
       font-weight: 600;
-      font-size: 24px;
+      font-size: 1.5vw;
     }
-
+    &_h5{
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.125vw;
+    }
     &_h6 {
       font-style: normal;
       font-weight: 500;
-      font-size: 14px;
+      font-size: 0.875vw;
       line-height: 200%;
     }
 
     &_main {
       font-style: normal;
       font-weight: 500;
-      font-size: 16px;
+      font-size: 1vw;
       line-height: 190%;
     }
 
     &_desc {
       font-style: normal;
       font-weight: 500;
-      font-size: 16px;
+      font-size: 1vw;
     }
 
     &_sub-desc {
       font-style: normal;
       font-weight: 500;
-      font-size: 12px;
+      font-size: 0.75vw;
     }
 
     &_name {
       font-style: normal;
       font-weight: 500;
-      font-size: 20px;
+      font-size: 1.25vw;
     }
 
     &_cost {
       font-style: normal;
       font-weight: 600;
-      font-size: 24px;
+      font-size: 1.5vw;
     }
   }
 
@@ -98,15 +102,17 @@
 }
 
 .button {
-  padding: 10px 54px;
-  border-radius: 10px;
+  padding: 0.625vw 3.375vw;
+  border-radius: 0.625vw;
   cursor: pointer;
   width: 100%;
   transition: background-color .2s;
 
   &__arrow {
     transition: .3s;
-    margin-left: 10px;
+    margin-left: 0.625vw;
+    width: 1.125vw;
+    height: 0.625vw;
   }
 
   &_color {
@@ -163,6 +169,73 @@
           stroke: $mainClick;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width:1600px) {
+  .main-padding {
+    padding-left: 164px;
+    padding-right: 164px;
+  }
+
+  .text {
+    &_type {
+      &_nav {
+        font-size: 18px;
+      }
+
+      &_main-title {
+        font-size: 64px;
+      }
+
+      &_h2 {
+        font-size: 30px;
+      }
+
+      &_h3 {
+        font-size: 24px;
+      }
+
+      &_h4 {
+        font-size: 24px;
+      }
+      &_h5{
+        font-size: 18px;
+      }
+      &_h6 {
+        font-size: 14px;
+      }
+
+      &_main {
+        font-size: 16px;
+      }
+
+      &_desc {
+        font-size: 16px;
+      }
+
+      &_sub-desc {
+        font-size: 12px;
+      }
+
+      &_name {
+        font-size: 20px;
+      }
+
+      &_cost {
+        font-size: 24px;
+      }
+    } 
+  }
+  .button {
+    padding: 10px 54px;
+    border-radius: 10px;
+
+    &__arrow {
+      margin-left: 10px;
+      width: 18px;
+      height: 10px;
     }
   }
 }

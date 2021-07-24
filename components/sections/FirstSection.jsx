@@ -26,7 +26,7 @@ export const FirstSection = () => {
                         itemList={puppyBreedList}
                     ></DropDown>
                     <DropDown
-                        addСlasses="first-section__drop-down"
+                        addСlasses="first-section__drop-down first-section__drop-down_margin-horizontal"
                         placeholderText="Порода щенка"
                         placeholderImg={dogImg()}
                         itemList={puppyBreedList}

@@ -1,6 +1,6 @@
 .title-block {
   background-color: $grayBG;
-  padding-top: 135px;
+  padding-top: 90px;
   padding-bottom: 48px;
   display: flex;
   align-items: center;
@@ -9,7 +9,8 @@
   position: relative;
 
   &__title {
-    width: 394px;
+    width: 610px;
+    font-weight: 600;
     text-align: center;
     line-height: 167%;
     position: relative;
@@ -17,7 +18,7 @@
   }
 
   &__bread-crumbs {
-    margin-top: 45px;
+    margin-top: 10px;
     position: relative;
     z-index: 1;
   }

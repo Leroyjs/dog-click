@@ -12,7 +12,7 @@ export const Footer = () => {
                 <Link href="/">
                     <a
                         href=""
-                        className="text text_type_sub-desc text_color_main"
+                        className="footer__link text text_type_sub-desc text_color_main"
                     >
                         Пользовательское соглашение
                     </a>

@@ -1,0 +1,13 @@
+.social-link{
+  cursor: pointer;
+  &:hover{
+    path{
+      fill:$mainHover
+    }
+  }
+  &:active{
+    path{
+      fill:$mainClick
+    }
+  }
+}

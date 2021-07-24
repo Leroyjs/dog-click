@@ -3,8 +3,9 @@ export const FavoriteIcon = ({
     isActive = false,
     onClick = false,
 }) => {
-    function handleClick() {
-        onClick && onClick();
+    function handleClick(e) {
+        e.stopPropagation()
+        onClick && onClick(e);
     }
     return (
         <button

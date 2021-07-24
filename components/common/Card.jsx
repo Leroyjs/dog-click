@@ -7,11 +7,13 @@ import { DogName } from './DogName';
 export const Card = () => {
     const [isFavorite, setFavorite] = useState(false);
     const [isComparison, setComparison] = useState(false);
-    function handleFavorite() {
+    function handleFavorite(e) {
+        e.preventDefault()
         const newState = !isFavorite;
         setFavorite(newState);
     }
-    function handleComparison() {
+    function handleComparison(e) {
+        e.preventDefault()
         const newState = !isComparison;
         setComparison(newState);
     }

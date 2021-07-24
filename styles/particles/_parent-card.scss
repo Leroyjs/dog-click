@@ -1,0 +1,46 @@
+.parent-card{
+  border: 1px solid #CBCBCB;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+
+  &__main{
+    padding: 20px;
+    padding-top: 28px;
+  }
+  &__name{
+    margin-bottom: 16px;
+  }
+
+  &__img{
+    height: 200px;
+    width: 100%;
+    background-image: url('../../media/testDog.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  &__social-links{
+    display: flex;
+  }
+  &__social-link{
+    margin-right: 20px;
+  }
+  &__birth{
+    margin: 16px 0;
+  }
+  &__regalia{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 16px;
+    margin-top: 12px;
+  }
+  &__regalia-item{
+    margin-right: 20px;
+  }
+  &__pedigree{
+    display: inline-block;      
+    border-bottom: 1px dashed #AF5B29;
+  }
+}

@@ -1,11 +1,9 @@
 .card {
   width: 100%;
   background: $white;
-  /* Dogclick 2 */
-
-  border: 1px solid $gray;
+  border: 2px solid $gray;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 0.625vw;
   display: block;
   cursor: pointer;
   transition: box-shadow .3s;
@@ -17,7 +15,7 @@
 
   &__img {
     position: relative;
-    height: 240px;
+    height: 14vw;
     width: 100%;
     background-position: center;
     background-size: cover;
@@ -26,35 +24,35 @@
 
   &__icon {
     position: absolute;
-    right: 20px;
+    right: 1.1764vw;
 
     &_favorite {
-      top: 20px;
+      top: 1.1764vw;
     }
 
     &_comparison {
-      top: 70px;
+      top: 4.1176470vw;
     }
   }
 
   &__text {
-    padding: 20px;
+    padding: 1.1764705882352vw;
   }
 
   &__breed {
-    margin-top: 12px;
-    margin-bottom: 12px;
+    margin-top: 0.705882352vw;
+    margin-bottom: 0.705882352vw;
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 0.941176470588235294vw;
   }
 
   &__breeder {
-    margin-top: 12px;
-    margin-bottom: 12px;
+    margin-top: 0.705882352vw;
+    margin-bottom: 0.705882352vw;
     font-style: normal;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.8235294117vw;
   }
 
   &__desc-row {
@@ -62,6 +60,49 @@
     justify-content: space-between;
     font-style: normal;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.8235294117vw;
+  }
+}
+@media screen and (max-width:1700px) {
+  .card {
+    border: 1px solid $gray;
+    border-radius: 10px;
+  
+    &__img {
+      height: 240px;
+      width: 100%;
+    }
+  
+    &__icon {
+      right: 20px;
+  
+      &_favorite {
+        top: 20px;
+      }
+  
+      &_comparison {
+        top: 70px;
+      }
+    }
+  
+    &__text {
+      padding: 20px;
+    }
+  
+    &__breed {
+      margin-top: 12px;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+  
+    &__breeder {
+      margin-top: 12px;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+  
+    &__desc-row {
+      font-size: 14px;
+    }
   }
 }
