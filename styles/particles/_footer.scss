@@ -39,3 +39,21 @@
     }
   }
 }
+@media screen and (max-width:1280px) {
+  .footer {
+    margin-top: 160px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .footer{
+    &__link{
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+    &__link-row{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

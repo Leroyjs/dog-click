@@ -5,9 +5,11 @@ import logoImg from '../../media/logo.svg';
 export const Footer = () => {
     return (
         <footer className="footer">
-            <div className="footer__logo">
-                <Image src={logoImg} alt="dog-click"></Image>
-            </div>
+            <Link href="/">
+                <a className="footer__logo">
+                    <Image src={logoImg} alt="dog-click"></Image>
+                </a>
+            </Link>
             <div className="footer__link-row">
                 <Link href="/">
                     <a

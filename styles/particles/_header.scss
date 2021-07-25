@@ -54,7 +54,9 @@
     }
   }
 }
-
+.burger-button, .burger-menu{
+  display: none;
+}
 .header-sub-link {
   margin-left: 1.3125vw;
   display: flex;
@@ -125,6 +127,10 @@
   
     &__text {
       margin-left: 9px;
+
+      &_margin-left{
+        margin-left: 13px;
+      }
     }
     &__img-wrapper {
       height: 24px;
@@ -137,6 +143,107 @@
       padding: 0 4px;
       font-size: 14px;
       border-radius: 16px;
+    }
+  }
+}
+@media screen and (max-width:1000px) {
+  .header{
+    flex-direction: row-reverse;
+    &__nav, &__sub-links{
+      display: none;
+    }
+    &__logo{
+      width: auto;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+  }
+  .header-sub-link{
+    margin: 0;
+    margin-top: 30px;
+  }
+  .burger-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 113px;
+    width: 100%;
+    height: 100vh;
+    background-color: $grayBG;
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    transition: transform .5s;
+
+    &__li{
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    &__separator{
+      height: 2px;
+      width: 100%;
+      background-color: $gray;
+      margin-top: 30px;
+    }
+
+    &_active{
+      transform: translateY(100%);
+    }
+  }
+  .burger-button{
+    display: block;
+    cursor: pointer;
+    height: 24px;
+    width: 30px;
+    position: relative;
+    z-index: 1;
+
+    &_active{
+      .burger-button{
+        &__inner{
+          height: 0;
+
+          &::before{
+            width: 30px;
+            transform: rotate(45deg);
+            background-color: $black;
+          }
+          &::after{
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+
+    &__inner{
+      width: 30px;
+      height: 2px;
+      background-color: $black;
+      position: absolute;
+      top: 50%;
+      margin-top: -1px;
+
+      &::after{
+        content: '';
+        display: block;
+        width: 30px;
+        height: 2px;
+        background-color: $black;
+        transform: translateY(10px);
+      }
+      &::before{
+        content: '';
+        display: block;
+        width: 20px;
+        right: 0;
+        position: absolute;
+        height: 2px;
+        background-color: $mainColor;
+        transform: translateY(-10px);
+      }
     }
   }
 }

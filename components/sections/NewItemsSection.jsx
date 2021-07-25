@@ -6,7 +6,7 @@ import { ButtonBorder } from '../UI/ButtonBorder';
 export const NewItemsSection = () => {
     return (
         <section className="new-items-section main-padding">
-            <H2>
+            <H2 addСlasses="new-items-section__title">
                 Новые <span className="text_color_main">объявления</span>
             </H2>
             <Description addСlasses="new-items-section__desc">

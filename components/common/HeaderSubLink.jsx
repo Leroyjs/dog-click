@@ -11,7 +11,7 @@ export const HeaderSubLink = ({ href, count, text, children }) => {
                     {children}
                 </div>
                 {text && (
-                    <div className="header-sub-link__text text text_type_nav text_color_black">
+                    <div className={"header-sub-link__text text text_type_nav text_color_black" + (count?' header-sub-link__text_margin-left':'')}>
                         {text}
                     </div>
                 )}

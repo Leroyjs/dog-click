@@ -15,7 +15,7 @@ export const FirstSection = () => {
                     Твой лучший друг{' '}
                     <span className="text_color_main">ждёт тебя</span>
                 </MainTitle>
-                <span className="text_type_h3">
+                <span className="text_type_h3 first-section__sub-title">
                     Мы сотрудничаем только с проверенными заводчиками
                 </span>
                 <div className="first-section__input-row">

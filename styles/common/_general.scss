@@ -232,10 +232,150 @@
     padding: 10px 54px;
     border-radius: 10px;
 
+    &_type{
+      &_arrow{
+        padding: 0;
+      }
+    }
+
     &__arrow {
       margin-left: 10px;
       width: 18px;
       height: 10px;
+    }
+  }
+}
+@media screen and (max-width:1360px) {
+  .main-padding {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+}
+@media screen and (max-width:1280px) {
+  .main-padding {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  .text {
+    &_type {
+      &_nav {
+        font-size: 16px;
+      }
+
+      &_main-title {
+        font-size: 56px;
+      }
+
+      &_h2 {
+        font-size: 26px;
+      }
+
+      &_h3 {
+        font-size: 21px;
+      }
+
+      &_h4 {
+        font-size: 21px;
+      }
+      &_h5{
+        font-size: 16px;
+      }
+      &_h6 {
+        font-size: 12px;
+      }
+
+      &_main {
+        font-size: 14px;
+      }
+
+      &_desc {
+        font-size: 14px;
+      }
+
+      &_sub-desc {
+        font-size: 12px;
+      }
+
+      &_name {
+        font-size: 18px;
+      }
+
+      &_cost {
+        font-size: 21px;
+      }
+    } 
+  }
+}
+@media screen and (max-width:1150px) {
+  .main-padding {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width:1000px) {
+  .main-padding {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .text {
+    &_type {
+      &_main-title {
+        font-size: 44px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:700px) {
+  .text {
+    &_type {
+      &_nav {
+        font-size: 16px;
+      }
+
+      &_main-title {
+        font-size: 32px;
+      }
+
+      &_h2 {
+        font-size: 30px;
+      }
+
+      &_h3 {
+        font-size: 18px;
+      }
+
+      &_h4 {
+        font-size: 24px;
+      }
+
+      &_h5{
+        font-size: 18px;
+      }
+
+      &_h6 {
+        font-size: 14px;
+      }
+
+      &_main {
+        font-size: 16px;
+      }
+
+      &_desc {
+        font-size: 16px;
+      }
+
+      &_sub-desc {
+        font-size: 12px;
+      }
+
+      &_name {
+        font-size: 20px;
+      }
+
+      &_cost {
+        font-size: 24px;
+      }
     }
   }
 }
