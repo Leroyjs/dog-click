@@ -10,13 +10,12 @@ export const DetailSlider = ({}) => {
     const [arrowLeftIsDisabled, setArrowLeftIsDisabled] = useState(true)
     const flickityOptions = {
         initialIndex: 2,
-        pageDots: false,
         prevNextButtons: false
     };
     const flickityNavOptions = {
         cellAlign: 'left',
         contain: true,
-        initialIndex: 2,
+        initialIndex: 0,
         pageDots: false,
         prevNextButtons: false
     };

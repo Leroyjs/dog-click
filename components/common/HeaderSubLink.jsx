@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-export const HeaderSubLink = ({ href, count, text, children }) => {
+export const HeaderSubLink = ({ href, count, text, children, onClick }) => {
     return (
         <Link href={href}>
-            <a className="header-sub-link">
+            <a className="header-sub-link" onClick={onClick}>
                 <div className="header-sub-link__img-wrapper">
                     {count && (
                         <div className="header-sub-link__count">{count}</div>

@@ -177,7 +177,7 @@
     z-index: 99;
     top: 0;
     left: 0;
-    transition: transform .5s;
+    transition: opacity .3s, visibility 0.3s 0.3s;
     opacity: 0;
     visibility: hidden;
 
@@ -195,6 +195,7 @@
     }
 
     &_active{
+      transition: opacity .3s, visibility 0s 0s;
       opacity: 1;
       visibility: visible;
     }

@@ -31,7 +31,6 @@ export const Header = () => {
             window.Freezer.freeze();
             setBurgerState(true)
         }
-        
     }
     return (
         <>
@@ -170,7 +169,7 @@ export const Header = () => {
                 </div>
             </header>
             <div className={"burger-menu main-padding" + (burgerState?" burger-menu_active":'')}>
-                <HeaderSubLink href="/personal-area" text="Вход">
+                <HeaderSubLink href="/personal-area" text="Вход" onClick={handleBurgerState}>
                     <svg
                         viewBox="0 0 24 24"
                         fill="none"
@@ -212,22 +211,22 @@ export const Header = () => {
                 <div className="burger-menu__separator"></div>
                 <nav className="burger-menu__nav">
                     <ul className="burger-menu__ul">
-                        <li className="burger-menu__li">
+                        <li className="burger-menu__li" onClick={handleBurgerState}>
                             <Link href="/"><a className="burger-menu__link text text_type_nav text_color_black">Найти щенка</a></Link>
                         </li>
-                        <li className="burger-menu__li">
+                        <li className="burger-menu__li" onClick={handleBurgerState}>
                             <Link href="/"><a className="burger-menu__link text text_type_nav text_color_black">О нас</a></Link>
                         </li>
-                        <li className="burger-menu__li">
+                        <li className="burger-menu__li" onClick={handleBurgerState}>
                             <Link href="/"><a className="burger-menu__link text text_type_nav text_color_black">Заводчикам</a></Link>
                         </li>
-                        <li className="burger-menu__li">
+                        <li className="burger-menu__li" onClick={handleBurgerState}>
                             <Link href="/"><a className="burger-menu__link text text_type_nav text_color_black">Помощь</a></Link>
                         </li>
                     </ul>
                 </nav>
                 <div className="burger-menu__separator"></div>
-                <HeaderSubLink href="/favorites" count={10} text="Избранное">
+                <HeaderSubLink href="/favorites" count={10} text="Избранное" onClick={handleBurgerState}>
                     <svg
                         viewBox="0 0 28 24"
                         fill="none"
@@ -240,7 +239,7 @@ export const Header = () => {
                         />
                     </svg>
                 </HeaderSubLink>
-                <HeaderSubLink href="/comparison" count={3} text="Сравнение щенков">
+                <HeaderSubLink href="/comparison" count={3} text="Сравнение щенков" onClick={handleBurgerState}>
                     <svg
                         viewBox="0 0 44 24"
                         fill="none"
