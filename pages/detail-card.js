@@ -8,7 +8,7 @@ export default function DetailCard() {
     return (
         <MainWrapper>
             <TitleBlock breadCrumbsList={breadCrumbsList} img={someDogBGImg}>
-                Мы сотрудничаем только с проверенными заводчиками
+                Мы&nbsp;сотрудничаем только с&nbsp;проверенными заводчиками
             </TitleBlock>
             <DetailCardMainSection />
             <Footer />

@@ -1,7 +1,7 @@
 .title-block {
   background-color: $grayBG;
-  padding-top: 90px;
-  padding-bottom: 48px;
+  padding-top: 5.625vw;
+  padding-bottom: 3vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +9,6 @@
   position: relative;
 
   &__title {
-    width: 610px;
     font-weight: 600;
     text-align: center;
     line-height: 167%;
@@ -18,7 +17,7 @@
   }
 
   &__bread-crumbs {
-    margin-top: 10px;
+    margin-top: 0.625vw;
     position: relative;
     z-index: 1;
   }
@@ -29,9 +28,45 @@
     top: 0;
     width: 100%;
     height: 100%;
-    // z-index: -1;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right bottom;
+  }
+}
+
+@media screen and (max-width:1600px) {
+  .title-block {
+    padding-top: 90px;
+    padding-bottom: 48px;
+  
+    &__bread-crumbs {
+      margin-top: 10px;
+    }
+  }
+}
+@media screen and (max-width:1100px) {
+  .title-block {
+    &__title{
+      width: 300px;
+    }
+  }
+}
+@media screen and (max-width:1000px) {
+  .title-block{
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: $white;
+
+    &__title{
+      width: 100%;
+      padding: 0 14px;
+    }
+
+    &__bg-dog{
+      position: relative;
+      order:-1;
+      height: 170px;
+      margin-bottom: 30px;
+    }
   }
 }

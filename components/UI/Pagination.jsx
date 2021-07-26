@@ -20,13 +20,22 @@ export const Pagination = () => {
                     />
                 </svg>
             </div>
-            <div className="pagination__main">
+            <div className="pagination__main pagination__main_desktop">
                 <div className="pagination__item text_type_main">1</div>
                 <div className="pagination__item pagination__item_active text_type_main">
                     2
                 </div>
                 <div className="pagination__item text_type_main">3</div>
                 <div className="pagination__item text_type_main">4</div>
+                <div className="pagination__more-item text_type_main">...</div>
+                <div className="pagination__item text_type_main">5</div>
+            </div>
+            <div className="pagination__main pagination__main_mobile">
+                <div className="pagination__item text_type_main">1</div>
+                <div className="pagination__item pagination__item_active text_type_main">
+                    2
+                </div>
+                <div className="pagination__item text_type_main">3</div>
                 <div className="pagination__more-item text_type_main">...</div>
                 <div className="pagination__item text_type_main">5</div>
             </div>

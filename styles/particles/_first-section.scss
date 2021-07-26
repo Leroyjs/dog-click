@@ -7,6 +7,7 @@
   position: relative;
   overflow: hidden;
   background: #EFEFEF;
+  min-height: 750px;
 
   &__bg {
     z-index: 1;
@@ -167,4 +168,25 @@
       width: 500px;
     }
   }
+}
+
+@media screen and (max-height:750px) {
+ .first-section{
+    min-height: 670px;
+
+    &__inner{
+     margin-top: 76px;
+    }
+    &__input-row{
+      margin-top: 20px;
+    }
+    &__drop-down{
+      &_margin-horizontal{
+        margin: 20px 0;
+      }
+    }
+    &__buttons-row{
+      margin-top: 20px;
+    }
+  } 
 }

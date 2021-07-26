@@ -1,7 +1,11 @@
 * {
   font-family: $fontMain;
 }
-
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
 .main-padding {
   padding-left: 10.25vw;
   padding-right: 10.25vw;
@@ -107,6 +111,9 @@
   cursor: pointer;
   width: 100%;
   transition: background-color .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &__arrow {
     transition: .3s;
@@ -125,12 +132,20 @@
         border: 2px solid $mainHover;
         background-color: $mainHover;
         color: $white;
+        path{
+          fill: $white;
+          stroke: $white;
+        }
       }
 
       &:active {
         border: 2px solid $mainClick;
         background-color: $mainClick;
         color: $white;
+        path{
+          fill: $white;
+          stroke: $white;
+        }
       }
     }
   }
@@ -358,19 +373,15 @@
       }
 
       &_main {
-        font-size: 16px;
+        font-size: 14px;
       }
 
       &_desc {
-        font-size: 16px;
+        font-size: 14px;
       }
 
       &_sub-desc {
         font-size: 12px;
-      }
-
-      &_name {
-        font-size: 20px;
       }
 
       &_cost {

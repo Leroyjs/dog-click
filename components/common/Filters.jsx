@@ -13,39 +13,39 @@ export const Filters = () => {
 
     return (
         <form onSubmit={handleSubmit} className="filters">
-            <div className="filters__title">Пол</div>
+            <div className="filters__title text text_type_main">Пол</div>
             <DropDown
                 placeholderText="Порода щенка"
                 placeholderImg={dogImg()}
                 isBorder={true}
                 itemList={puppyBreedList}
             />
-            <div className="filters__title">Пол</div>
+            <div className="filters__title text text_type_main">Пол</div>
             <DropDown
                 placeholderText="Порода щенка"
                 placeholderImg={dogImg()}
                 isBorder={true}
                 itemList={puppyBreedList}
             />
-            <div className="filters__title">Пол</div>
+            <div className="filters__title text text_type_main">Пол</div>
             <DropDown
                 placeholderText="Порода щенка"
                 placeholderImg={dogImg()}
                 isBorder={true}
                 itemList={puppyBreedList}
             />
-            <div className="filters__title">Пол</div>
+            <div className="filters__title text text_type_main">Пол</div>
             <DropDown
                 placeholderText="Порода щенка"
                 placeholderImg={dogImg()}
                 isBorder={true}
                 itemList={puppyBreedList}
             />
-            <div className="filters__title">Пол</div>
+            <div className="filters__title text text_type_main">Пол</div>
             <RangeInput />
-            <div className="filters__title">Пол</div>
+            <div className="filters__title text text_type_main">Пол</div>
             <RangeInput />
-            <div className="filters__title">Пол</div>
+            <div className="filters__title text text_type_main">Пол</div>
             <div className="filters__checkbox-wrapper">
                 <Checkbox>Бежевый</Checkbox>
             </div>

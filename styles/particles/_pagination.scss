@@ -3,8 +3,8 @@
 
   &__arrow-wrapper {
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 2.5vw;
+    height: 2.5vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,19 +24,22 @@
 
   &__main {
     display: flex;
+    &_mobile{
+      display: none;
+    }
   }
 
   &__item {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+    width: 2.5vw;
+    height: 2.5vw;
+    border-radius: 0.625vw;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 
     &:not(:last-of-type) {
-      margin-right: 10px;
+      margin-right: 0.625vw;
     }
 
     &:hover:not(.pagination__item_active) {
@@ -52,7 +55,49 @@
   &__more-item {
     display: flex;
     align-items: flex-end;
-    margin-right: 10px;
-    padding-bottom: 10px;
+    margin-right: 0.625vw;
+    padding-bottom: 0.625vw;
+  }
+}
+
+@media screen and (max-width:1600px) {
+  .pagination {
+    &__arrow-wrapper {
+      width: 40px;
+      height: 40px;
+    }
+  
+    &__item {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+  
+      &:not(:last-of-type) {
+        margin-right: 10px;
+      }
+    }
+  
+    &__more-item {
+      margin-right: 10px;
+      padding-bottom: 10px;
+    }
+  }
+}
+@media screen and (max-width:1600px) {
+  .pagination {
+    &__main{
+      &_desktop{
+        display: none;
+      }
+      &_mobile{
+        display: flex;
+      }
+    }
+    &__item:not(:last-of-type), &__more-item{
+      margin-right: 8px;
+    }
+    &__arrow-wrapper{
+      width: 30px;
+    }
   }
 }
