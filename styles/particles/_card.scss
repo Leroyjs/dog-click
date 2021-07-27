@@ -7,11 +7,12 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: box-shadow .3s;
+  transition: box-shadow .3s, border .3s;
 
   &:hover {
     box-shadow: 0px 8px 70px rgba(36, 28, 41, 0.15);
     z-index: 1;
+    border: 2px solid $white;
   }
 
   &__img {
@@ -68,6 +69,10 @@
   .card {
     border: 1px solid $gray;
     border-radius: 10px;
+
+    &:hover {
+      border: 1px solid $white;
+    }
   
     &__img {
       height: 240px;

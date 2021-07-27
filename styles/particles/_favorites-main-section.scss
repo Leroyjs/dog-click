@@ -1,5 +1,5 @@
 .favorites-main-section {
-  margin-top: 95px;
+  margin-top: 50px;
 
   &__title {
     margin-top: 16px;
@@ -37,9 +37,7 @@
   }
 }
 @media screen and (max-width:1700px) {
-  .favorites-main-section {
-    margin-top: 95px;
-  
+  .favorites-main-section {  
     &__title {
       margin-top: 16px;
     }
@@ -71,7 +69,7 @@
 }
 @media screen and (max-width:1000px) {
   .favorites-main-section {
-    margin-top: 50px;
+    margin-top: 30px;
 
     &__pagination{
       margin-top: 50px;

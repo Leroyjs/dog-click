@@ -1,5 +1,5 @@
 .detail-card-main-section {
-  margin-top: 60px;
+  margin-top: 50px;
 
   &__title {
     margin-top: 16px;
@@ -10,6 +10,14 @@
     align-items: center;
     margin-right: 30px;
     cursor: pointer;
+
+    &:last-of-type{
+      margin-right: 0;
+    }
+
+    svg{
+      height: 20px;
+    }
 
     .text {
       margin-left: 9px;
@@ -110,9 +118,7 @@
   }
 }
 @media screen and (max-width:1600px) {
-  .detail-card-main-section {
-    margin-top: 60px;
-  
+  .detail-card-main-section {  
     &__title {
       margin-top: 16px;
     }
@@ -170,6 +176,8 @@
 }
 @media screen and (max-width:1000px) {
   .detail-card-main-section{
+    margin-top: 30px;
+
     &__main-row{
       flex-direction: column;
     }
@@ -199,11 +207,6 @@
   .detail-card-main-section{
     &__cards{
       flex-direction: column;
-    }
-    &__button-item{
-      &:last-of-type{
-        margin-right: 0;
-      }
     }
     &__card-wrapper{
       width: 100%;
