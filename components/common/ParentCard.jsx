@@ -12,9 +12,11 @@ export const ParentCard = ({ }) => {
         <div className="parent-card__name text text_type_name">Мэдисон (мама)</div>
         <Location>Россия</Location>
         <div className="parent-card__birth text_type_desc">Дата рождения: 04.06.2015</div>
-        <a className="parent-card__pedigree text text_type_desc text_color_main" target="_blank" href="https://www.youtube.com">
-          Родословная
-        </a>
+        <Link  href="https://www.youtube.com">
+          <a className="parent-card__pedigree text text_type_desc text_color_main" target="_blank">
+            Родословная
+          </a>
+        </Link>
         <ul className="text_type_h6 text text_color_gray parent-card__regalia">
           <li className="parent-card__regalia-item">Чемпион России</li>
           <li className="parent-card__regalia-item">Чемпион Европы</li>

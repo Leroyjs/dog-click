@@ -9,7 +9,7 @@ export const DetailSlider = ({}) => {
     const [arrowRightIsDisabled, setArrowRightIsDisabled] = useState(false)
     const [arrowLeftIsDisabled, setArrowLeftIsDisabled] = useState(true)
     const flickityOptions = {
-        initialIndex: 2,
+        initialIndex: 0,
         prevNextButtons: false
     };
     const flickityNavOptions = {
@@ -23,7 +23,7 @@ export const DetailSlider = ({}) => {
         if (flickity && flickityNav) {
             flickity.on('change', handleChengeMain);
         }
-    }, [flickity, flickityNav]);
+    }, [flickity, flickityNav, handleChengeMain]);
 
     function setArrows(index) {
         if (index === 0) {
