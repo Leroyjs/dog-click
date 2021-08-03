@@ -8,6 +8,7 @@
     width: calc(25% - 23px);
     margin-right: 30px;
     margin-bottom: 30px;
+    display: flex;
 
     &:nth-child(4n) {
       margin-right: 0;

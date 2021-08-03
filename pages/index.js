@@ -28,7 +28,7 @@ export async function getServerSideProps() {
             "priceTo": null,
             "hasPedigree": null,
             "pageNum": 1,
-            "pageSize": 6
+            "pageSize": 8
         })
     .then(function (response) {
         newPosts = response.data
