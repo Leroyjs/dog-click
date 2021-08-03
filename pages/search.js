@@ -28,6 +28,8 @@ export async function getServerSideProps({query}) {
         "sizeId": null,
         "priceFrom": null,
         "priceTo": null,
+        "monthsAgeFrom":null,
+        "monthsAgeTo":null,
         "hasPedigree": null,
         "pageNum": 1,
         "pageSize": config.pageSize
@@ -43,7 +45,7 @@ export async function getServerSideProps({query}) {
         if(key==='breedIds'){
             options[key] = [query[key]]
         }
-        if(key==='priceFrom'||key==='priceTo'||key==='sizeId'){
+        if(key==='priceFrom'||key==='priceTo'||key==='sizeId'||key==='monthsAgeFrom'||key==='monthsAgeTo'){
             options[key] = +query[key]
         }
         if(key==='colorIds'){

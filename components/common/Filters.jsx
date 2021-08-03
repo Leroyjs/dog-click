@@ -22,6 +22,8 @@ export const Filters = ({options, handler}) => {
     const [sizeId, setSizeId] = useState(options.sizeId);
     const [priceFrom, setPriceFrom] = useState(options.priceFrom);
     const [priceTo, setPriceTo] = useState(options.priceTo);
+    const [monthsAgeFrom, setMonthsAgeFrom] = useState(options.monthsAgeFrom);
+    const [monthsAgeTo, setMonthsAgeTo] = useState(options.monthsAgeTo);
     const [hasPedigree, setHasPedigree] = useState(options.hasPedigree);
 
     function handleSubmit(e) {
@@ -34,6 +36,8 @@ export const Filters = ({options, handler}) => {
         sizeId!==null && (url+='sizeId='+sizeId+'&');
         priceFrom!==null && (url+='priceFrom='+priceFrom+'&');
         priceTo!==null && (url+='priceTo='+priceTo+'&');
+        monthsAgeFrom!==null && (url+='monthsAgeFrom='+monthsAgeFrom+'&');
+        monthsAgeTo!==null && (url+='monthsAgeTo='+monthsAgeTo+'&');
         hasPedigree!==null && (url+='hasPedigree='+hasPedigree+'&');
         colorIds.length!==0 && (url+='colorIds='+colorIds+'&');
         router.push(url)
@@ -49,6 +53,8 @@ export const Filters = ({options, handler}) => {
         setPriceFrom(null);
         setPriceTo(null);
         setHasPedigree(null);
+        setMonthsAgeFrom(null);
+        setMonthsAgeTo(null);
         let url = '/search';
         router.push(url)
     }
@@ -129,7 +135,7 @@ export const Filters = ({options, handler}) => {
             <div className="filters__title text text_type_main">Размер взрослой собаки</div>
             <DropDown
                 placeholderText="Размер щенка"
-                placeholderImg={dogImg()}
+                placeholderImg={sizeImg()}
                 isBorder={true}
                 itemList={dimensions.items}
                 handler={setSizeId}
@@ -138,7 +144,7 @@ export const Filters = ({options, handler}) => {
             <div className="filters__title text text_type_main">Ценовой диапазон, ₽ </div>
             <RangeInput max={250000} handlerMin={setPriceFrom} handlerMax={setPriceTo} initMin={+priceFrom} initMax={+priceTo}/>
             <div className="filters__title text text_type_main">Возраст, мес. </div>
-            <RangeInput />
+            <RangeInput handlerMin={setMonthsAgeFrom} handlerMax={setMonthsAgeTo} initMin={+monthsAgeFrom} initMax={+monthsAgeTo}/>
             <div className="filters__title text text_type_main">Окрас</div>
             {colors.items.map((item, index)=>{
                 if(index<=4){
@@ -179,6 +185,13 @@ export const Filters = ({options, handler}) => {
         </form>
     );
 };
+const sizeImg = () =>(
+    <svg viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.75 18V2C0.75 1.30964 1.30964 0.75 2 0.75H9C9.69036 0.75 10.25 1.30964 10.25 2V4V18C10.25 18.6904 9.69036 19.25 9 19.25H2C1.30964 19.25 0.75 18.6904 0.75 18Z" stroke="#AF5B29" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M6.81818 4H10V6.88M10 6.88H5.90909M10 6.88V9.76M10 9.76H6.81818M10 9.76V12.64M10 12.64H5M10 12.64V16H6.81818" stroke="#AF5B29" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+)
+
 const locationImg = () =>(
     <svg viewBox="0 0 13 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M6.5 18.7998C6.37651 18.6412 6.2365 18.4589 6.08333 18.2556C5.48306 17.4591 4.68367 16.3445 3.88557 15.0706C3.08624 13.7947 2.29627 12.3719 1.7081 10.958C1.11626 9.53533 0.75 8.17155 0.75 7C0.75 3.4909 3.37202 0.75 6.5 0.75C9.62798 0.75 12.25 3.4909 12.25 7C12.25 8.17155 11.8837 9.53533 11.2919 10.958C10.7037 12.3719 9.91376 13.7947 9.11443 15.0706C8.31633 16.3445 7.51694 17.4591 6.91667 18.2556C6.7635 18.4589 6.62349 18.6412 6.5 18.7998ZM4.30891 9.27811C4.87989 9.89301 5.66672 10.25 6.5 10.25C7.33328 10.25 8.12011 9.89301 8.69109 9.27811C9.26033 8.66508 9.57143 7.84476 9.57143 7C9.57143 6.15524 9.26033 5.33493 8.69109 4.7219C8.12011 4.10699 7.33328 3.75 6.5 3.75C5.66672 3.75 4.87989 4.10699 4.30891 4.7219C3.73966 5.33493 3.42857 6.15524 3.42857 7C3.42857 7.84476 3.73966 8.66508 4.30891 9.27811Z" stroke="#AF5B29" strokeWidth="1.5"/>
