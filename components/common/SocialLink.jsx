@@ -1,8 +1,12 @@
-export const SocialLink = ({type, href}) => {
+import Link from "next/link"
+
+export const SocialLink = ({type, href='/'}) => {
   return (
-    <a className="social-link">
-      {typeObj[type]()}
-    </a>
+    <Link href={href}>
+      <a target="_blank" className="social-link">
+        {typeObj[type]()}
+      </a>
+    </Link>
   )
 }
 

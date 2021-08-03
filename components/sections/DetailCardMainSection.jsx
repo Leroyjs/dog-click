@@ -6,20 +6,32 @@ import { BackButton } from '../UI/BackButton';
 import { Description } from '../UI/Description';
 import { ButtonMain } from '../UI/ButtonMain'
 import { ParentCard } from '../common/ParentCard';
+import { useEffect, useState } from 'react';
+import { SocialLink } from '../common/SocialLink';
+import { useRouter } from 'next/router'
 
-export const DetailCardMainSection = ({}) => {
+export const DetailCardMainSection = ({data}) => {
+    const [contactsIsShow, setContactsIsShow] = useState(false);
+    const otherImgs = data.petImages;
+    const mainImg = data.mainImageGuid;
+    const images = [{guid:mainImg}, ...otherImgs];
+    const router = useRouter()
+
+    function handleShowContacts(){
+        setContactsIsShow(true)
+    }
+    function handleBack(){
+        router.back()
+    }
+    console.log(data)
     return (
         <section className="detail-card-main-section main-padding">
-            <Link href="/">
-                <a>
-                    <BackButton>Назад к предыдущей странице</BackButton>
-                </a>
-            </Link>
+            <BackButton onClick={handleBack}>Назад к предыдущей странице</BackButton>
             <h2 className="detail-card-main-section__title text_type_h4">
-                Лабрадор ретривер
+                {data.breed}
             </h2>
             <div className="detail-card-main-section__row-head">
-                <Description>Опубликовано 25.05.2021</Description>
+                <Description>Опубликовано {data.createDate}</Description>
                 <div className="detail-card-main-section__buttons detail-card-main-section__buttons_desktop">
                     <div className="detail-card-main-section__button-item">
                         <svg
@@ -76,7 +88,7 @@ export const DetailCardMainSection = ({}) => {
             </div>
             <div className="detail-card-main-section__main-row">
                 <div className="detail-card-main-section__slider">
-                    <DetailSlider />
+                    <DetailSlider images={images}/>
                 </div>
                 <div className="detail-card-main-section__info">
                     <div className="detail-card-main-section__buttons detail-card-main-section__buttons_mobile">
@@ -132,57 +144,116 @@ export const DetailCardMainSection = ({}) => {
                             <span className="text text_type_main">Сравнить</span>
                         </div>
                     </div>
-                    <DogName isMale={true}>Умка, 2 месяца</DogName>
-                    <div className="text text_type_cost text_color_main detail-card-main-section__cost">35 000 ₽</div>
-                    <div className="text text_type_h5">Иванов Иван Иванович</div>
+                    <DogName isMale={data.gender}>{data.name}, 2 месяца</DogName>
+                    <div className="text text_type_cost text_color_main detail-card-main-section__cost">{data.price} ₽</div>
+                    {data.ownerFio&&<div className="text text_type_h5">{data.ownerFio}</div>}
                     <div className="text text_type_desc text_color_main detail-card-main-section__farm">Питомник: Собакен</div>
-                    <Location>Москва</Location>
-                    <div className="text text_type_desc text_color_gray detail-card-main-section__desc">м. Кантемировская, ул. Кошкина 12 </div>
-                    <ButtonMain>Показать контакты</ButtonMain>
+                    <Location>{data.city}</Location>
+                    <div className="text text_type_desc text_color_gray detail-card-main-section__desc">{data.address}</div>
+                    {contactsIsShow ?
+                    <div className="detail-card-main-section__contacts-wrapper">
+                        {data.phone&&
+                        <Link href={`tel:${data.phone}`}>
+                            <a className="text text_type_main text_color_black detail-card-main-section__contact">{data.phone}</a>
+                        </Link>}
+                        {data.email&&
+                        <Link href={`mailto:${data.email}`}>
+                            <a className="text text_type_main text_color_black detail-card-main-section__contact">{data.email}</a>
+                        </Link>}
+                        <ul className="detail-card-main-section__socil-links">
+                            {data.facebookUrl&&
+                            <li className="detail-card-main-section__socil-link-item">
+                                <SocialLink type="FB" href={data.facebookUrl}/>
+                            </li>}
+                            {data.instagram&&
+                            <li className="detail-card-main-section__socil-link-item">
+                                <SocialLink type="IG" href={data.instagram}/>
+                            </li>}
+                            {data.telegram&&
+                            <li className="detail-card-main-section__socil-link-item">
+                                <SocialLink type="TG" href={data.telegram}/>
+                            </li>}
+                            {data.vkUrl&&
+                            <li className="detail-card-main-section__socil-link-item">
+                                <SocialLink type="VK" href={data.vkUrl}/>
+                            </li>}
+                            {data.whatsappPhoneNumber&&
+                            <li className="detail-card-main-section__socil-link-item">
+                                <SocialLink type="WA" href={'https://wa.me/'+data.whatsappPhoneNumber}/>
+                            </li>}
+                            {data.youtubeUrl&&
+                            <li className="detail-card-main-section__socil-link-item">
+                                <SocialLink type="VK" href={data.youtubeUrl}/>
+                            </li>}
+                        </ul>
+                    </div>:
+                     <ButtonMain onClick={handleShowContacts}>Показать контакты</ButtonMain>
+                     }
                     <ul className="detail-card-main-section__table">
                         <li className="detail-card-main-section__table-item">
                             <div className="detail-card-main-section__table-title">Пол</div>
-                            <div className="detail-card-main-section__table-value text text_type_h6">Девочка</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">{data.gender?'Мальчик':'Девочка'}</div>
                         </li>
                         <li className="detail-card-main-section__table-item">
                             <div className="detail-card-main-section__table-title">Дата рождения</div>
-                            <div className="detail-card-main-section__table-value text text_type_h6">Девочка</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">{data.birthDate||'Не указано'}</div>
                         </li>
                         <li className="detail-card-main-section__table-item">
                             <div className="detail-card-main-section__table-title">Размер</div>
-                            <div className="detail-card-main-section__table-value text text_type_h6">Девочка</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">{data.size||'Не указано'}</div>
                         </li>
                         <li className="detail-card-main-section__table-item">
                             <div className="detail-card-main-section__table-title">Окрас</div>
-                            <div className="detail-card-main-section__table-value text text_type_h6">Девочка</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">{data.color||'Не указано'}</div>
                         </li>
                         <li className="detail-card-main-section__table-item">
                             <div className="detail-card-main-section__table-title">Клеймо/чип</div>
-                            <div className="detail-card-main-section__table-value text text_type_h6">Девочка</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">{data.chipped?'Да':'Нет'}</div>
                         </li>
                         <li className="detail-card-main-section__table-item">
                             <div className="detail-card-main-section__table-title">Вакцинация</div>
-                            <div className="detail-card-main-section__table-value text text_type_h6">Девочка</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">{data.vaccinated?'Да':'Нет'}</div>
+                        </li>
+                        <li className="detail-card-main-section__table-item">
+                            <div className="detail-card-main-section__table-title">Генетический тест</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">{data.genTested?'Да':'Нет'}</div>
+                        </li>
+                        <li className="detail-card-main-section__table-item">
+                            <div className="detail-card-main-section__table-title">Актирован</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">{data.activated?'Да':'Нет'}</div>
+                        </li>
+                        <li className="detail-card-main-section__table-item">
+                            <div className="detail-card-main-section__table-title">Договор купли-продажи</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">{data.buySellDeal?'Да':'Нет'}</div>
+                        </li>
+                        <li className="detail-card-main-section__table-item">
+                            <div className="detail-card-main-section__table-title">Доставка</div>
+                            <div className="detail-card-main-section__table-value text text_type_h6">{data.delivery?'Да':'Нет'}</div>
                         </li>
                     </ul>
                 </div>
             </div>
             <section className="detail-card-main-section__desc-section">
-                <div className="text text_type_h5 detail-card-main-section__sub-title">Описание</div>
-                <div className="text text_type_main">
-                    Продается шикарная девочка лабрадора шоколадного окраса, возраст 1 месяц, 
-                    очень красивая и бесконечно добрая. Имеется вет. паспорт и метрика щенка. 
-                    По всем вопросам звоните, пишите. 
-                </div>
-                <div className="text text_type_h5 detail-card-main-section__sub-title">Родители щенка</div>
-                <div className="detail-card-main-section__cards">
-                    <div className="detail-card-main-section__card-wrapper">
-                        <ParentCard />
+                {data.delivery&&<>
+                    <div className="text text_type_h5 detail-card-main-section__sub-title">Описание</div>
+                    <div className="text text_type_main">
+                        {data.delivery}
                     </div>
-                    <div className="detail-card-main-section__card-wrapper">
-                        <ParentCard />
+                </>}
+                {(data.motherInfo||data.fatherInfo)&&
+                <>
+                    <div className="text text_type_h5 detail-card-main-section__sub-title">Родители щенка</div>
+                    <div className="detail-card-main-section__cards">
+                        {data.motherInfo&&
+                        <div className="detail-card-main-section__card-wrapper">
+                            <ParentCard data={data.motherInfo} isMale={false}/>
+                        </div>}
+                        {data.fatherInfo&&
+                        <div className="detail-card-main-section__card-wrapper">
+                            <ParentCard data={data.fatherInfo} isMale={true}/>
+                        </div>}
                     </div>
-                </div>
+                </>}
             </section>
         </section>
     );

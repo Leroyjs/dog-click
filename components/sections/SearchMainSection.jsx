@@ -3,8 +3,23 @@ import { Card } from '../common/Card';
 import { Filters } from '../common/Filters';
 import { ButtonBorder } from '../UI/ButtonBorder';
 import { Pagination } from '../UI/Pagination';
+import { config } from '../../config';
+import { useRouter } from 'next/router'
 
-export const SearchMainSection = () => {
+import { connect } from 'react-redux';
+import { addFaforiteItem, removeFavoriteItem } from '../../redux/actions';
+import { useDispatch } from 'react-redux'
+
+const mapStateToProps = (state) => {
+    return {
+        favoriteIdList: state.favorite.map(item=>item.id)
+    };
+};
+
+export const SearchMainSection = connect(mapStateToProps, { addFaforiteItem,removeFavoriteItem })(({ posts, options, favoriteIdList }) => {
+    const dispatch = useDispatch()
+    console.log(favoriteIdList);
+    const router = useRouter()
     const [filtersIsOpen, setFiltersIsOpen] = useState(false);
     function handleOpenModal() {
         if (filtersIsOpen) {
@@ -14,6 +29,16 @@ export const SearchMainSection = () => {
             window.Freezer.freeze();
             setFiltersIsOpen(true);
         }
+    }
+    function handleSelectPage(num){
+        let url = '/search';
+        url+='?';
+        let routerQuery = Object.assign({}, router.query);
+        routerQuery.pageNum=num;
+        for(let query in routerQuery){
+            url+=query+'='+routerQuery[query]+'&'
+        }
+        router.push(url)
     }
     return (
         <section className="search-main-section main-padding">
@@ -32,10 +57,10 @@ export const SearchMainSection = () => {
                         Фильтры
                     </div>
                 </div>
-                <Filters></Filters>
+                <Filters handler={handleOpenModal} options={options}/>
             </div>
             <div className="search-main-section__filters-wrapper">
-                <Filters></Filters>
+                <Filters options={options}/>
             </div>
             <div className="search-main-section__items-wrapper">
                 <div className="search-main-section__filters-button">
@@ -47,39 +72,33 @@ export const SearchMainSection = () => {
                     </ButtonBorder>
                 </div>
                 <div className="search-main-section__count text_type_main">
-                    Найдено 315 объявлений
+                    Найдено {posts.total} объявлений
                 </div>
-                <div className="search-main-section__item-wrapper">
-                    <Card />
-                </div>
-                <div className="search-main-section__item-wrapper">
-                    <Card />
-                </div>
-                <div className="search-main-section__item-wrapper">
-                    <Card />
-                </div>
-                <div className="search-main-section__item-wrapper">
-                    <Card />
-                </div>
-                <div className="search-main-section__item-wrapper">
-                    <Card />
-                </div>
-                <div className="search-main-section__item-wrapper">
-                    <Card />
-                </div>
-                <div className="search-main-section__item-wrapper">
-                    <Card />
-                </div>
-                <div className="search-main-section__item-wrapper">
-                    <Card />
-                </div>
-                <div className="search-main-section__item-wrapper">
-                    <Card />
-                </div>
+                {posts.items.map(item=>(
+                    <div key={item.id} className="search-main-section__item-wrapper">
+                        <Card 
+                            addFaforiteItem={()=>{dispatch(addFaforiteItem(item))}}
+                            removeFavoriteItem={()=>{dispatch(removeFavoriteItem(item))}}
+                            isFavorite={favoriteIdList.indexOf(item.id) != -1}
+                            id={item.id}
+                            breed={item.breed}
+                            mainPhotoGuid={item.mainPhotoGuid}
+                            city={item.city}
+                            createDate={item.createDate} 
+                            gender={item.gender}
+                            name={item.name}
+                            price={item.price}
+                            monthsAge={item.monthsAge}
+                            ownerFio={item.ownerFio}
+                        />
+                    </div>
+                ))
+                }
+                {posts.total >= config.pageSize&&
                 <div className="search-main-section__pagination-wrapper">
-                    <Pagination />
-                </div>
+                    <Pagination total={posts.total} pageNum={posts.pageNum} handler={handleSelectPage}/>
+                </div>}
             </div>
         </section>
     );
-};
+});

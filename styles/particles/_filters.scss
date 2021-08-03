@@ -8,6 +8,14 @@
       margin-top: 30px;
     }
   }
+  &__button-drop{
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   &__checkbox-wrapper {
     margin-bottom: 2px;

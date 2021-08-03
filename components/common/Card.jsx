@@ -4,23 +4,29 @@ import { ComparisonIcon } from '../UI/ComparisonIcon';
 import { FavoriteIcon } from '../UI/FavoriteIcon';
 import { DogName } from './DogName';
 
-export const Card = () => {
-    const [isFavorite, setFavorite] = useState(false);
+export const Card = ({addFaforiteItem,removeFavoriteItem,isFavorite, breed, city, createDate, gender, id, mainPhotoGuid, name, price, monthsAge, ownerFio}) => {
+    // const [isFavorite, setFavorite] = useState(false);
     const [isComparison, setComparison] = useState(false);
     function handleFavorite(e) {
         e.preventDefault()
-        const newState = !isFavorite;
-        setFavorite(newState);
+        if(isFavorite){
+            removeFavoriteItem()
+        }else{
+            addFaforiteItem()
+        }
     }
     function handleComparison(e) {
         e.preventDefault()
         const newState = !isComparison;
         setComparison(newState);
     }
+    const imgStyles = {
+        backgroundImage: `url('https://res.cloudinary.com/leninsdo/image/upload/petstory/${mainPhotoGuid}')`
+    }
     return (
-        <Link href="/detail-card">
+        <Link href={"/detail-card/"+id}>
             <a className="card">
-                <div className="card__img">
+                <div className="card__img" style={imgStyles}>
                     <FavoriteIcon
                         isActive={isFavorite}
                         onClick={handleFavorite}
@@ -33,19 +39,19 @@ export const Card = () => {
                     />
                 </div>
                 <div className="card__text">
-                    <DogName>Луна, 1 месяц</DogName>
-                    <div className="card__breed text_color_black">Сиба-ину</div>
+                    <DogName isMale={gender}>{name}, {monthsAge} месяц</DogName>
+                    <div className="card__breed text_color_black">{breed}</div>
                     <div className="card__cost text text_type_cost text_color_main">
-                        35 000 ₽
+                        {price} ₽
                     </div>
                     <div className="card__breeder text_color_black">
-                        Заводчик: Иванов Иван Иванович
+                        {ownerFio&&`Заводчик: ${ownerFio}`} 
                     </div>
                     <div className="card__desc-row">
                         <div className="text text_color_gray">
-                            Москва (м. Выхино)
+                            {city}
                         </div>
-                        <div className="text text_color_gray">25.05.2021</div>
+                        <div className="text text_color_gray">{createDate}</div>
                     </div>
                 </div>
             </a>

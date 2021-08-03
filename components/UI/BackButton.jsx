@@ -1,6 +1,6 @@
-export const BackButton = ({ children, addСlasses }) => {
+export const BackButton = ({ children, addСlasses, onClick }) => {
     return (
-        <div className="back-button">
+        <div className="back-button" onClick={onClick}>
             <svg
                 className="back-button__arrow"
                 width="9"

@@ -44,6 +44,27 @@
     }
   }
 
+  &__socil-links{
+    display: flex;
+  }
+  &__socil-link-item:not(:last-of-type){
+    margin-right: 20px;
+  }
+  &__contacts-wrapper{
+    border: 1px dashed #AF5B29;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__contact{
+    margin-bottom: 3px;
+
+    &:last-of-type{
+      margin-bottom: 12px;
+    }
+  }
+
   &__buttons {
     display: flex;
     width: 33%;
@@ -84,6 +105,7 @@
   }
   &__table{
     margin-top: 30px;
+    margin-bottom: -100%;
   }
   &__table-title{
     font-weight: 600;
@@ -191,6 +213,9 @@
     &__desc-section{
       width: 100%;
     }
+    &__table{
+      margin-bottom: 0;
+    }
     &__buttons{
       width: 100%;
       margin-bottom: 32px;
@@ -213,6 +238,13 @@
       &:not(:last-of-type){
         margin-bottom: 32px;
       }
+    }
+  }
+}
+@media screen and (max-width:350px) {
+  .detail-card-main-section{
+    &__socil-link-item:not(:last-of-type){
+      margin-right: 10px;
     }
   }
 }

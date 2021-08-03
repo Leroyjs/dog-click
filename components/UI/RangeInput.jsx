@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react';
 import Hammer from 'react-hammerjs';
 
-export const RangeInput = ({ min = 0, max = 100 }) => {
-    const [minValue, setMinValue] = useState(min);
-    const [maxValue, setMaxValue] = useState(max);
+export const RangeInput = ({ min = 0, max = 100, handlerMax, handlerMin, initMax, initMin }) => {
+    const [minValue, setMinValue] = useState(initMin||min);
+    const [maxValue, setMaxValue] = useState(initMax||max);
     const [firstX, setFirsX] = useState(false);
     const _line = useRef(false);
     const range = max - min;
@@ -36,18 +36,25 @@ export const RangeInput = ({ min = 0, max = 100 }) => {
     }
     function setCurrentMinValue(value) {
         if (min <= value && max >= value)
-            if (maxValue > value) setMinValue(value);
+            if (maxValue > value){
+                handlerMin&&handlerMin(value)
+                handlerMax&&handlerMax(maxValue)
+                setMinValue(value);
+            }
     }
     function setCurrentMaxValue(value) {
         if (min <= value && max >= value)
-            if (minValue < value) setMaxValue(value);
+            if (minValue < value) {
+                handlerMin&&handlerMin(minValue)
+                handlerMax&&handlerMax(value)
+                setMaxValue(value);
+            };
     }
     function handleDrag(e, setFunction) {
         const lineRect = _line.current.getBoundingClientRect();
         const lineWidth = lineRect.width;
-        console.log(lineWidth);
 
-        const value = Math.round(firstX + (e.deltaX / lineWidth) * 100);
+        const value = Math.round(firstX + (e.deltaX / lineWidth) * range);
         setFunction(value);
     }
     function handlePanStart(initValue) {
@@ -95,19 +102,19 @@ export const RangeInput = ({ min = 0, max = 100 }) => {
                             onPan={(e) => handleDrag(e, setCurrentMinValue)}
                             onPanStart={() => handlePanStart(minValue)}
                         >
-                            <button
+                            <div
                                 className="range-input__circle range-input__circle_min"
                                 style={minCircleStyle}
-                            ></button>
+                            ></div>
                         </Hammer>
                         <Hammer
                             onPan={(e) => handleDrag(e, setCurrentMaxValue)}
                             onPanStart={() => handlePanStart(maxValue)}
                         >
-                            <button
+                            <div
                                 className="range-input__circle range-input__circle_max"
                                 style={maxCircleStyle}
-                            ></button>
+                            ></div>
                         </Hammer>
                     </div>
                 </div>

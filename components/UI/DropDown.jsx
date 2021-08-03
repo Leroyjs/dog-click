@@ -6,8 +6,10 @@ export const DropDown = ({
     placeholderImg = false,
     placeholderText = '',
     addСlasses = '',
+    initId=undefined,
     isInput = true,
     isBorder = false,
+    handler = false
 }) => {
     const _list = useRef(false);
     const [value, setValue] = useState('');
@@ -18,6 +20,23 @@ export const DropDown = ({
     useEffect(() => {
         Scrollbar.init(_list.current);
     }, []);
+    useEffect(() => {
+        if(initId!==undefined){
+            let activeItem;
+            itemList.forEach((item)=>{
+                if(item.id === initId){
+                    activeItem=item;
+                }
+            })
+            if(activeItem){
+                setValue(activeItem.name);
+                activeItem.img&&setActiveImg(activeItem.img);
+            }
+        }
+    },[itemList, initId])
+    useEffect(()=>{
+        filterActiveList(value);
+    },[itemList])
     function handleChange(e) {
         const value = e.target.value;
         setValue(value);
@@ -25,7 +44,7 @@ export const DropDown = ({
     }
     function filterActiveList(value) {
         const newActiveList = itemList.filter((item) => {
-            if (item.text.toUpperCase().indexOf(value.toUpperCase()) + 1) {
+            if (item.name.toUpperCase().indexOf(value.toUpperCase()) + 1) {
                 return item;
             }
         });
@@ -34,6 +53,7 @@ export const DropDown = ({
 
     function handleFocus() {
         setActive(true);
+        setValue('')
     }
     function handleBlur() {
         setTimeout(() => {
@@ -41,9 +61,10 @@ export const DropDown = ({
         }, 0);
     }
     function handleChoose(item) {
-        setValue(item.text);
+        setValue(item.name);
+        item.img&&setActiveImg(item.img);
+        handler&&handler(item.id)
     }
-
     return (
         <div
             className={
@@ -57,7 +78,7 @@ export const DropDown = ({
                 <ul className="drop-down__list">
                     {activeList.map((item) => (
                         <li
-                            key={item.text}
+                            key={item.id}
                             className="drop-down__item"
                             onMouseDown={() => handleChoose(item)}
                         >
@@ -65,7 +86,7 @@ export const DropDown = ({
                                 {item.img && item.img}
                             </div>
                             <span className="drop-down__item-text text_type_main">
-                                {item.text}
+                                {item.name}
                             </span>
                         </li>
                     ))}

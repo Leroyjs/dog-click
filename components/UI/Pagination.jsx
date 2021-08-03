@@ -1,7 +1,38 @@
-export const Pagination = () => {
+import { config } from '../../config'
+
+export const Pagination = ({pageNum,handler,total}) => {
+    const paginationArray = [];
+    const paginationArrayMobile = [];
+
+    const countOfPage = Math.ceil(total/config.pageSize);
+    let start = pageNum - 2 >=0?pageNum - 2:0;
+
+    for(let i = start; i < countOfPage; i++){
+        if(i-start<4){
+            paginationArray.push(i+1)
+        }else if( countOfPage === i + 1 ){
+            paginationArray.push( i + 1 )
+        }
+        if(i-start === 4 && countOfPage-start>5){
+            paginationArray.push('...')
+        }
+    }
+    for(let i = start; i < countOfPage; i++){
+        if(i-start<3){
+            paginationArrayMobile.push(i+1)
+        }else if( countOfPage === i + 1 ){
+            paginationArrayMobile.push( i + 1 )
+        }
+        if(i-start === 3 && countOfPage-start>4){
+            paginationArrayMobile.push('...')
+        }
+    }
+    function handleClick(num){
+        handler&&handler(num)
+    }
     return (
         <div className="pagination">
-            <div className="pagination__arrow-wrapper">
+            {pageNum!==1&&<div className="pagination__arrow-wrapper" onClick={()=>handleClick(pageNum-1)}>
                 <svg
                     className="pagination__arrow pagination__arrow_left"
                     width="8"
@@ -19,27 +50,22 @@ export const Pagination = () => {
                         strokeLinejoin="round"
                     />
                 </svg>
-            </div>
+            </div>}
             <div className="pagination__main pagination__main_desktop">
-                <div className="pagination__item text_type_main">1</div>
-                <div className="pagination__item pagination__item_active text_type_main">
-                    2
-                </div>
-                <div className="pagination__item text_type_main">3</div>
-                <div className="pagination__item text_type_main">4</div>
-                <div className="pagination__more-item text_type_main">...</div>
-                <div className="pagination__item text_type_main">5</div>
+                {
+                    paginationArray.map((item)=>(
+                        item!=='...'?<div key={item} onClick={()=>handleClick(item)} className={"pagination__item text_type_main" + (pageNum===item?' pagination__item_active':'')}>{item}</div>:<div key={item}  className="pagination__more-item text_type_main">...</div>
+                    ))
+                }
             </div>
             <div className="pagination__main pagination__main_mobile">
-                <div className="pagination__item text_type_main">1</div>
-                <div className="pagination__item pagination__item_active text_type_main">
-                    2
-                </div>
-                <div className="pagination__item text_type_main">3</div>
-                <div className="pagination__more-item text_type_main">...</div>
-                <div className="pagination__item text_type_main">5</div>
+                {
+                    paginationArrayMobile.map((item)=>(
+                        item!=='...'?<div key={item} onClick={()=>handleClick(item)} className={"pagination__item text_type_main" + (pageNum===item?' pagination__item_active':'')}>{item}</div>:<div key={item}  className="pagination__more-item text_type_main">...</div>
+                    ))
+                }
             </div>
-            <div className="pagination__arrow-wrapper">
+            {pageNum!==countOfPage&&<div className="pagination__arrow-wrapper" onClick={()=>handleClick(pageNum+1)}>
                 <svg
                     className="pagination__arrow pagination__arrow_right"
                     width="8"
@@ -57,7 +83,7 @@ export const Pagination = () => {
                         strokeLinejoin="round"
                     />
                 </svg>
-            </div>
+            </div>}
         </div>
     );
 };

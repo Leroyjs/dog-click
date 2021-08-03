@@ -1,11 +1,12 @@
-export const Checkbox = ({ children, isChecked = true }) => {
+export const Checkbox = ({ children, isChecked, onChange }) => {
     return (
         <label className="checkbox">
             <input
                 className="checkbox__main"
                 type="checkbox"
                 name="scales"
-                // checked={isChecked}
+                checked={Boolean(isChecked)}
+                onChange={onChange}
             ></input>
             <div className="checkbox__box">
                 <svg
