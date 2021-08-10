@@ -3,7 +3,7 @@ import { Card } from '../common/Card';
 import { Filters } from '../common/Filters';
 import { ButtonBorder } from '../UI/ButtonBorder';
 import { Pagination } from '../UI/Pagination';
-import { config } from '../../config.example';
+import { config } from '../../config';
 import { useRouter } from 'next/router'
 
 import { connect } from 'react-redux';

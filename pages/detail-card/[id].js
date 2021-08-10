@@ -6,7 +6,7 @@ import someDogBGImg from '../../media/some-dog-bg.jpg';
 import { useRouter } from 'next/router';
 import { DetailCardDescSection } from '../../components/sections/DetailCardDescSection'
 import axios from 'axios';
-import { config } from '../../config.example'
+import { config } from '../../config'
 
 export default function DetailCard({post}) {
     return (

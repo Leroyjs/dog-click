@@ -4,7 +4,7 @@ import { TitleBlock } from '../components/sections/TitleBlock';
 import { Footer } from '../components/general/Footer';
 import someDogBGImg from '../media/some-dog-bg.jpg';
 import axios from 'axios';
-import { config } from '../config.example';
+import { config } from '../config';
 
 function Search({ posts, options }) {
     return (
