@@ -233,7 +233,7 @@ export const Header = connect(mapStateToProps, null)(({favoriteList, comparisonL
                     </ul>
                 </nav>
                 <div className="burger-menu__separator"></div>
-                <HeaderSubLink href="/favorites" count={10} text="Избранное" onClick={handleBurgerState}>
+                <HeaderSubLink href="/favorites" count={favoriteList.length} text="Избранное" onClick={handleBurgerState}>
                     <svg
                         viewBox="0 0 28 24"
                         fill="none"
@@ -246,7 +246,7 @@ export const Header = connect(mapStateToProps, null)(({favoriteList, comparisonL
                         />
                     </svg>
                 </HeaderSubLink>
-                <HeaderSubLink href="/comparison" count={3} text="Сравнение щенков" onClick={handleBurgerState}>
+                <HeaderSubLink href="/comparison" count={comparisonList.length} text="Сравнение щенков" onClick={handleBurgerState}>
                     <svg
                         viewBox="0 0 44 24"
                         fill="none"

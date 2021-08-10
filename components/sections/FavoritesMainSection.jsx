@@ -33,7 +33,7 @@ export const FavoritesMainSection = connect(mapStateToProps, {setFaforiteItems, 
             </h2>
             <div className="favorites-main-section__row">
                 <Description>{favoriteList.length} объявлений</Description>
-                <ClearList onClick={handleClearAll}>Очистить список</ClearList>
+                {favoriteList.length!==0&&<ClearList onClick={handleClearAll}>Очистить список</ClearList>}
             </div>
             <div className="favorites-main-section__items-wrapper">
                 {favoriteList.map(item=>(
