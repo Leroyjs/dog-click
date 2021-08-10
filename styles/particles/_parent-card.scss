@@ -2,6 +2,9 @@
   display: flex;
   overflow: hidden;
   width: 100%;
+  &:not(:last-of-type){
+    margin-bottom: 30px;
+  }
 
   &__main{
     padding: 1.25vw;
@@ -27,19 +30,19 @@
     margin-right: 1.25vw;
   }
   &__birth{
-    margin: 1vw 0;
+    margin-bottom: 1vw;
+  }
+  &__location{
+    margin-bottom: 1vw;
   }
   &__regalia{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     margin-bottom: 1vw;
-    margin-top: 0.75vw;
-  }
-  &__regalia-item{
-    margin-right: 1.25vw;
   }
   &__pedigree{
+    margin-bottom: 1vw;
     display: inline-block;
     padding-bottom: 4px;      
     border-bottom: 2px dashed #AF5B29;
@@ -67,16 +70,16 @@
       margin-right: 20px;
     }
     &__birth{
-      margin: 16px 0;
+      margin-bottom: 16px;
+    }
+    &__location{
+      margin-bottom: 16px;
     }
     &__regalia{
       margin-bottom: 16px;
-      margin-top: 12px;
-    }
-    &__regalia-item{
-      margin-right: 20px;
     }
     &__pedigree{ 
+      margin-bottom: 16px;
       padding-bottom: 2px;
       border-bottom: 1px dashed #AF5B29;
     }

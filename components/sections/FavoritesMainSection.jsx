@@ -55,9 +55,6 @@ export const FavoritesMainSection = connect(mapStateToProps, {setFaforiteItems, 
                         />
                     </div>)
                 )}
-                {/* <div className="favorites-main-section__pagination">
-                    <Pagination />
-                </div> */}
             </div>
         </section>
     );

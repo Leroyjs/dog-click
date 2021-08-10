@@ -10,7 +10,11 @@ export const ParentCard = ({ data, isMale=false }) => {
       </div>
       <div className="parent-card__main">
         <div className="parent-card__name text text_type_name">{data.name} {isMale?'(папа)':'(мама)'}</div>
-        {data.city&&<Location>{data.city}</Location>}
+        {data.city&&(
+          <div className="parent-card__location">
+            <Location>{data.city}</Location>
+          </div>
+        )}
         {data.birthDate&&<div className="parent-card__birth text_type_desc">Дата рождения: {data.birthDate}</div>}
         {data.pedigreeUrl&&
         <Link  href={data.pedigreeUrl}>
