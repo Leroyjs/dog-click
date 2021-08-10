@@ -231,6 +231,7 @@
 }
 @media screen and (max-width:600px) {
   .detail-card-main-section{
+    margin-top: 20px;
     &__cards{
       flex-direction: column;
     }
@@ -239,6 +240,12 @@
       &:not(:last-of-type){
         margin-bottom: 32px;
       }
+    }
+    &__title{
+      margin-top: 0;
+    }
+    .back-button{
+      display: none;
     }
   }
 }
