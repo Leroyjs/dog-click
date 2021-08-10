@@ -5,7 +5,7 @@ import { ButtonArrow } from '../UI/ButtonArrow';
 import Image from 'next/image';
 import Link from 'next/link';
 import fattyCorgiImg from '../../media/fatty-corgi.png';
-import {getBreeds,getCities,getDimensions,getColors} from '../../dictionaries';
+import {getBreeds, getCities, getDimensions,getColors} from '../../dictionaries';
 import { useEffect, useState } from 'react';
 
 export const FirstSection = () => {
@@ -116,9 +116,9 @@ const biGenderImg = () => (
 )
 
 const maleImg = () => (
-    <svg viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 6.99998L16 1M16 1V6.64103M16 1H10.3103" stroke="#AF5B29" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="6" cy="10" r="5" stroke="#AF5B29" strokeWidth="1.5"/>
+    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 7.99998L17 2M17 2V7M17 2H12" stroke="#AF5B29" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="7" cy="12" r="5" stroke="#AF5B29" strokeWidth="1.5"/>
     </svg>
 )
 

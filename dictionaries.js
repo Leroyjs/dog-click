@@ -1,33 +1,37 @@
 import axios from 'axios';
-import { config } from './config.js'
+import { config } from './config.example'
 
 const getBreeds = () => {
     const url = '/api/dictionaries/breeds'
-    return getDictionary(url);
+    const data = getDictionary(url);
+    return data;
 };
 const getCities = () => {
     const url = '/api/dictionaries/cities'
-    return getDictionary(url);
+    const data = getDictionary(url);
+    return data;
 };
 const getDimensions = () => {
     const url = '/api/dictionaries/sizes'
-    return getDictionary(url);
+    const data = getDictionary(url);
+    return data;
 };
 const getColors = () => {
     const url = '/api/dictionaries/colors'
-    return getDictionary(url);
+    const data = getDictionary(url);
+    return data;
 };
 
 async function getDictionary(url){
-    let dictionary = false;
+    let data = {items:[]};
     await axios.get(config.domain + url)
     .then(function (response) {
-        dictionary = response.data
+        data = response.data
     })
     .catch(function (error) {
         console.log(error);
     });
-    return dictionary
+    return data
 }
 
 export {getBreeds,getCities,getDimensions,getColors}

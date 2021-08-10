@@ -1,6 +1,5 @@
 .parent-card{
-  border: 2px solid #CBCBCB;
-  border-radius: 0.625vw;
+  display: flex;
   overflow: hidden;
   width: 100%;
 
@@ -13,8 +12,9 @@
   }
 
   &__img{
-    height: 12.5vw;
-    width: 100%;
+    width: 16vw;
+    height: 15vw;
+    border-radius: 0.625vw;
     background-image: url('../../media/testDog.jpg');
     background-position: center;
     background-size: cover;
@@ -47,9 +47,6 @@
 }
 @media screen and (max-width:1600px) {
   .parent-card{
-    border: 1px solid #CBCBCB;
-    border-radius: 10px;
-  
     &__main{
       padding: 20px;
       padding-top: 28px;
@@ -59,8 +56,9 @@
     }
   
     &__img{
-      height: 200px;
-      width: 100%;
+      width: 255px;
+      height: 240px;
+      border-radius: 10px;
     }
     &__social-links{
       display: flex;
@@ -81,6 +79,24 @@
     &__pedigree{ 
       padding-bottom: 2px;
       border-bottom: 1px dashed #AF5B29;
+    }
+  }
+}
+@media screen and (max-width:600px) {
+  .parent-card{
+    flex-direction: column;
+    &__img{
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width:330px) {
+  .parent-card{
+    &__main{
+      padding: 14px;
+    }
+    &__social-link{
+      margin-right: 16px;
     }
   }
 }

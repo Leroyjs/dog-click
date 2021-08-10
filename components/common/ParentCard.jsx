@@ -3,7 +3,6 @@ import { Location } from "./Location"
 import { SocialLink } from "./SocialLink"
 
 export const ParentCard = ({ data, isMale=false }) => {
-  console.log(data)
   return (
     <div className="parent-card">
       <div className="parent-card__img" style={{ backgroundImage: `url(https://res.cloudinary.com/leninsdo/image/upload/petstory/${data.mainImageGuid})` }}>

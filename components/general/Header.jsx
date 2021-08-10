@@ -3,9 +3,16 @@ import logoImg from '../../media/logo.svg';
 import Image from 'next/image';
 import { HeaderSubLink } from '../common/HeaderSubLink';
 import { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 
+const mapStateToProps = (state) => {
+    return {
+        favoriteList: state.favorite,
+        comparisonList: state.comparison
+    };
+};
 
-export const Header = () => {
+export const Header = connect(mapStateToProps, null)(({favoriteList, comparisonList}) => {
     const [isActive, setActive] = useState(false);
     const [burgerState, setBurgerState] = useState(false);
 
@@ -79,7 +86,7 @@ export const Header = () => {
                     </ul>
                 </nav>
                 <nav className="header__sub-links">
-                    <HeaderSubLink href="/favorites" count={10}>
+                    <HeaderSubLink href="/favorites" count={favoriteList.length}>
                         <svg
                             viewBox="0 0 28 24"
                             fill="none"
@@ -92,7 +99,7 @@ export const Header = () => {
                             />
                         </svg>
                     </HeaderSubLink>
-                    <HeaderSubLink href="/comparison" count={3}>
+                    <HeaderSubLink href="/comparison" count={comparisonList.length}>
                         <svg
                             viewBox="0 0 44 24"
                             fill="none"
@@ -274,4 +281,4 @@ export const Header = () => {
             </div>
         </>
     );
-};
+});

@@ -62,6 +62,12 @@
       &:nth-child(3n) {
         margin-right: 0;
       }
+      &:nth-child(7){
+        display: none;
+      }
+      &:nth-child(8){
+        display: none;
+      }
     }
   
     &__desc {

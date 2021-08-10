@@ -4,8 +4,9 @@ import { TitleBlock } from '../../components/sections/TitleBlock';
 import { Footer } from '../../components/general/Footer'
 import someDogBGImg from '../../media/some-dog-bg.jpg';
 import { useRouter } from 'next/router';
+import { DetailCardDescSection } from '../../components/sections/DetailCardDescSection'
 import axios from 'axios';
-import { config } from '../../config.js'
+import { config } from '../../config.example'
 
 export default function DetailCard({post}) {
     return (
@@ -14,6 +15,7 @@ export default function DetailCard({post}) {
                 Мы&nbsp;сотрудничаем только с&nbsp;проверенными заводчиками
             </TitleBlock>
             <DetailCardMainSection data={post}/>
+            <DetailCardDescSection motherInfo={post.motherInfo} fatherInfo={post.fatherInfo} description={post.description}/>
             <Footer />
         </MainWrapper>
     );

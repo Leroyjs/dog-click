@@ -3,5 +3,9 @@
   align-items: center;
   &__img-wrapper{
     margin-right: 9px;
+    height: 20px;
+    div,img{
+      height: 100%;
+    }
   }
 }

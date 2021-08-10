@@ -7,6 +7,8 @@
   display: flex;
   align-items: center;
   border: 2px solid transparent;
+  z-index:0;
+  transition: z-index .3s .3s;
 
   &_border {
     border: 2px solid #CBCBCB;
@@ -23,6 +25,7 @@
   }
 
   &_active {
+    transition: z-index .0s .0s;
     z-index: 1;
     border: 2px solid $mainColor;
 

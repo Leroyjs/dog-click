@@ -6,14 +6,16 @@ export const favoriteReducers = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case SET_FAVORITE_ITEMS:
-            return action.payload;
+            newState = action.payload;
+            localStorage.favoriteItems = JSON.stringify(newState)
+            return newState;
         case REMOVE_FAVORITE_ITEM:
-            newState = state.filter(item=>item !== action.payload)
-            localStorage.favorites = JSON.stringify(newState)
+            newState = state.filter(item=>item.id !== action.payload.id)
+            localStorage.favoriteItems = JSON.stringify(newState)
             return newState;
         case ADD_FAVORITE_ITEM:
             newState = [action.payload, ...state];
-            localStorage.favorites = JSON.stringify(newState)
+            localStorage.favoriteItems = JSON.stringify(newState)
             return newState;
         default:
             return state;

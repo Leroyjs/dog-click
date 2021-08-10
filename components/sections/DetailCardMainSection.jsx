@@ -5,17 +5,47 @@ import { Location } from '../common/Location';
 import { BackButton } from '../UI/BackButton';
 import { Description } from '../UI/Description';
 import { ButtonMain } from '../UI/ButtonMain'
-import { ParentCard } from '../common/ParentCard';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { SocialLink } from '../common/SocialLink';
 import { useRouter } from 'next/router'
 
-export const DetailCardMainSection = ({data}) => {
+import { connect } from 'react-redux';
+import { addFaforiteItem, removeFavoriteItem, addComparisonItem, removeComparisonItem} from '../../redux/actions';
+import { useDispatch } from 'react-redux'
+
+const mapStateToProps = (state) => {
+    return {
+        favoriteIdList: state.favorite.map(item=>item.id),
+        comparisonIdList: state.comparison.map(item=>item.id)
+    };
+};
+
+export const DetailCardMainSection = connect(mapStateToProps, { addFaforiteItem,removeFavoriteItem })(({data, favoriteIdList,comparisonIdList}) => {
     const [contactsIsShow, setContactsIsShow] = useState(false);
     const otherImgs = data.petImages;
     const mainImg = data.mainImageGuid;
     const images = [{guid:mainImg}, ...otherImgs];
     const router = useRouter()
+    const dispatch = useDispatch()
+    const isFavorite =favoriteIdList.indexOf(data.id) != -1
+    const isComparison =comparisonIdList.indexOf(data.id) != -1
+
+    function handleFavorite(){
+        console.log(isFavorite);
+        if(isFavorite){
+            dispatch(removeFavoriteItem(data))
+        }else{
+            dispatch(addFaforiteItem(data))
+        }
+    }
+    function handleComparison(){
+        console.log(isComparison);
+        if(isComparison){
+            dispatch(removeComparisonItem(data))
+        }else{
+            dispatch(addComparisonItem(data))
+        }
+    }
 
     function handleShowContacts(){
         setContactsIsShow(true)
@@ -23,7 +53,6 @@ export const DetailCardMainSection = ({data}) => {
     function handleBack(){
         router.back()
     }
-    console.log(data)
     return (
         <section className="detail-card-main-section main-padding">
             <BackButton onClick={handleBack}>Назад к предыдущей странице</BackButton>
@@ -33,7 +62,7 @@ export const DetailCardMainSection = ({data}) => {
             <div className="detail-card-main-section__row-head">
                 <Description>Опубликовано {data.createDate}</Description>
                 <div className="detail-card-main-section__buttons detail-card-main-section__buttons_desktop">
-                    <div className="detail-card-main-section__button-item">
+                    <div onClick={handleFavorite} className={"detail-card-main-section__button-item" + (isFavorite?' detail-card-main-section__button-item_active':'')}>
                         <svg
                             width="28"
                             height="24"
@@ -49,7 +78,7 @@ export const DetailCardMainSection = ({data}) => {
                         </svg>
                         <span className="text text_type_main">В избранное</span>
                     </div>
-                    <div className="detail-card-main-section__button-item">
+                    <div onClick={handleComparison} className={"detail-card-main-section__button-item" + (isComparison?' detail-card-main-section__button-item_active':'')}>
                         <svg
                             width="38"
                             height="20"
@@ -92,7 +121,7 @@ export const DetailCardMainSection = ({data}) => {
                 </div>
                 <div className="detail-card-main-section__info">
                     <div className="detail-card-main-section__buttons detail-card-main-section__buttons_mobile">
-                        <div className="detail-card-main-section__button-item">
+                        <div onClick={handleFavorite} className={"detail-card-main-section__button-item" + (isFavorite?' detail-card-main-section__button-item_active':'')}>
                             <svg
                                 width="28"
                                 height="24"
@@ -108,7 +137,7 @@ export const DetailCardMainSection = ({data}) => {
                             </svg>
                             <span className="text text_type_main">В избранное</span>
                         </div>
-                        <div className="detail-card-main-section__button-item">
+                        <div onClick={handleComparison} className={"detail-card-main-section__button-item" + (isComparison?' detail-card-main-section__button-item_active':'')}>
                             <svg
                                 width="38"
                                 height="20"
@@ -147,7 +176,7 @@ export const DetailCardMainSection = ({data}) => {
                     <DogName isMale={data.gender}>{data.name}, 2 месяца</DogName>
                     <div className="text text_type_cost text_color_main detail-card-main-section__cost">{data.price} ₽</div>
                     {data.ownerFio&&<div className="text text_type_h5">{data.ownerFio}</div>}
-                    <div className="text text_type_desc text_color_main detail-card-main-section__farm">Питомник: Собакен</div>
+                    {data.nursery&&<div className="text text_type_desc text_color_main detail-card-main-section__farm">Питомник: {data.nursery}</div>}
                     <Location>{data.city}</Location>
                     <div className="text text_type_desc text_color_gray detail-card-main-section__desc">{data.address}</div>
                     {contactsIsShow ?
@@ -233,28 +262,6 @@ export const DetailCardMainSection = ({data}) => {
                     </ul>
                 </div>
             </div>
-            <section className="detail-card-main-section__desc-section">
-                {data.delivery&&<>
-                    <div className="text text_type_h5 detail-card-main-section__sub-title">Описание</div>
-                    <div className="text text_type_main">
-                        {data.delivery}
-                    </div>
-                </>}
-                {(data.motherInfo||data.fatherInfo)&&
-                <>
-                    <div className="text text_type_h5 detail-card-main-section__sub-title">Родители щенка</div>
-                    <div className="detail-card-main-section__cards">
-                        {data.motherInfo&&
-                        <div className="detail-card-main-section__card-wrapper">
-                            <ParentCard data={data.motherInfo} isMale={false}/>
-                        </div>}
-                        {data.fatherInfo&&
-                        <div className="detail-card-main-section__card-wrapper">
-                            <ParentCard data={data.fatherInfo} isMale={true}/>
-                        </div>}
-                    </div>
-                </>}
-            </section>
         </section>
     );
-};
+});

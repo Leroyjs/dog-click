@@ -27,7 +27,11 @@ export const Filters = ({options, handler}) => {
     const [hasPedigree, setHasPedigree] = useState(options.hasPedigree);
 
     function handleSubmit(e) {
-        e.preventDefault();
+        e&&e.preventDefault();
+        setFiltersURL()
+        handler&&handler()
+    }
+    function setFiltersURL(){
         let url = '/search';
         url+='?';
         gender!==null && (url+='gender='+gender+'&');
@@ -40,9 +44,11 @@ export const Filters = ({options, handler}) => {
         monthsAgeTo!==null && (url+='monthsAgeTo='+monthsAgeTo+'&');
         hasPedigree!==null && (url+='hasPedigree='+hasPedigree+'&');
         colorIds.length!==0 && (url+='colorIds='+colorIds+'&');
-        router.push(url)
-        handler&&handler()
+        router.push(url, undefined, {scroll: false})
     }
+    useEffect(()=>{
+        setFiltersURL()
+    },[priceTo, priceFrom, monthsAgeTo, monthsAgeFrom, gender, breedIds, cityId, sizeId, priceFrom, hasPedigree, colorIds])
 
     function handleDrop(){
         setGender(null);
@@ -57,6 +63,7 @@ export const Filters = ({options, handler}) => {
         setMonthsAgeTo(null);
         let url = '/search';
         router.push(url)
+        handler&&handler()
     }
 
     function handlePedigreeChange(){
@@ -103,6 +110,15 @@ export const Filters = ({options, handler}) => {
         setColors( colorsList );
     },[])
 
+    function handleSetPrice(valueMin, valueMax){
+        setPriceTo(valueMax)
+        setPriceFrom(valueMin)
+    }
+    function handleSetMonthsAge(valueMin, valueMax){
+        setMonthsAgeTo(valueMax)
+        setMonthsAgeFrom(valueMin)
+    }
+
     return (
         <form onSubmit={handleSubmit} className="filters">
             <div className="filters__title text text_type_main">Пол</div>
@@ -142,9 +158,9 @@ export const Filters = ({options, handler}) => {
                 initId={sizeId}
             />
             <div className="filters__title text text_type_main">Ценовой диапазон, ₽ </div>
-            <RangeInput max={250000} handlerMin={setPriceFrom} handlerMax={setPriceTo} initMin={+priceFrom} initMax={+priceTo}/>
+            <RangeInput max={250000} handler={handleSetPrice} initMin={+priceFrom} initMax={+priceTo}/>
             <div className="filters__title text text_type_main">Возраст, мес. </div>
-            <RangeInput handlerMin={setMonthsAgeFrom} handlerMax={setMonthsAgeTo} initMin={+monthsAgeFrom} initMax={+monthsAgeTo}/>
+            <RangeInput initMin={+monthsAgeFrom} handler={handleSetMonthsAge} initMax={+monthsAgeTo}/>
             <div className="filters__title text text_type_main">Окрас</div>
             {colors.items.map((item, index)=>{
                 if(index<=4){
@@ -178,8 +194,9 @@ export const Filters = ({options, handler}) => {
             <div className="filters__checkbox-wrapper">
                 <Checkbox isChecked={hasPedigree} onChange={handlePedigreeChange}>Родословная / метрика</Checkbox>
             </div>
-            <ButtonBorder addСlasses="filters__button">Применить</ButtonBorder>
-            <div onClick={handleDrop} className="filters__button-drop text_type_main text_color_main">
+            <ButtonBorder addСlasses="filters__button filters__button_mobile">Применить</ButtonBorder>
+            <ButtonBorder onClick={handleDrop} addСlasses="filters__button filters__button_desk">Сбросить</ButtonBorder>
+            <div onClick={handleDrop} className="filters__button-drop text_type_main text_color_main filters__button_mobile">
                 Сбросить
             </div>
         </form>
@@ -207,9 +224,9 @@ const biGenderImg = () => (
 )
 
 const maleImg = () => (
-    <svg viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 6.99998L16 1M16 1V6.64103M16 1H10.3103" stroke="#AF5B29" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="6" cy="10" r="5" stroke="#AF5B29" strokeWidth="1.5"/>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 7.99998L17 2M17 2V7M17 2H12" stroke="#AF5B29" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="7" cy="12" r="5" stroke="#AF5B29" strokeWidth="1.5"/>
     </svg>
 )
 

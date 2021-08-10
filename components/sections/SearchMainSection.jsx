@@ -3,22 +3,22 @@ import { Card } from '../common/Card';
 import { Filters } from '../common/Filters';
 import { ButtonBorder } from '../UI/ButtonBorder';
 import { Pagination } from '../UI/Pagination';
-import { config } from '../../config';
+import { config } from '../../config.example';
 import { useRouter } from 'next/router'
 
 import { connect } from 'react-redux';
-import { addFaforiteItem, removeFavoriteItem } from '../../redux/actions';
+import { addFaforiteItem, removeFavoriteItem, addComparisonItem, removeComparisonItem } from '../../redux/actions';
 import { useDispatch } from 'react-redux'
 
 const mapStateToProps = (state) => {
     return {
-        favoriteIdList: state.favorite.map(item=>item.id)
+        favoriteIdList: state.favorite.map(item=>item.id),
+        comparisonIdList: state.comparison.map(item=>item.id)
     };
 };
 
-export const SearchMainSection = connect(mapStateToProps, { addFaforiteItem,removeFavoriteItem })(({ posts, options, favoriteIdList }) => {
+export const SearchMainSection = connect(mapStateToProps, { addFaforiteItem,removeFavoriteItem, addComparisonItem, removeComparisonItem })(({ posts, options, favoriteIdList, comparisonIdList }) => {
     const dispatch = useDispatch()
-    console.log(favoriteIdList);
     const router = useRouter()
     const [filtersIsOpen, setFiltersIsOpen] = useState(false);
     function handleOpenModal() {
@@ -40,6 +40,7 @@ export const SearchMainSection = connect(mapStateToProps, { addFaforiteItem,remo
         }
         router.push(url)
     }
+    console.log(comparisonIdList);
     return (
         <section className="search-main-section main-padding">
             <div className={"search-main-section__filters-modal main-padding"+(filtersIsOpen?' search-main-section__filters-modal_active':'')}>
@@ -77,9 +78,12 @@ export const SearchMainSection = connect(mapStateToProps, { addFaforiteItem,remo
                 {posts.items.map(item=>(
                     <div key={item.id} className="search-main-section__item-wrapper">
                         <Card 
+                            addComparisonItem={()=>{dispatch(addComparisonItem(item))}}
+                            removeComparisonItem={()=>{dispatch(removeComparisonItem(item))}}
                             addFaforiteItem={()=>{dispatch(addFaforiteItem(item))}}
                             removeFavoriteItem={()=>{dispatch(removeFavoriteItem(item))}}
                             isFavorite={favoriteIdList.indexOf(item.id) != -1}
+                            isComparison={comparisonIdList.indexOf(item.id) != -1}
                             id={item.id}
                             breed={item.breed}
                             mainPhotoGuid={item.mainPhotoGuid}

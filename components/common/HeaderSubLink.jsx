@@ -1,11 +1,11 @@
 import Link from 'next/link';
 
-export const HeaderSubLink = ({ href, count, text, children, onClick }) => {
+export const HeaderSubLink = ({ href, count = 0, text, children, onClick }) => {
     return (
         <Link href={href}>
             <a className="header-sub-link" onClick={onClick}>
                 <div className="header-sub-link__img-wrapper">
-                    {count && (
+                    {count !== 0 && (
                         <div className="header-sub-link__count">{count}</div>
                     )}
                     {children}

@@ -4,10 +4,9 @@ import { TitleBlock } from '../components/sections/TitleBlock';
 import { Footer } from '../components/general/Footer';
 import someDogBGImg from '../media/some-dog-bg.jpg';
 import axios from 'axios';
-import { config } from '../config.js';
+import { config } from '../config.example';
 
 function Search({ posts, options }) {
-    console.log(options);
     return (
         <MainWrapper>
             <TitleBlock breadCrumbsList={breadCrumbsList} img={someDogBGImg}>
@@ -52,7 +51,7 @@ export async function getServerSideProps({query}) {
             options[key] = query[key].split(',').map(item=>+item)
         }
     }
-    let posts = false;
+    let posts = {items:[]};
     await axios.post(`${config.domain}/api/public/pets`, options)
     .then(function (response) {
         posts = response.data

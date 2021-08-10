@@ -4,7 +4,20 @@ import { H2 } from '../UI/H2';
 import { ButtonBorder } from '../UI/ButtonBorder';
 import Link from 'next/link';
 
-export const NewItemsSection = ({posts}) => {
+import { connect } from 'react-redux';
+import { addFaforiteItem, removeFavoriteItem, addComparisonItem, removeComparisonItem } from '../../redux/actions';
+import { useDispatch } from 'react-redux'
+
+const mapStateToProps = (state) => {
+    return {
+        favoriteIdList: state.favorite.map(item=>item.id),
+        comparisonIdList: state.comparison.map(item=>item.id)
+    };
+};
+
+
+export const NewItemsSection = connect(mapStateToProps, { addFaforiteItem,removeFavoriteItem, addComparisonItem, removeComparisonItem })(({posts=[], favoriteIdList, comparisonIdList}) => {
+    const dispatch = useDispatch()
     return (
         <section className="new-items-section main-padding">
             <H2 addСlasses="new-items-section__title">
@@ -17,6 +30,12 @@ export const NewItemsSection = ({posts}) => {
                 {posts.map(item=>(
                     <div key={item.id} className="new-items-section__card-wrapper">
                         <Card
+                            addComparisonItem={()=>{dispatch(addComparisonItem(item))}}
+                            removeComparisonItem={()=>{dispatch(removeComparisonItem(item))}}
+                            isComparison={comparisonIdList.indexOf(item.id) != -1}
+                            addFaforiteItem={()=>{dispatch(addFaforiteItem(item))}}
+                            removeFavoriteItem={()=>{dispatch(removeFavoriteItem(item))}}
+                            isFavorite={favoriteIdList.indexOf(item.id) != -1}
                             id={item.id}
                             breed={item.breed}
                             mainPhotoGuid={item.mainPhotoGuid}
@@ -40,4 +59,4 @@ export const NewItemsSection = ({posts}) => {
             </div>
         </section>
     );
-};
+});

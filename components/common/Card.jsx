@@ -4,9 +4,7 @@ import { ComparisonIcon } from '../UI/ComparisonIcon';
 import { FavoriteIcon } from '../UI/FavoriteIcon';
 import { DogName } from './DogName';
 
-export const Card = ({addFaforiteItem,removeFavoriteItem,isFavorite, breed, city, createDate, gender, id, mainPhotoGuid, name, price, monthsAge, ownerFio}) => {
-    // const [isFavorite, setFavorite] = useState(false);
-    const [isComparison, setComparison] = useState(false);
+export const Card = ({ breed, city, createDate, gender, id, mainPhotoGuid, name, price, monthsAge, isFavorite, addFaforiteItem, removeFavoriteItem, isComparison, addComparisonItem, removeComparisonItem}) => {
     function handleFavorite(e) {
         e.preventDefault()
         if(isFavorite){
@@ -15,10 +13,19 @@ export const Card = ({addFaforiteItem,removeFavoriteItem,isFavorite, breed, city
             addFaforiteItem()
         }
     }
+    
     function handleComparison(e) {
         e.preventDefault()
-        const newState = !isComparison;
-        setComparison(newState);
+        if(isComparison){
+            removeComparisonItem()
+        }else{
+            addComparisonItem()
+        }
+    }
+    function makeMoney(n = 0) {
+        return n.toString().split('').reverse().join('') 
+        .match(/\d{0,3}/g).join(' ')
+        .split('').reverse().join('').trim()
     }
     const imgStyles = {
         backgroundImage: `url('https://res.cloudinary.com/leninsdo/image/upload/petstory/${mainPhotoGuid}')`
@@ -39,13 +46,10 @@ export const Card = ({addFaforiteItem,removeFavoriteItem,isFavorite, breed, city
                     />
                 </div>
                 <div className="card__text">
-                    <DogName isMale={gender}>{name}, {monthsAge} {declOfNum(monthsAge, ['месяц', 'месяца', 'месяцев'])}</DogName>
+                    <DogName isMale={gender}>{name} <span className="text text_type_nav text_color_gray">({monthsAge} {declOfNum(monthsAge, ['месяц', 'месяца', 'месяцев'])})</span></DogName>
                     <div className="card__breed text_color_black">{breed}</div>
                     <div className="card__cost text text_type_cost text_color_main">
-                        {price} ₽
-                    </div>
-                    <div className="card__breeder text_color_black">
-                        {ownerFio&&`Заводчик: ${ownerFio}`} 
+                        {makeMoney(price)!=='0'?makeMoney(price)+'  ₽':'Бесплатно'}
                     </div>
                     <div className="card__desc-row">
                         <div className="text text_color_gray">

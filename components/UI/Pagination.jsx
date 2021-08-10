@@ -1,4 +1,4 @@
-import { config } from '../../config'
+import { config } from '../../config.example'
 
 export const Pagination = ({pageNum,handler,total}) => {
     const paginationArray = [];

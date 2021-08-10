@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react';
 import Hammer from 'react-hammerjs';
 
-export const RangeInput = ({ min = 0, max = 100, handlerMax, handlerMin, initMax, initMin }) => {
-    const [minValue, setMinValue] = useState(initMin||min);
-    const [maxValue, setMaxValue] = useState(initMax||max);
+export const RangeInput = ({ min = 0, max = 100, handler, initMax, initMin }) => {
+    const [minValue, setMinValue] = useState(+initMin||+min);
+    const [maxValue, setMaxValue] = useState(+initMax||+max);
     const [firstX, setFirsX] = useState(false);
     const _line = useRef(false);
     const range = max - min;
@@ -22,31 +22,32 @@ export const RangeInput = ({ min = 0, max = 100, handlerMax, handlerMin, initMax
     };
     function handleInputChange(e) {
         const target = e.target;
-        const value = target.value;
+        const value = +target.value;
         const name = target.name;
 
         switch (name) {
             case 'maxValue':
                 setCurrentMaxValue(value);
+                handler(minValue, value)
                 break;
             case 'minValue':
                 setCurrentMinValue(value);
+                handler(value, maxValue)
                 break;
         }
     }
     function setCurrentMinValue(value) {
         if (min <= value && max >= value)
             if (maxValue > value){
-                handlerMin&&handlerMin(value)
-                handlerMax&&handlerMax(maxValue)
                 setMinValue(value);
             }
+    }
+    function handleEnd(){
+        handler(minValue, maxValue)
     }
     function setCurrentMaxValue(value) {
         if (min <= value && max >= value)
             if (minValue < value) {
-                handlerMin&&handlerMin(minValue)
-                handlerMax&&handlerMax(value)
                 setMaxValue(value);
             };
     }
@@ -101,6 +102,7 @@ export const RangeInput = ({ min = 0, max = 100, handlerMax, handlerMin, initMax
                         <Hammer
                             onPan={(e) => handleDrag(e, setCurrentMinValue)}
                             onPanStart={() => handlePanStart(minValue)}
+                            onPanEnd={handleEnd}
                         >
                             <div
                                 className="range-input__circle range-input__circle_min"
@@ -110,6 +112,7 @@ export const RangeInput = ({ min = 0, max = 100, handlerMax, handlerMin, initMax
                         <Hammer
                             onPan={(e) => handleDrag(e, setCurrentMaxValue)}
                             onPanStart={() => handlePanStart(maxValue)}
+                            onPanEnd={handleEnd}
                         >
                             <div
                                 className="range-input__circle range-input__circle_max"

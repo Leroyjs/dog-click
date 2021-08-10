@@ -1,6 +1,6 @@
-export const ClearList = ({ children, addСlasses = '' }) => {
+export const ClearList = ({ children, onClick ,addСlasses = '' }) => {
     return (
-        <a className={'clear-list ' + addСlasses}>
+        <a className={'clear-list ' + addСlasses} onClick={onClick}>
             <svg
                 width="14"
                 height="16"

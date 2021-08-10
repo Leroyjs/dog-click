@@ -9,7 +9,7 @@
   justify-content: center;
   cursor: pointer;
   padding: 0;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 1);
   transition: .3s;
 
   path,
@@ -18,8 +18,7 @@
     stroke: #CBCBCB;
   }
 
-  &_active,
-  &:hover {
+  &_active {
     background: $white;
 
     path,
@@ -37,6 +36,18 @@
     &_comparison {
       width: 2.235294117647vw;
       height: 1.17647058823vw;
+    }
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .icon {
+    &:hover {
+      background: $white;
+  
+      path,
+      line {
+        stroke: $mainColor;
+      }
     }
   }
 }

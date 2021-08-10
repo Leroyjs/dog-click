@@ -13,6 +13,7 @@ export const Freezer = () => {
       st = self.$window.pageYOffset;
 
     if (self.freezeCount === 0) {
+      this.$content = document.querySelector('.main');
       self.$body.classList.add('no-scroll');
       self.$html.classList.add('no-scroll');
       self.$content.style = 'margin-top:' + -st + 'px';

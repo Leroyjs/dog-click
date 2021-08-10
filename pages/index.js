@@ -3,7 +3,7 @@ import { MainWrapper } from '../components/general/MainWrapper';
 import { FirstSection } from '../components/sections/FirstSection';
 import { NewItemsSection } from '../components/sections/NewItemsSection';
 import axios from 'axios';
-import { config } from '../config.js'
+import { config } from '../config.example'
 
 export default function Index({ newPosts }) {
     return (

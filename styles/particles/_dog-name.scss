@@ -2,6 +2,10 @@
   display: flex;
   align-items: center;
 
+  &__gender{
+    min-width: 18px;
+  }
+
   &__name {
     margin-left: 13px;
   }

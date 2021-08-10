@@ -22,8 +22,8 @@
     .text {
       margin-left: 9px;
     }
-
-    &:hover {
+    
+    &_active{
       path, line {
         stroke: $mainHover;
       }
@@ -117,7 +117,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 20px;
+    padding: 2px 20px;
 
     &:nth-child(odd){
       background: $grayBG;
@@ -138,6 +138,21 @@
   &__card-wrapper{
     width: calc(50% - 15px);
     display: flex;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .detail-card-main-section{
+    &__button-item {
+      &:hover {
+        path, line {
+          stroke: $mainHover;
+        }
+
+        .text {
+          color: $mainHover;
+        }
+      }
+    }
   }
 }
 @media screen and (max-width:1600px) {
@@ -170,10 +185,6 @@
       margin-top: 12px;
       margin-bottom: 12px;
     }
-    &__desc{
-      margin-top: 12px;
-      margin-bottom: 26px;
-    }
     &__table{
       margin-top: 30px;
     }
@@ -182,18 +193,7 @@
     }
     &__table-item{
       border-radius: 10px;
-      padding: 8px 20px;
-    }
-    &__desc-section{
-      margin-top: 15px;
-      width: calc(66% - 30px);
-    }
-    &__sub-title{
-      margin-top: 38px;
-      margin-bottom: 18px;
-    }
-    &__card-wrapper{
-      width: calc(50% - 15px);
+      padding: 2px 20px;
     }
   }
 }
