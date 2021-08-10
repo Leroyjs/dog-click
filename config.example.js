@@ -1,4 +1,4 @@
 export const config = {
-    domain: 'https://pets-ift.medstory.io',
+    domain: '',
     pageSize: 8,
 };
