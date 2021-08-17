@@ -10,6 +10,7 @@ import { SocialLink } from "../common/SocialLink";
 import { useRouter } from "next/router";
 
 import { declOfNum } from "../../declOfNum";
+import { makeMoney } from "../../makeMoney";
 
 import { connect } from "react-redux";
 import {
@@ -221,7 +222,9 @@ export const DetailCardMainSection = connect(mapStateToProps, {
             </DogName>
           </div>
           <div className="text text_type_cost text_color_main detail-card-main-section__cost">
-            {data.price} ₽
+            {makeMoney(data.price) !== "0"
+              ? makeMoney(data.price) + "  ₽"
+              : "Бесплатно"}
           </div>
           {data.ownerFio && (
             <div className="text text_type_h5 detail-card-main-section__fio">

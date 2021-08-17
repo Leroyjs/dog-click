@@ -4,6 +4,7 @@ import { ComparisonIcon } from "../UI/ComparisonIcon";
 import { DeleteIcon } from "../UI/DeleteIcon";
 import { FavoriteIcon } from "../UI/FavoriteIcon";
 import { declOfNum } from "../../declOfNum";
+import { makeMoney } from "../../makeMoney";
 
 import { DogName } from "./DogName";
 
@@ -45,19 +46,6 @@ export const Card = ({
   function handleDelete(e) {
     e.preventDefault();
     deleteHandler();
-  }
-  function makeMoney(n = 0) {
-    return n
-      .toString()
-      .split("")
-      .reverse()
-      .join("")
-      .match(/\d{0,3}/g)
-      .join(" ")
-      .split("")
-      .reverse()
-      .join("")
-      .trim();
   }
   const imgStyles = {
     backgroundImage: `url('https://res.cloudinary.com/leninsdo/image/upload/petstory/${mainPhotoGuid}')`,
