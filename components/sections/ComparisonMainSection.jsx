@@ -141,6 +141,7 @@ export const СomparisonMainSection = connect(mapStateToProps, {
   function handleDelete(item) {
     dispatch(removeComparisonItem(item));
   }
+  console.log(comparisonList);
 
   return (
     <section className="comparison-main-section main-padding">
