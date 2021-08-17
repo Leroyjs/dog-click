@@ -9,6 +9,8 @@ import { useState } from "react";
 import { SocialLink } from "../common/SocialLink";
 import { useRouter } from "next/router";
 
+import { declOfNum } from "../../declOfNum";
+
 import { connect } from "react-redux";
 import {
   addFaforiteItem,
@@ -213,7 +215,10 @@ export const DetailCardMainSection = connect(mapStateToProps, {
             </div>
           </div>
           <div className="detail-card-main-section__name">
-            <DogName isMale={data.gender}>{data.name}, 2 месяца</DogName>
+            <DogName isMale={data.gender}>
+              {data.name}, {data.monthsAge}{" "}
+              {declOfNum(data.monthsAge, ["месяц", "месяца", "месяцев"])}
+            </DogName>
           </div>
           <div className="text text_type_cost text_color_main detail-card-main-section__cost">
             {data.price} ₽
