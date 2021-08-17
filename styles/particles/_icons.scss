@@ -10,12 +10,12 @@
   cursor: pointer;
   padding: 0;
   background: rgba(255, 255, 255, 1);
-  transition: .3s;
+  transition: 0.3s;
 
   path,
   line {
-    transition: .3s;
-    stroke: #CBCBCB;
+    transition: 0.3s;
+    stroke: #cbcbcb;
   }
 
   &_active {
@@ -37,26 +37,52 @@
       width: 2.235294117647vw;
       height: 1.17647058823vw;
     }
+    &_delete {
+      path,
+      line {
+        transition: 0.3s;
+        fill: #cbcbcb;
+      }
+
+      &_active {
+        background: $white;
+
+        path,
+        line {
+          fill: $mainColor;
+        }
+      }
+    }
   }
 }
 @media (hover: hover) and (pointer: fine) {
   .icon {
-    &:hover {
+    &:not(.icon__img_delete):hover {
       background: $white;
-  
+
       path,
       line {
         stroke: $mainColor;
       }
     }
+
+    &:hover {
+      background: $white;
+      .icon__img_delete {
+        path,
+        line {
+          fill: $mainColor;
+        }
+      }
+    }
   }
 }
 
-@media screen and (max-width:1700px) {
+@media screen and (max-width: 1700px) {
   .icon {
     width: 40px;
     height: 40px;
-  
+
     border-radius: 10px;
 
     &__img {
@@ -64,11 +90,11 @@
         width: 23px;
         height: 20px;
       }
-  
+
       &_comparison {
         width: 38px;
         height: 20px;
       }
     }
-  }  
+  }
 }

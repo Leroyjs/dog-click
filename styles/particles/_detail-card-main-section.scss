@@ -11,20 +11,21 @@
     margin-right: 30px;
     cursor: pointer;
 
-    &:last-of-type{
+    &:last-of-type {
       margin-right: 0;
     }
 
-    svg{
+    svg {
       height: 20px;
     }
 
     .text {
       margin-left: 9px;
     }
-    
-    &_active{
-      path, line {
+
+    &_active {
+      path,
+      line {
         stroke: $mainHover;
       }
 
@@ -34,7 +35,8 @@
     }
 
     &:active {
-      path, line {
+      path,
+      line {
         stroke: $mainClick;
       }
 
@@ -44,23 +46,26 @@
     }
   }
 
-  &__socil-links{
+  &__socil-links {
     display: flex;
   }
-  &__socil-link-item:not(:last-of-type){
+  &__socil-link-item:not(:last-of-type) {
     margin-right: 20px;
   }
-  &__contacts-wrapper{
-    border: 1px dashed #AF5B29;
+  &__contacts-wrapper {
+    border: 1px dashed #af5b29;
     border-radius: 10px;
     padding: 20px;
     display: flex;
     flex-direction: column;
   }
-  &__contact{
+  &__contact {
     margin-bottom: 3px;
+    &:hover {
+      color: $mainHover;
+    }
 
-    &:last-of-type{
+    &:last-of-type {
       margin-bottom: 12px;
     }
   }
@@ -68,7 +73,7 @@
   &__buttons {
     display: flex;
     width: 33%;
-    &_mobile{
+    &_mobile {
       display: none;
     }
   }
@@ -80,71 +85,72 @@
     margin-top: 12px;
     margin-bottom: 32px;
   }
-  &__slider{
+  &__slider {
     width: calc(66% - 30px);
     margin-right: 30px;
   }
-  &__info{
+  &__info {
     width: 33%;
   }
-  &__main-row{
+  &__main-row {
     justify-content: space-between;
     display: flex;
   }
-  &__cost{
+  &__cost {
     margin-top: 24px;
     margin-bottom: 24px;
   }
-  &__farm{
+  &__farm {
     margin-top: 12px;
     margin-bottom: 12px;
   }
-  &__desc{
+  &__desc {
     margin-top: 12px;
     margin-bottom: 26px;
   }
-  &__table{
+  &__table {
     margin-top: 30px;
     margin-bottom: -100%;
   }
-  &__table-title{
+  &__table-title {
     font-weight: 600;
     font-size: 0.875vw;
     line-height: 200%;
   }
-  &__table-item{
+  &__table-item {
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 2px 20px;
 
-    &:nth-child(odd){
+    &:nth-child(odd) {
       background: $grayBG;
     }
   }
-  &__desc-section{
+  &__desc-section {
     margin-top: 15px;
     width: calc(66% - 30px);
   }
-  &__sub-title{
+  &__sub-title {
     margin-top: 38px;
     margin-bottom: 18px;
   }
-  &__cards{
+  &__cards {
     display: flex;
     justify-content: space-between;
   }
-  &__card-wrapper{
+  &__card-wrapper {
     width: calc(50% - 15px);
     display: flex;
   }
 }
 @media (hover: hover) and (pointer: fine) {
-  .detail-card-main-section{
+  .detail-card-main-section {
     &__button-item {
       &:hover {
-        path, line {
+        path,
+        line {
           stroke: $mainHover;
         }
 
@@ -155,103 +161,103 @@
     }
   }
 }
-@media screen and (max-width:1600px) {
-  .detail-card-main-section {  
+@media screen and (max-width: 1600px) {
+  .detail-card-main-section {
     &__title {
       margin-top: 16px;
     }
-  
+
     &__button-item {
       margin-right: 30px;
-  
+
       .text {
         margin-left: 9px;
       }
     }
-  
+
     &__row-head {
       margin-top: 12px;
       margin-bottom: 32px;
     }
-    &__slider{
+    &__slider {
       width: calc(66% - 30px);
       margin-right: 30px;
     }
-    &__cost{
+    &__cost {
       margin-top: 24px;
       margin-bottom: 24px;
     }
-    &__farm{
+    &__farm {
       margin-top: 12px;
       margin-bottom: 12px;
     }
-    &__table{
+    &__table {
       margin-top: 30px;
     }
-    &__table-title{
+    &__table-title {
       font-size: 14px;
     }
-    &__table-item{
+    &__table-item {
       border-radius: 10px;
       padding: 2px 20px;
     }
   }
 }
-@media screen and (max-width:1000px) {
-  .detail-card-main-section{
+@media screen and (max-width: 1000px) {
+  .detail-card-main-section {
     margin-top: 30px;
 
-    &__main-row{
+    &__main-row {
       flex-direction: column;
     }
-    &__slider{
+    &__slider {
       width: 100%;
     }
-    &__info{
+    &__info {
       margin-top: 32px;
       width: 100%;
     }
-    &__desc-section{
+    &__desc-section {
       width: 100%;
     }
-    &__table{
+    &__table {
       margin-bottom: 0;
     }
-    &__buttons{
+    &__buttons {
       width: 100%;
       margin-bottom: 32px;
-      &_desktop{
+      &_desktop {
         display: none;
       }
-      &_mobile{
+      &_mobile {
         display: flex;
       }
     }
   }
 }
-@media screen and (max-width:600px) {
-  .detail-card-main-section{
+@media screen and (max-width: 600px) {
+  .detail-card-main-section {
     margin-top: 20px;
-    &__cards{
+    &__cards {
       flex-direction: column;
     }
-    &__card-wrapper{
+    &__card-wrapper {
       width: 100%;
-      &:not(:last-of-type){
+      &:not(:last-of-type) {
         margin-bottom: 32px;
       }
     }
-    &__title{
+    &__title {
       margin-top: 0;
     }
-    .back-button{
+    .back-button {
       display: none;
     }
   }
 }
-@media screen and (max-width:350px) {
-  .detail-card-main-section{
-    &__socil-link-item:not(:last-of-type){
+@media screen and (max-width: 350px) {
+  .detail-card-main-section {
+    &__socil-link-item:not(:last-of-type) {
       margin-right: 10px;
     }
   }

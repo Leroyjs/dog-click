@@ -31,7 +31,6 @@ export const DetailCardMainSection = connect(mapStateToProps, { addFaforiteItem,
     const isComparison =comparisonIdList.indexOf(data.id) != -1
 
     function handleFavorite(){
-        console.log(isFavorite);
         if(isFavorite){
             dispatch(removeFavoriteItem(data))
         }else{
@@ -39,7 +38,6 @@ export const DetailCardMainSection = connect(mapStateToProps, { addFaforiteItem,
         }
     }
     function handleComparison(){
-        console.log(isComparison);
         if(isComparison){
             dispatch(removeComparisonItem(data))
         }else{

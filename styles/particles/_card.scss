@@ -8,10 +8,10 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: box-shadow .3s, border .3s;
+  transition: box-shadow 0.3s, border 0.3s;
 
   &:hover {
-    box-shadow: 0px 8px 70px rgba(36, 28, 41, 0.15);
+    box-shadow: 0px 8px 10px rgba(36, 28, 41, 0.15);
     z-index: 1;
     border: 2px solid $white;
   }
@@ -28,17 +28,22 @@
     position: absolute;
     right: 1.1764vw;
 
-    &_favorite {
+    &_favorite,
+    &_delete {
       top: 1.1764vw;
     }
 
     &_comparison {
-      top: 4.1176470vw;
+      top: 4.117647vw;
     }
   }
 
   &__text {
     padding: 1.1764705882352vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
   }
 
   &__breed {
@@ -57,7 +62,7 @@
     font-size: 0.8235294117vw;
   }
 
-  &__cost{
+  &__cost {
     margin-bottom: 18px;
   }
 
@@ -69,7 +74,7 @@
     font-size: 0.8235294117vw;
   }
 }
-@media screen and (max-width:1700px) {
+@media screen and (max-width: 1700px) {
   .card {
     border: 1px solid $gray;
     border-radius: 10px;
@@ -77,40 +82,41 @@
     &:hover {
       border: 1px solid $white;
     }
-  
+
     &__img {
       height: 240px;
       width: 100%;
     }
-  
+
     &__icon {
       right: 20px;
-  
-      &_favorite {
+
+      &_favorite,
+      &_delete {
         top: 20px;
       }
-  
+
       &_comparison {
         top: 70px;
       }
     }
-  
+
     &__text {
       padding: 20px;
     }
-  
+
     &__breed {
       margin-top: 12px;
       margin-bottom: 12px;
       font-size: 16px;
     }
-  
+
     &__breeder {
       margin-top: 12px;
       margin-bottom: 12px;
       font-size: 14px;
     }
-  
+
     &__desc-row {
       font-size: 14px;
     }
