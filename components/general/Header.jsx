@@ -71,7 +71,7 @@ export const Header = connect(
               </Link>
             </li>
             <li className="header__li">
-              <Link href="/about">
+              <Link href="/medical-card">
                 <a className="header__link text text_type_nav text_color_black">
                   Медкарта
                 </a>
@@ -241,7 +241,7 @@ export const Header = connect(
         <nav className="burger-menu__nav">
           <ul className="burger-menu__ul">
             <li className="burger-menu__li" onClick={handleBurgerState}>
-              <Link href="/">
+              <Link href="/search">
                 <a className="burger-menu__link text text_type_nav text_color_black">
                   Найти щенка
                 </a>
@@ -255,7 +255,7 @@ export const Header = connect(
               </Link>
             </li>
             <li className="burger-menu__li" onClick={handleBurgerState}>
-              <Link href="/">
+              <Link href="/medical-card">
                 <a className="burger-menu__link text text_type_nav text_color_black">
                   Медкарта
                 </a>
