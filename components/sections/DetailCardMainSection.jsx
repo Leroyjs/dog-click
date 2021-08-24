@@ -43,6 +43,7 @@ export const DetailCardMainSection = connect(mapStateToProps, {
   const isComparison = comparisonIdList.indexOf(data.id) != -1;
 
   function handleFavorite() {
+    ym(config.metrikaId, "reachGoal", "click-favorites");
     if (isFavorite) {
       dispatch(removeFavoriteItem(data));
     } else {
@@ -50,6 +51,7 @@ export const DetailCardMainSection = connect(mapStateToProps, {
     }
   }
   function handleComparison() {
+    ym(config.metrikaId, "reachGoal", "click-compare");
     if (isComparison) {
       dispatch(removeComparisonItem(data));
     } else {
