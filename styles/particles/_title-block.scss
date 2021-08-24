@@ -1,7 +1,7 @@
 .title-block {
   background-color: $grayBG;
   padding-top: 5.625vw;
-  padding-bottom: 3vw;
+  padding-bottom: 0.625vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +22,7 @@
     z-index: 1;
   }
 
-  &__bg-dog {
+  &__bg {
     position: absolute;
     right: 0;
     top: 0;
@@ -30,50 +30,59 @@
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: right bottom;
+    background-position: bottom right;
+    background-image: url("../../media/title-bg.svg");
+    background-color: $grayBG;
+  }
+  &__bg-dog {
+    position: absolute;
+    width: 189.92px;
+    height: 101.54px;
+    right: 100px;
+    bottom: 0;
   }
 }
 
-@media screen and (max-width:1600px) {
+@media screen and (max-width: 1600px) {
   .title-block {
     padding-top: 90px;
-    padding-bottom: 48px;
-  
+    padding-bottom: 10px;
+
     &__bread-crumbs {
       margin-top: 10px;
     }
   }
 }
-@media screen and (max-width:1100px) {
+@media screen and (max-width: 1100px) {
   .title-block {
-    &__title{
+    &__title {
       width: 300px;
     }
   }
 }
-@media screen and (max-width:1000px) {
-  .title-block{
+@media screen and (max-width: 1000px) {
+  .title-block {
     padding-top: 0;
     padding-bottom: 0;
     background-color: $white;
 
-    &__title{
+    &__title {
       width: 100%;
       padding: 0 14px;
       font-weight: 500;
     }
 
-    &__bg-dog{
+    &__bg {
       position: relative;
-      order:-1;
+      order: -1;
       height: 170px;
       margin-bottom: 30px;
     }
   }
 }
-@media screen and (max-width:600px) {
-  .title-block{
-    &__bg-dog{
+@media screen and (max-width: 600px) {
+  .title-block {
+    &__bg {
       margin-bottom: 20px;
     }
   }

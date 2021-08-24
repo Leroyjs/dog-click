@@ -2,7 +2,7 @@
   width: 100%;
   min-height: 100%;
   background: $white;
-  border: 2px solid $gray;
+  border: 1px solid $gray;
   overflow: hidden;
   border-radius: 0.625vw;
   display: flex;
@@ -13,7 +13,7 @@
   &:hover {
     box-shadow: 0px 8px 10px rgba(36, 28, 41, 0.15);
     z-index: 1;
-    border: 2px solid $white;
+    border: 1px solid $white;
   }
 
   &__img {
@@ -45,25 +45,21 @@
     justify-content: space-between;
     flex-grow: 1;
   }
+  &__name {
+    margin-bottom: 0.705882352vw;
+  }
+  &__age {
+    margin-bottom: 0.705882352vw;
+  }
 
   &__breed {
-    margin-top: 0.705882352vw;
     margin-bottom: 0.705882352vw;
     font-style: normal;
-    font-weight: 600;
     font-size: 0.941176470588235294vw;
   }
 
-  &__breeder {
-    margin-top: 0.705882352vw;
-    margin-bottom: 0.705882352vw;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 0.8235294117vw;
-  }
-
   &__cost {
-    margin-bottom: 18px;
+    margin-bottom: 0.705882352vw;
   }
 
   &__desc-row {
@@ -104,9 +100,16 @@
     &__text {
       padding: 20px;
     }
-
+    &__name {
+      margin-bottom: 12px;
+    }
+    &__cost {
+      margin-bottom: 12px;
+    }
+    &__age {
+      margin-bottom: 12px;
+    }
     &__breed {
-      margin-top: 12px;
       margin-bottom: 12px;
       font-size: 16px;
     }

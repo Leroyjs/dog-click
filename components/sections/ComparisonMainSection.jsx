@@ -139,9 +139,13 @@ export const СomparisonMainSection = connect(mapStateToProps, {
     setComparisonList([]);
   }
   function handleDelete(item) {
+    flickity.options.cellAlign =
+      comparisonIdList.length - 1 < maxCount ? "left" : "right";
+    flickityHeader.options.cellAlign =
+      comparisonIdList.length - 1 < maxCount ? "left" : "right";
     dispatch(removeComparisonItem(item));
+    console.log(flickity);
   }
-  console.log(comparisonList);
 
   return (
     <section className="comparison-main-section main-padding">

@@ -1,0 +1,63 @@
+.medical-card-first-section {
+  display: flex;
+  margin-top: 100px;
+
+  &__img {
+    width: 183px;
+    height: 365px;
+    margin-right: 73px;
+    background-image: url("../../media/medical-card/medical-card-first-section-img.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &__title {
+    margin-bottom: 8px;
+  }
+  &__desc {
+    margin-bottom: 30px;
+  }
+  &__list-item {
+    display: flex;
+    align-items: center;
+    &:not(:last-of-type) {
+      margin-bottom: 14px;
+    }
+    &:nth-child(1) {
+      .medical-card-first-section__list-item-img {
+        background-image: url("../../media/medical-card/medical-card-first-section-icons/5.svg");
+      }
+    }
+    &:nth-child(2) {
+      .medical-card-first-section__list-item-img {
+        background-image: url("../../media/medical-card/medical-card-first-section-icons/4.svg");
+      }
+    }
+    &:nth-child(3) {
+      .medical-card-first-section__list-item-img {
+        background-image: url("../../media/medical-card/medical-card-first-section-icons/1.svg");
+      }
+    }
+    &:nth-child(4) {
+      .medical-card-first-section__list-item-img {
+        background-image: url("../../media/medical-card/medical-card-first-section-icons/2.svg");
+      }
+    }
+    &:nth-child(5) {
+      .medical-card-first-section__list-item-img {
+        background-image: url("../../media/medical-card/medical-card-first-section-icons/3.svg");
+      }
+    }
+  }
+  &__list-item-img {
+    margin-right: 20px;
+    width: 38px;
+    height: 38px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &__ul {
+    margin-bottom: 20px;
+  }
+}

@@ -5,7 +5,7 @@ import { Location } from "../common/Location";
 import { BackButton } from "../UI/BackButton";
 import { Description } from "../UI/Description";
 import { ButtonMain } from "../UI/ButtonMain";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { SocialLink } from "../common/SocialLink";
 import { useRouter } from "next/router";
 
@@ -20,6 +20,7 @@ import {
   removeComparisonItem,
 } from "../../redux/actions";
 import { useDispatch } from "react-redux";
+import { config } from "../../config";
 
 const mapStateToProps = (state) => {
   return {
@@ -58,10 +59,19 @@ export const DetailCardMainSection = connect(mapStateToProps, {
 
   function handleShowContacts() {
     setContactsIsShow(true);
+    ym(config.metrikaId, "reachGoal", "click-show-contacts");
   }
   function handleBack() {
     router.back();
   }
+  const ageObj = useMemo(() => {
+    const year = Math.floor(data.monthsAge / 12);
+    const month = data.monthsAge % 12;
+    return {
+      year,
+      month,
+    };
+  }, [data.monthsAge]);
   console.log(data);
   return (
     <section className="detail-card-main-section main-padding">
@@ -217,8 +227,19 @@ export const DetailCardMainSection = connect(mapStateToProps, {
           </div>
           <div className="detail-card-main-section__name">
             <DogName isMale={data.gender}>
-              {data.name}, {data.monthsAge}{" "}
-              {declOfNum(data.monthsAge, ["месяц", "месяца", "месяцев"])}
+              {data.name},{" "}
+              {ageObj.year !== 0 &&
+                `${ageObj.year} ${declOfNum(ageObj.year, [
+                  "год",
+                  "года",
+                  "лет",
+                ])} `}
+              {ageObj.month !== 0 &&
+                `${ageObj.month} ${declOfNum(ageObj.month, [
+                  "месяц",
+                  "месяца",
+                  "месяцев",
+                ])}`}
             </DogName>
           </div>
           <div className="text text_type_cost text_color_main detail-card-main-section__cost">
@@ -246,15 +267,31 @@ export const DetailCardMainSection = connect(mapStateToProps, {
             <div className="detail-card-main-section__contacts-wrapper">
               {data.phone && (
                 <Link href={`tel:${data.phone}`}>
-                  <a className="text text_type_main text_color_black detail-card-main-section__contact">
+                  <a
+                    target="_blank"
+                    className="text text_type_main text_color_black detail-card-main-section__contact"
+                  >
                     {data.phone}
                   </a>
                 </Link>
               )}
               {data.email && (
                 <Link href={`mailto:${data.email}`}>
-                  <a className="text text_type_main text_color_black detail-card-main-section__contact">
+                  <a
+                    target="_blank"
+                    className="text text_type_main text_color_black detail-card-main-section__contact"
+                  >
                     {data.email}
+                  </a>
+                </Link>
+              )}
+              {data.site && (
+                <Link href={data.site}>
+                  <a
+                    target="_blank"
+                    className="text text_type_main text_color_black detail-card-main-section__contact"
+                  >
+                    {data.site}
                   </a>
                 </Link>
               )}
@@ -289,7 +326,7 @@ export const DetailCardMainSection = connect(mapStateToProps, {
                 )}
                 {data.youtubeUrl && (
                   <li className="detail-card-main-section__socil-link-item">
-                    <SocialLink type="VK" href={data.youtubeUrl} />
+                    <SocialLink type="YT" href={data.youtubeUrl} />
                   </li>
                 )}
               </ul>
@@ -374,6 +411,14 @@ export const DetailCardMainSection = connect(mapStateToProps, {
               </div>
               <div className="detail-card-main-section__table-value text text_type_h6">
                 {data.delivery ? "Да" : "Нет"}
+              </div>
+            </li>
+            <li className="detail-card-main-section__table-item">
+              <div className="detail-card-main-section__table-title">
+                Стерилизован
+              </div>
+              <div className="detail-card-main-section__table-value text text_type_h6">
+                {data.sterilized ? "Да" : "Нет"}
               </div>
             </li>
           </ul>

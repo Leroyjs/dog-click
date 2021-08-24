@@ -35,6 +35,7 @@
         visibility: visible;
       }
       &__arrow {
+        pointer-events: all;
         transform: rotate(180deg);
       }
     }

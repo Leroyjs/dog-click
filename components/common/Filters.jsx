@@ -44,7 +44,6 @@ export const Filters = ({ options, handler }) => {
     breedIds !== null && (url += "breedIds=" + breedIds + "&");
     cityId !== null && (url += "cityId=" + cityId + "&");
     sizeId !== null && (url += "sizeId=" + sizeId + "&");
-
     !priceCheckboxFree
       ? priceFrom !== null && (url += "priceFrom=" + priceFrom + "&")
       : (url += "priceFrom=0&");

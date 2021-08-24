@@ -16,7 +16,7 @@
     &_nav {
       font-style: normal;
       font-weight: 500;
-      font-size: 1.125vw; 
+      font-size: 1.125vw;
     }
 
     &_main-title {
@@ -42,7 +42,7 @@
       font-weight: 600;
       font-size: 1.5vw;
     }
-    &_h5{
+    &_h5 {
       font-style: normal;
       font-weight: 600;
       font-size: 1.125vw;
@@ -81,7 +81,7 @@
 
     &_cost {
       font-style: normal;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 1.5vw;
     }
   }
@@ -100,7 +100,7 @@
     }
 
     &_black {
-      color: $black
+      color: $black;
     }
   }
 }
@@ -110,13 +110,13 @@
   border-radius: 0.625vw;
   cursor: pointer;
   width: 100%;
-  transition: background-color .2s;
+  transition: background-color 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &__arrow {
-    transition: .3s;
+    transition: 0.3s;
     margin-left: 0.625vw;
     width: 1.125vw;
     height: 0.625vw;
@@ -132,7 +132,7 @@
         border: 2px solid $mainHover;
         background-color: $mainHover;
         color: $white;
-        path{
+        path {
           fill: $white;
           stroke: $white;
         }
@@ -142,7 +142,7 @@
         border: 2px solid $mainClick;
         background-color: $mainClick;
         color: $white;
-        path{
+        path {
           fill: $white;
           stroke: $white;
         }
@@ -188,7 +188,7 @@
   }
 }
 
-@media screen and (max-width:1600px) {
+@media screen and (max-width: 1600px) {
   .main-padding {
     padding-left: 164px;
     padding-right: 164px;
@@ -215,7 +215,7 @@
       &_h4 {
         font-size: 24px;
       }
-      &_h5{
+      &_h5 {
         font-size: 18px;
       }
       &_h6 {
@@ -241,14 +241,14 @@
       &_cost {
         font-size: 24px;
       }
-    } 
+    }
   }
   .button {
     padding: 10px 54px;
     border-radius: 10px;
 
-    &_type{
-      &_arrow{
+    &_type {
+      &_arrow {
         padding: 0;
       }
     }
@@ -260,13 +260,13 @@
     }
   }
 }
-@media screen and (max-width:1360px) {
+@media screen and (max-width: 1360px) {
   .main-padding {
     padding-left: 120px;
     padding-right: 120px;
   }
 }
-@media screen and (max-width:1280px) {
+@media screen and (max-width: 1280px) {
   .main-padding {
     padding-left: 100px;
     padding-right: 100px;
@@ -292,7 +292,7 @@
       &_h4 {
         font-size: 21px;
       }
-      &_h5{
+      &_h5 {
         font-size: 16px;
       }
       &_h6 {
@@ -318,16 +318,16 @@
       &_cost {
         font-size: 21px;
       }
-    } 
+    }
   }
 }
-@media screen and (max-width:1150px) {
+@media screen and (max-width: 1150px) {
   .main-padding {
     padding-left: 40px;
     padding-right: 40px;
   }
 }
-@media screen and (max-width:1000px) {
+@media screen and (max-width: 1000px) {
   .main-padding {
     padding-left: 14px;
     padding-right: 14px;
@@ -341,7 +341,7 @@
   }
 }
 
-@media screen and (max-width:700px) {
+@media screen and (max-width: 700px) {
   .text {
     &_type {
       &_nav {
@@ -364,7 +364,7 @@
         font-size: 24px;
       }
 
-      &_h5{
+      &_h5 {
         font-size: 18px;
       }
 

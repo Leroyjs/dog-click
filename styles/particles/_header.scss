@@ -8,7 +8,7 @@
   height: 5vw;
   width: 100%;
   z-index: 100;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
 
   &_active {
     background-color: $grayBG;
@@ -17,12 +17,12 @@
   &__logo {
     width: 13.75vw;
 
-    a{
-      height: 2.5vw;
-      width: 5.6875vw;
+    a {
+      height: 3.125vw;
+      width: 8.5625vw;
       display: flex;
     }
-    div{
+    div {
       height: 100%;
       width: 100%;
     }
@@ -55,7 +55,8 @@
     }
   }
 }
-.burger-button, .burger-menu{
+.burger-button,
+.burger-menu {
   display: none;
 }
 .header-sub-link {
@@ -90,7 +91,7 @@
   &__img-wrapper {
     position: relative;
     height: 1.5vw;
-    svg{
+    svg {
       height: 100%;
     }
   }
@@ -106,37 +107,37 @@
     }
   }
 }
-@media screen and (max-width:1600px) {
+@media screen and (max-width: 1600px) {
   .header {
     height: 80px;
 
     &__logo {
       width: 220px;
-      a{
-        width: 91.36px;
-        height: 40px;
+      a {
+        width: 137px;
+        height: 50px;
       }
     }
-  
+
     &__sub-links {
       width: 220px;
     }
   }
-  
+
   .header-sub-link {
     margin-left: 21px;
-  
+
     &__text {
       margin-left: 9px;
 
-      &_margin-left{
+      &_margin-left {
         margin-left: 13px;
       }
     }
     &__img-wrapper {
       height: 24px;
     }
-  
+
     &__count {
       border: 1px solid $grayBG;
       height: 16px;
@@ -147,13 +148,14 @@
     }
   }
 }
-@media screen and (max-width:1000px) {
-  .header{
+@media screen and (max-width: 1060px) {
+  .header {
     flex-direction: row-reverse;
-    &__nav, &__sub-links{
+    &__nav,
+    &__sub-links {
       display: none;
     }
-    &__logo{
+    &__logo {
       width: auto;
       position: absolute;
       left: 50%;
@@ -161,11 +163,11 @@
       z-index: 1;
     }
   }
-  .header-sub-link{
+  .header-sub-link {
     margin: 0;
     margin-top: 30px;
   }
-  .burger-menu{
+  .burger-menu {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -177,16 +179,16 @@
     z-index: 99;
     top: 0;
     left: 0;
-    transition: opacity .3s, visibility 0.3s 0.3s;
+    transition: opacity 0.3s, visibility 0.3s 0.3s;
     opacity: 0;
     visibility: hidden;
 
-    &__li{
+    &__li {
       margin-top: 30px;
       text-align: center;
     }
 
-    &__separator{
+    &__separator {
       height: 2px;
       min-height: 2px;
       width: 100%;
@@ -194,13 +196,13 @@
       margin-top: 30px;
     }
 
-    &_active{
-      transition: opacity .3s, visibility 0s 0s;
+    &_active {
+      transition: opacity 0.3s, visibility 0s 0s;
       opacity: 1;
       visibility: visible;
     }
   }
-  .burger-button{
+  .burger-button {
     display: block;
     cursor: pointer;
     height: 24px;
@@ -208,24 +210,24 @@
     position: relative;
     z-index: 1;
 
-    &_active{
-      .burger-button{
-        &__inner{
+    &_active {
+      .burger-button {
+        &__inner {
           height: 0;
 
-          &::before{
+          &::before {
             width: 30px;
             transform: rotate(45deg);
             background-color: $black;
           }
-          &::after{
+          &::after {
             transform: rotate(-45deg);
           }
         }
       }
     }
 
-    &__inner{
+    &__inner {
       width: 30px;
       height: 2px;
       background-color: $black;
@@ -233,16 +235,16 @@
       top: 50%;
       margin-top: -1px;
 
-      &::after{
-        content: '';
+      &::after {
+        content: "";
         display: block;
         width: 30px;
         height: 2px;
         background-color: $black;
         transform: translateY(10px);
       }
-      &::before{
-        content: '';
+      &::before {
+        content: "";
         display: block;
         width: 20px;
         right: 0;
@@ -254,16 +256,16 @@
     }
   }
 }
-@media screen and (max-width:600px) {
-  .header{
+@media screen and (max-width: 600px) {
+  .header {
     height: 56px;
   }
 }
-@media screen and (max-height:560px) {
-  .header{
+@media screen and (max-height: 560px) {
+  .header {
     height: 56px;
   }
-  .burger-menu{
+  .burger-menu {
     padding-top: 76px;
     padding-bottom: 20px;
     overflow: auto;

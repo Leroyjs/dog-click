@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useState } from "react";
 import { ComparisonIcon } from "../UI/ComparisonIcon";
 import { DeleteIcon } from "../UI/DeleteIcon";
 import { FavoriteIcon } from "../UI/FavoriteIcon";
@@ -7,6 +6,8 @@ import { declOfNum } from "../../declOfNum";
 import { makeMoney } from "../../makeMoney";
 
 import { DogName } from "./DogName";
+import { useMemo } from "react";
+import { config } from "../../config";
 
 export const Card = ({
   breed,
@@ -28,6 +29,7 @@ export const Card = ({
 }) => {
   function handleFavorite(e) {
     e.preventDefault();
+    ym(config.metrikaId, "reachGoal", "click-favorites");
     if (isFavorite) {
       removeFavoriteItem();
     } else {
@@ -37,6 +39,7 @@ export const Card = ({
 
   function handleComparison(e) {
     e.preventDefault();
+    ym(config.metrikaId, "reachGoal", "click-compare");
     if (isComparison) {
       removeComparisonItem();
     } else {
@@ -50,6 +53,14 @@ export const Card = ({
   const imgStyles = {
     backgroundImage: `url('https://res.cloudinary.com/leninsdo/image/upload/petstory/${mainPhotoGuid}')`,
   };
+  const ageObj = useMemo(() => {
+    const year = Math.floor(monthsAge / 12);
+    const month = monthsAge % 12;
+    return {
+      year,
+      month,
+    };
+  }, [monthsAge]);
   return (
     <Link href={"/detail-card/" + id}>
       <a className="card">
@@ -75,13 +86,23 @@ export const Card = ({
           )}
         </div>
         <div className="card__text">
-          <DogName isMale={gender}>
-            {name}{" "}
-            <span className="text text_type_nav text_color_gray">
-              ({monthsAge}{" "}
-              {declOfNum(monthsAge, ["месяц", "месяца", "месяцев"])})
-            </span>
-          </DogName>
+          <div className="card__name">
+            <DogName isMale={gender}>{name}</DogName>
+          </div>
+          <span className="card__age text text_type_nav text_color_gray">
+            {ageObj.year !== 0 &&
+              `${ageObj.year} ${declOfNum(ageObj.year, [
+                "год",
+                "года",
+                "лет",
+              ])} `}
+            {ageObj.month !== 0 &&
+              `${ageObj.month} ${declOfNum(ageObj.month, [
+                "месяц",
+                "месяца",
+                "месяцев",
+              ])}`}
+          </span>
           <div className="card__breed text_color_black">{breed}</div>
           <div className="card__cost text text_type_cost text_color_main">
             {makeMoney(price) !== "0" ? makeMoney(price) + "  ₽" : "Бесплатно"}
