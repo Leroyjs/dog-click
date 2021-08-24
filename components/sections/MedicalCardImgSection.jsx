@@ -11,13 +11,13 @@ export const MedicalCardImgSection = ({ imgs, desc, children }) => {
       </div>
       <div className="medical-card-img-section__main">
         <div className="medical-card-img-section__column">
-          <Image src={imgs[0]} />
+          <Image src={imgs[0]} alt="" />
         </div>
         <div className="medical-card-img-section__column">
-          <Image src={imgs[1]} />
+          <Image src={imgs[1]} alt="" />
         </div>
         <div className="medical-card-img-section__column">
-          <Image src={imgs[2]} />
+          <Image src={imgs[2]} alt="" />
         </div>
       </div>
     </section>

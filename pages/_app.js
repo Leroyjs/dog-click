@@ -10,6 +10,7 @@ import Head from "next/head";
 import faviconImg from "../media/favicon.ico";
 import { config } from "../config";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const store = createStore(rootReducer);
 let vh;
@@ -57,7 +58,7 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="shortcut icon" href={faviconImg.src} />
         <noscript>
           <div>
-            <img
+            <Image
               src={"https://mc.yandex.ru/watch/" + config.metrikaId}
               style={{ position: "absolute", left: "-9999px" }}
               alt=""

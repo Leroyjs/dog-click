@@ -21,6 +21,7 @@ export const MedicalCardSecondSection = () => {
               камеру телефона
             </div>
             <Image
+              alt=""
               src={codeQRImg}
               className="medical-card-second-section__column-img"
             ></Image>
@@ -35,6 +36,7 @@ export const MedicalCardSecondSection = () => {
               Зарегистрируйтесь или войдите под учетной записью Google
             </div>
             <Image
+              alt=""
               src={registrationImg}
               className="medical-card-second-section__column-img"
             ></Image>
@@ -49,6 +51,7 @@ export const MedicalCardSecondSection = () => {
               Добавьте всех ваших питомцев в Вашу новую учетную запись
             </div>
             <Image
+              alt=""
               src={addingPetsImg}
               className="medical-card-second-section__column-img"
             ></Image>
