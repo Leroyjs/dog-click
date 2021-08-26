@@ -58,11 +58,13 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="shortcut icon" href={faviconImg.src} />
         <noscript>
           <div>
-            <Image
+            {/* <Image
               src={"https://mc.yandex.ru/watch/" + config.metrikaId}
               style={{ position: "absolute", left: "-9999px" }}
+              width={680}
+              height={400}
               alt=""
-            />
+            /> */}
           </div>
         </noscript>
       </Head>
