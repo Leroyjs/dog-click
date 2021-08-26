@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://dogclick.ru/
-
-# Sitemaps
-Sitemap: https://dogclick.ru/sitemap.xml

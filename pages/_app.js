@@ -56,7 +56,7 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <title>DogClick</title>
         <link rel="shortcut icon" href={faviconImg.src} />
-        <noscript>
+        {/*<noscript>
           <div>
             {/* <Image
               src={"https://mc.yandex.ru/watch/" + config.metrikaId}
@@ -66,7 +66,7 @@ export default function MyApp({ Component, pageProps }) {
               alt=""
             /> */}
           </div>
-        </noscript>
+        </noscript>*/}
       </Head>
       <Component {...pageProps} />
     </Provider>
