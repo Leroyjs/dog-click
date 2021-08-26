@@ -17,6 +17,7 @@ import measureImg_1 from "../media/medical-card/measure-1.jpg";
 import measureImg_2 from "../media/medical-card/measure-2.jpg";
 import measureImg_3 from "../media/medical-card/measure-3.jpg";
 import { ButtonBorder } from "../components/UI/ButtonBorder";
+import Link from "next/link";
 
 export default function MedicalCard() {
   return (
@@ -50,7 +51,11 @@ export default function MedicalCard() {
         <span className="text_color_main"> отслеживайте динамику</span>
       </MedicalCardImgSection>
       <div className="medical-card__button-wrapper">
-        <ButtonBorder>Подключить бесплатно</ButtonBorder>
+        <Link href="https://medstory.io">
+          <a target="_blank">
+            <ButtonBorder>Подключить бесплатно</ButtonBorder>
+          </a>
+        </Link>
       </div>
       <Footer />
     </MainWrapper>
