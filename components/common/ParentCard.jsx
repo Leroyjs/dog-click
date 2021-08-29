@@ -5,7 +5,7 @@ import { SocialLink } from "./SocialLink"
 export const ParentCard = ({ data, isMale=false }) => {
   return (
     <div className="parent-card">
-      <div className="parent-card__img" style={{ backgroundImage: `url(https://res.cloudinary.com/leninsdo/image/upload/petstory/${data.mainImageGuid})` }}>
+      <div className="parent-card__img" style={{ backgroundImage: `url(https://res.cloudinary.com/leninsdo/image/upload/l_dogclick_ekpxed/petstory/${data.mainImageGuid})` }}>
 
       </div>
       <div className="parent-card__main">

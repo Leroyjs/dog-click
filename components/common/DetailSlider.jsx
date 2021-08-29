@@ -67,7 +67,7 @@ export const DetailSlider = ({images}) => {
                         <div
                             key={img + index}
                             className="detail-slider__main-item"
-                            style={{ backgroundImage: `url(https://res.cloudinary.com/leninsdo/image/upload/petstory/${img.guid})` }}
+                            style={{ backgroundImage: `url(https://res.cloudinary.com/leninsdo/image/upload/l_dogclick_ekpxed/petstory/${img.guid})` }}
                         ></div>
                     ))}
                 </Flickity>
@@ -98,7 +98,7 @@ export const DetailSlider = ({images}) => {
                         }}
                         key={img + index}
                         className="detail-slider__nav-item"
-                        style={{ backgroundImage: `url(https://res.cloudinary.com/leninsdo/image/upload/petstory/${img.guid})` }}
+                        style={{ backgroundImage: `url(https://res.cloudinary.com/leninsdo/image/upload/l_dogclick_ekpxed/petstory/${img.guid})` }}
                     ></div>
                 ))}
             </Flickity>

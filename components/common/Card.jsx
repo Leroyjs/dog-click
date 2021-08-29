@@ -51,7 +51,7 @@ export const Card = ({
     deleteHandler();
   }
   const imgStyles = {
-    backgroundImage: `url('https://res.cloudinary.com/leninsdo/image/upload/petstory/${mainPhotoGuid}')`,
+    backgroundImage: `url('https://res.cloudinary.com/leninsdo/image/upload/l_dogclick_ekpxed/petstory/${mainPhotoGuid}')`,
   };
   const ageObj = useMemo(() => {
     const year = Math.floor(monthsAge / 12);
