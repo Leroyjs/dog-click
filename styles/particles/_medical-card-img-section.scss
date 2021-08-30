@@ -5,6 +5,8 @@
   align-items: center;
   &__title {
     margin-bottom: 8px;
+    text-align: center;
+    line-height: 150%;
   }
   &__desc {
     text-align: center;
@@ -19,5 +21,24 @@
   &__column {
     max-width: 300px;
     width: calc(33% - 20px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .medical-card-img-section {
+    margin-top: 50px;
+    &__main {
+      flex-direction: column;
+      align-items: center;
+    }
+    &__column {
+      max-width: 300px;
+      width: 100%;
+      &:not(:last-of-type) {
+        margin-bottom: 22px;
+      }
+    }
   }
 }
