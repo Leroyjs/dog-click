@@ -221,7 +221,7 @@ export const СomparisonMainSection = connect(mapStateToProps, {
           >
             {comparisonList.map((item) => {
               const imgStyles = {
-                backgroundImage: `url('https://res.cloudinary.com/leninsdo/image/upload/l_dogclick_ekpxed/petstory/${item.mainImageGuid}')`,
+                backgroundImage: `url('https://res.cloudinary.com/leninsdo/image/upload/${config.imgID}/petstory/${item.mainImageGuid}')`,
               };
               return (
                 <div

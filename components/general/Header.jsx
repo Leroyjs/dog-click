@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
 export const Header = connect(
   mapStateToProps,
   null
-)(({ favoriteList, comparisonList }) => {
+)(({ favoriteList, comparisonList = [] }) => {
   const [isActive, setActive] = useState(false);
   const [burgerState, setBurgerState] = useState(false);
 

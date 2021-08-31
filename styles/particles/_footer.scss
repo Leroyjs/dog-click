@@ -4,57 +4,94 @@
   flex-direction: column;
   align-items: center;
   margin-top: 12.5vw;
-  background-color: $grayBG;
-
-  &__logo {
-    margin: 1.25vw 0;
-    img{
-      width: 5.625vw;
+  &__logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  &__link-row {
+    display: flex;
+    align-items: center;
+  }
+  &__link-main {
+    display: flex;
+    margin: 0 60px;
+    .text:not(:last-of-type) {
+      margin-right: 30px;
     }
   }
-  &__link {
-    margin-right: 1.875vw;
+  &__logo-line {
+    height: 2px;
+    width: 40%;
+    background-color: $mainColor;
+    &_left {
+      background: linear-gradient(
+        90deg,
+        rgba(175, 91, 41, 0),
+        rgba(175, 91, 41, 1)
+      );
+    }
+    &_right {
+      background: linear-gradient(
+        90deg,
+        rgba(175, 91, 41, 1),
+        rgba(175, 91, 41, 0)
+      );
+    }
   }
+
+  &__logo {
+    margin: 1.25vw;
+    img {
+      width: 6.625vw;
+    }
+  }
+  // &__link {
+  //   margin-right: 1.875vw;
+  // }
   &__cop {
     margin-top: 1.25vw;
     margin-bottom: 1vw;
   }
 }
-@media screen and (max-width:1600px) {
+@media screen and (max-width: 1600px) {
   .footer {
     margin-top: 200px;
-  
+
     &__logo {
-      margin: 20px 0;
-      img{
-        width: 90px;
+      margin: 20px;
+      img {
+        width: 120px;
       }
     }
-    &__link {
-      margin-right: 30px;
-    }
+    // &__link {
+    //   margin-right: 30px;
+    // }
     &__cop {
       margin-top: 20px;
       margin-bottom: 16px;
     }
   }
 }
-@media screen and (max-width:1280px) {
+@media screen and (max-width: 1280px) {
   .footer {
     margin-top: 160px;
   }
 }
-
-@media screen and (max-width:600px) {
-  .footer{
+@media screen and (max-width: 1000px) {
+  .footer {
     margin-top: 100px;
-    &__link{
+    &__link {
       margin-right: 0;
       margin-bottom: 20px;
     }
-    &__link-row{
+    &__link-row {
       display: flex;
       flex-direction: column;
+    }
+    &__link-main {
+      display: none;
     }
   }
 }

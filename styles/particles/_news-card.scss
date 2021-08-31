@@ -1,0 +1,66 @@
+.news-card {
+  border: 1px solid $gray;
+  border-radius: 10px;
+  overflow: hidden;
+  &__tag-wrapper {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  &__img {
+    position: relative;
+    height: 12.5vw;
+    width: 100%;
+    background-image: url("../../media/news-dog.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  &__main {
+    padding: 15px;
+  }
+  &__title {
+    font-weight: 500;
+  }
+  &__desc {
+    margin-top: 12px;
+    font-weight: 500;
+  }
+  &__row {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__data {
+    display: flex;
+    align-items: center;
+    &-text {
+      margin-left: 8px;
+    }
+  }
+  &__go-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    svg {
+      transition: 0.3s;
+    }
+    &-text {
+      margin-right: 8px;
+    }
+    &:hover {
+      svg {
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+@media screen and (max-width: 1600px) {
+  .news-card {
+    &__img {
+      height: 200px;
+    }
+  }
+}
