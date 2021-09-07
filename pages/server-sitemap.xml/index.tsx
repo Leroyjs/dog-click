@@ -9,6 +9,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   urls.forEach( item=>{
     fields.push({
       loc:`${config.domain}/detail-card/${item.id}`,
+      priority:1,
+      changefreq:'daily',
       lastmod:item.lastModified
     })
   })

@@ -2,8 +2,8 @@ export const ClearList = ({ children, onClick, addСlasses = "" }) => {
   return (
     <a className={"clear-list " + addСlasses} onClick={onClick}>
       <svg
-        width="12"
-        height="16"
+        width="14"
+        height="18"
         viewBox="0 0 18 22"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
