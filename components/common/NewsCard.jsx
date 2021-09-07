@@ -1,36 +1,60 @@
 import { Tag } from "../UI/Tag";
+import { config } from "../../config";
+import Link from "next/link";
 
-export const NewsCard = ({}) => {
+export const NewsCard = ({
+  tagDictionary,
+  createDate,
+  externalUrl,
+  imageGuid,
+  tags,
+  text,
+  title,
+}) => {
+  const imgStyles = {
+    backgroundImage: `url(https://res.cloudinary.com/leninsdo/image/upload/${config.imgID}/petstory/${imageGuid}`,
+  };
+  let tegColor = false;
+  tagDictionary.forEach((item) => {
+    if (item.name === tags[0]) {
+      tegColor = item.data && item.data.color;
+    }
+  });
+
+  let str = text.slice(0, 200);
+  let a = str.split(" ");
+  a.splice(a.length - 1, 1);
+  str = a.join(" ") + " ...";
+
   return (
     <div className="news-card">
-      <div className="news-card__img">
+      <div className="news-card__img" style={imgStyles}>
         <div className="news-card__tag-wrapper">
-          <Tag />
+          <Tag text={tags[0]} isActive={true} color={tegColor} />
         </div>
       </div>
       <div className="news-card__main">
-        <div className="news-card__title text text_type_h5">
-          Бордер колли — собаки с интеллектом трехлетнего ребенка. Что нужно
-          знать...
-        </div>
-        <div className="news-card__desc text text_type_desc text_color_gray">
-          Скажем сразу, что у каждой авиакомпании (отечественной или
-          международной) есть свои правила перевозки домашних животных. С ними
-          нужно обязательно ...
+        <div className="">
+          <div className="news-card__title text text_type_h5">{title}</div>
+          <div className="news-card__desc text text_type_desc text_color_gray">
+            {str}
+          </div>
         </div>
         <div className="news-card__row">
           <div className="news-card__data">
             {calendar()}
             <div className="news-card__data-text text text_color_gray text_type_nav">
-              25.05.2021
+              {createDate}
             </div>
           </div>
-          <div className="news-card__go-button">
-            <div className="news-card__go-button-text text text_color_main text_type_main">
-              Читать далее
-            </div>
-            {arrow()}
-          </div>
+          <Link href={externalUrl}>
+            <a target="_blank" className="news-card__go-button">
+              <div className="news-card__go-button-text text text_color_main text_type_main">
+                Читать далее
+              </div>
+              {arrow()}
+            </a>
+          </Link>
         </div>
       </div>
     </div>

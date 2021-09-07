@@ -331,6 +331,11 @@ export const DetailCardMainSection = connect(mapStateToProps, {
                     <SocialLink type="YT" href={data.youtubeUrl} />
                   </li>
                 )}
+                {/* {data.viber && (
+                  <li className="detail-card-main-section__socil-link-item">
+                    <SocialLink type="VB" href={data.youtubeUrl} />
+                  </li>
+                )} */}
               </ul>
             </div>
           ) : (

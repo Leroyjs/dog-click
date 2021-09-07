@@ -1,11 +1,16 @@
-export const Search = ({}) => {
+export const Search = ({ onSubmit, value = "", onChange }) => {
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("rgfrf");
+    onSubmit && onSubmit(value);
+  }
+  function handleChange(value) {
+    onChange && onChange(value);
   }
   return (
     <form onSubmit={handleSubmit} className="search">
       <input
+        value={value}
+        onChange={(e) => handleChange(e.target.value)}
         type="text"
         className="search__input"
         placeholder="Поиск по статьям и советам.."

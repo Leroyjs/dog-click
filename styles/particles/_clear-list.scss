@@ -15,7 +15,7 @@
     }
 
     path {
-      fill: $mainHover;
+      stroke: $mainHover;
     }
   }
 
@@ -27,7 +27,7 @@
     }
 
     path {
-      fill: $mainClick;
+      stroke: $mainClick;
     }
   }
 }

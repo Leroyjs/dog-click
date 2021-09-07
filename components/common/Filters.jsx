@@ -196,7 +196,7 @@ export const Filters = ({ options, handler }) => {
       </div>
       <RangeInput
         isDisabled={priceCheckboxFree}
-        max={250000}
+        max={500000}
         handler={handleSetPrice}
         initMin={+priceFrom}
         initMax={+priceTo}
