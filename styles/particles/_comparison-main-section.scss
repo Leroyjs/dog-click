@@ -24,6 +24,12 @@
   }
   &__help {
     margin-left: 6px;
+    display: flex;
+    &:hover {
+      .help-modal {
+        display: block;
+      }
+    }
   }
   &__header-item {
     display: flex;
@@ -77,6 +83,7 @@
     width: 100%;
   }
   &__table-row {
+    position: relative;
     min-height: 50px;
     margin-bottom: 10px;
     display: flex;

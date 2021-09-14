@@ -10,7 +10,6 @@ import Head from "next/head";
 import faviconImg from "../media/favicon.ico";
 import { config } from "../config";
 import { useRouter } from "next/router";
-import Image from "next/image";
 
 const store = createStore(rootReducer);
 let vh;
@@ -26,12 +25,12 @@ export default function MyApp({ Component, pageProps }) {
     window.addEventListener("resize", initHeight);
     router.events.on("routeChangeComplete", setCurrentPath);
     initState();
-    metrika();
+    initYM();
+    initGM();
   }, []);
   useEffect(() => {
     if (prevPath) {
       if (currentPath !== prevPath) {
-        console.log(location.href);
         ym(config.metrikaId, "hit", location.href);
       }
     }
@@ -56,24 +55,17 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <title>DogClick</title>
         <link rel="shortcut icon" href={faviconImg.src} />
-        {/*<noscript>
-          <div>
-            <Image
-              src={"https://mc.yandex.ru/watch/" + config.metrikaId}
-              style={{ position: "absolute", left: "-9999px" }}
-              width={680}
-              height={400}
-              alt=""
-            /> 
-          </div>
-        </noscript>*/}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${config.gMetrikaId}`}
+        ></script>
       </Head>
       <Component {...pageProps} />
     </Provider>
   );
 }
 
-function metrika() {
+function initYM() {
   (function (m, e, t, r, i, k, a) {
     m[i] =
       m[i] ||
@@ -94,4 +86,12 @@ function metrika() {
     accurateTrackBounce: true,
     webvisor: true,
   });
+}
+function initGM() {
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag() {
+    dataLayer.push(arguments);
+  };
+  gtag("js", new Date());
+  gtag("config", config.gMetrikaId);
 }

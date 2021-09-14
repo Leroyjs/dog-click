@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import { config } from "../../config";
 import axios from "axios";
 import { DogName } from "../common/DogName";
+import { useRouter } from "next/router";
 
 const mapStateToProps = (state) => {
   return {
@@ -22,6 +23,7 @@ export const СomparisonMainSection = connect(mapStateToProps, {
   setComparisonItems,
   removeComparisonItem,
 })(({ comparisonIdList }) => {
+  const router = useRouter();
   const [flickity, setFlickity] = useState(false);
   const [flickityHeader, setFlickityHeader] = useState(false);
   const [arrowRightIsDisabled, setArrowRightIsDisabled] = useState(false);
@@ -96,7 +98,9 @@ export const СomparisonMainSection = connect(mapStateToProps, {
     setArrows(index);
     flickityHeader.select(index);
   }
-
+  function handleBack() {
+    router.back();
+  }
   function setData() {
     if (comparisonIdList.length) {
       axios
@@ -241,11 +245,7 @@ export const СomparisonMainSection = connect(mapStateToProps, {
           </Flickity>
         </div>
       </div>
-      <Link href="/">
-        <a>
-          <BackButton>Назад к предыдущей странице</BackButton>
-        </a>
-      </Link>
+      <BackButton onClick={handleBack}>Назад к предыдущей странице</BackButton>
       <h2 className="comparison-main-section__title text_type_h4">Сравнение</h2>
       <div className="comparison-main-section__row">
         <Description>{comparisonIdList.length} объявлений</Description>
@@ -509,10 +509,11 @@ export const СomparisonMainSection = connect(mapStateToProps, {
           </div>
           <div className="comparison-main-section__table-row">
             Актирован
-            <div
-              className="comparison-main-section__help"
-              title="Проведена проверка щенка на соответствие параметрам и стандартам породы представителями кинологического клуба"
-            >
+            <div className="comparison-main-section__help">
+              <div className="help-modal text_type_desc">
+                Проведена проверка щенка на соответствие параметрам и стандартам
+                породы представителями кинологического клуба
+              </div>
               <svg
                 width="14"
                 height="28"

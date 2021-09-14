@@ -9,12 +9,6 @@ export const TitleBlock = ({ children, breadCrumbsList, img }) => {
         addСlasses="title-block__bread-crumbs"
       />
       <div className="title-block__bg"></div>
-      {/* {img && (
-        <div
-          className="title-block__bg-dog"
-          style={{ backgroundImage: `url(${img.src})` }}
-        ></div>
-      )} */}
     </section>
   );
 };

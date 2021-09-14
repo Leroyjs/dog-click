@@ -45,7 +45,7 @@ export const FirstSection = () => {
         <div className="first-section__input-row">
           <DropDown
             addСlasses="first-section__drop-down"
-            placeholderText="Пол щенка"
+            placeholderText="Пол"
             placeholderImg={biGenderImg()}
             itemList={genderList}
             handler={setGender}

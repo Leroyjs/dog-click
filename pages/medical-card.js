@@ -29,7 +29,7 @@ export default function MedicalCard() {
       <MedicalCardSecondSection />
       <MedicalCardImgSection
         desc="Вы можете добавлять документы любого типа, в том числе фото, сделанные на ваш смартфон."
-        imgs={[tagImg, categoryImg, mainImg]}
+        imgs={[categoryImg, tagImg, mainImg]}
       >
         Добавляйте документы,
         <span className="text_color_main"> справки и страховки питомцев</span>
@@ -37,7 +37,7 @@ export default function MedicalCard() {
       <MedicalCardImgSection
         desc="Добавляйте в календарь напоминания об анализах, прививках или консультациях. 
         Наш телеграм канал сможет напомнить вам о событии, либо вы сможете получить напоминание по смс или email."
-        imgs={[calendarImg_1, calendarImg_2, calendarImg_3]}
+        imgs={[calendarImg_2, calendarImg_1, calendarImg_3]}
       >
         Используйте календарь, чтобы
         <span className="text_color_main"> ничего не забыть</span>
