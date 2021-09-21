@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Flickity from "react-flickity-component";
 import { config } from "../../config";
 
-export const DetailSlider = ({ images, video }) => {
+export const DetailSlider = ({ images, video, preview }) => {
   const [flickity, setFlickity] = useState(false);
   const [flickityNav, setFlickityNav] = useState(false);
   const [arrowRightIsDisabled, setArrowRightIsDisabled] = useState(false);
@@ -33,14 +33,14 @@ export const DetailSlider = ({ images, video }) => {
       flickity.on("change", handleChengeMain);
     }
   }, [flickity, flickityNav]);
-
+  console.log();
   function setArrows(index) {
     if (index === 0) {
       setArrowLeftIsDisabled(true);
     } else {
       setArrowLeftIsDisabled(false);
     }
-    if (index + 1 === images.length) {
+    if (index + 1 === cloneImagesArray.length) {
       setArrowRightIsDisabled(true);
     } else {
       setArrowRightIsDisabled(false);
@@ -74,30 +74,28 @@ export const DetailSlider = ({ images, video }) => {
           options={flickityOptions}
         >
           {cloneImagesArray.map((img, index) => (
-            <>
+            <React.Fragment key={img + index}>
               {video && index === videoIndex ? (
                 <iframe
-                  key={img + index}
                   className="detail-slider__main-item"
                   src={video}
                   title="YouTube video player"
-                  frameborder="0"
+                  frameBorder="0"
                   allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               ) : (
                 <div
-                  key={img + index}
                   className="detail-slider__main-item"
                   style={{
                     backgroundImage: `url(https://res.cloudinary.com/leninsdo/image/upload/${config.imgID}/petstory/${img.guid})`,
                   }}
                 ></div>
               )}
-            </>
+            </React.Fragment>
           ))}
         </Flickity>
-        {images.length > 1 && (
+        {cloneImagesArray.length > 1 && (
           <>
             <div
               onClick={handleArrowRightClick}
@@ -156,19 +154,18 @@ export const DetailSlider = ({ images, video }) => {
         options={flickityNavOptions}
       >
         {cloneImagesArray.map((img, index) => (
-          <>
+          <React.Fragment key={img + index}>
             {video && index === videoIndex ? (
               <div
                 onClick={() => {
                   handleChengeNav(videoIndex);
                 }}
-                key={img + index}
                 className="detail-slider__nav-item_video detail-slider__nav-item"
               >
                 <div
                   className="detail-slider__video-overlay"
                   style={{
-                    backgroundImage: `url(https://img.youtube.com/vi/JMJXvsCLu6s/mqdefault.jpg)`,
+                    backgroundImage: `url(${preview})`,
                   }}
                 ></div>
                 <div className="detail-slider__play-button">
@@ -191,14 +188,13 @@ export const DetailSlider = ({ images, video }) => {
                 onClick={() => {
                   handleChengeNav(index);
                 }}
-                key={img + index}
                 className="detail-slider__nav-item"
                 style={{
                   backgroundImage: `url(https://res.cloudinary.com/leninsdo/image/upload/${config.imgID}/petstory/${img.guid})`,
                 }}
               ></div>
             )}
-          </>
+          </React.Fragment>
         ))}
       </Flickity>
     </div>

@@ -86,6 +86,7 @@ export const DetailCardMainSection = connect(mapStateToProps, {
       data.phone[7] + data.phone[8]
     }-${data.phone[9] + data.phone[10]}`;
   }
+  console.log(data);
 
   return (
     <section className="detail-card-main-section main-padding">
@@ -167,7 +168,11 @@ export const DetailCardMainSection = connect(mapStateToProps, {
       </div>
       <div className="detail-card-main-section__main-row">
         <div className="detail-card-main-section__slider">
-          <DetailSlider images={images} video={data.videoUrl} />
+          <DetailSlider
+            images={images}
+            video={data.videoUrl}
+            preview={data.videoPreviewUrl}
+          />
         </div>
         <div className="detail-card-main-section__info">
           <div className="detail-card-main-section__buttons detail-card-main-section__buttons_mobile">
