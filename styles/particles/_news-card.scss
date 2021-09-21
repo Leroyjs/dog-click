@@ -27,11 +27,13 @@
     justify-content: space-between;
   }
   &__title {
-    font-weight: 500;
+    font-size: 18px;
+    line-height: 150%;
   }
   &__desc {
     margin-top: 12px;
     font-weight: 500;
+    line-height: 160%;
   }
   &__row {
     margin-top: 12px;

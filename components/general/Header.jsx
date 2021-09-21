@@ -9,13 +9,14 @@ const mapStateToProps = (state) => {
   return {
     favoriteList: state.favorite,
     comparisonList: state.comparison,
+    modals: state.modals,
   };
 };
 
 export const Header = connect(
   mapStateToProps,
   null
-)(({ favoriteList, comparisonList = [] }) => {
+)(({ favoriteList, comparisonList = [], modals }) => {
   const [isActive, setActive] = useState(false);
   const [burgerState, setBurgerState] = useState(false);
 
@@ -47,6 +48,132 @@ export const Header = connect(
       <header
         className={"header main-padding" + (isActive ? " header_active" : "")}
       >
+        <div
+          className={
+            "header__modal" + (modals.comparison ? " header__modal_active" : "")
+          }
+        >
+          <div className="header__modal-icon">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="11.25"
+                stroke="#AF5B29"
+                strokeWidth="1.5"
+              />
+              <path
+                d="M7 12.7692L10.8462 17L17 7"
+                stroke="#AF5B29"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+          <div className="text text_color_black text_type_main">
+            Питомец добавлен в сравнение <br />
+            <div className="header__modal-link">
+              <Link href={"/comparison"}>
+                <a className="text text_color_main">
+                  Перейти в сравнение
+                  <svg
+                    className="header__modal-arrow"
+                    width="18"
+                    height="10"
+                    viewBox="0 0 18 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17 5C10.7516 5 1 5 1 5"
+                      stroke="#AF5B29"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M13 1L17 5L13 9"
+                      stroke="#AF5B29"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div
+          className={
+            "header__modal" + (modals.favorite ? " header__modal_active" : "")
+          }
+        >
+          <div className="header__modal-icon">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="11.25"
+                stroke="#AF5B29"
+                strokeWidth="1.5"
+              />
+              <path
+                d="M7 12.7692L10.8462 17L17 7"
+                stroke="#AF5B29"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+          <div className="text text_color_black text_type_main">
+            Питомец добавлен в избранное <br />
+            <div className="header__modal-link">
+              <Link href={"/favorites"}>
+                <a className="text text_color_main">
+                  Перейти в избранное
+                  <svg
+                    className="header__modal-arrow"
+                    width="18"
+                    height="10"
+                    viewBox="0 0 18 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17 5C10.7516 5 1 5 1 5"
+                      stroke="#AF5B29"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M13 1L17 5L13 9"
+                      stroke="#AF5B29"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+              </Link>
+            </div>
+          </div>
+        </div>
         <div className="header__logo">
           <Link href="/">
             <a>
@@ -94,7 +221,12 @@ export const Header = connect(
           </ul>
         </nav>
         <nav className="header__sub-links">
-          <HeaderSubLink href="/favorites" count={favoriteList.length}>
+          <HeaderSubLink
+            href="/favorites"
+            count={favoriteList.length}
+            modalText="избранное"
+            modalActive={modals.favorite}
+          >
             <svg
               viewBox="0 0 28 24"
               fill="none"
@@ -107,7 +239,12 @@ export const Header = connect(
               />
             </svg>
           </HeaderSubLink>
-          <HeaderSubLink href="/comparison" count={comparisonList.length}>
+          <HeaderSubLink
+            href="/comparison"
+            count={comparisonList.length}
+            modalText="сравнение"
+            modalActive={modals.comparison}
+          >
             <svg
               viewBox="0 0 44 24"
               fill="none"

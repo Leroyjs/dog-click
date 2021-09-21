@@ -22,6 +22,7 @@ export default function MyApp({ Component, pageProps }) {
   useEffect(() => {
     Freezer();
     vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh-init", `${vh}px`);
     window.addEventListener("resize", initHeight);
     router.events.on("routeChangeComplete", setCurrentPath);
     initState();

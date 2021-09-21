@@ -125,9 +125,18 @@
       align-items: center;
     }
     &__filters-button {
-      display: block;
-      width: 100%;
-      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      border-radius: 10px;
+      padding: 12px 70px;
+      background-color: #fff;
+      box-shadow: 0px 8px 30px rgba(36, 28, 41, 0.15);
     }
     &__pagination-wrapper {
       margin-top: 30px;

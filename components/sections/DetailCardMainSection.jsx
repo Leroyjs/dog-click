@@ -78,7 +78,15 @@ export const DetailCardMainSection = connect(mapStateToProps, {
       month,
     };
   }, [data.monthsAge]);
-  console.log(data);
+  let phoneNumber = "";
+  if (data.phone) {
+    phoneNumber = `+${data.phone[0]} (${
+      data.phone[1] + data.phone[2] + data.phone[3]
+    }) ${data.phone[4] + data.phone[5] + data.phone[6]}-${
+      data.phone[7] + data.phone[8]
+    }-${data.phone[9] + data.phone[10]}`;
+  }
+
   return (
     <section className="detail-card-main-section main-padding">
       <BackButton onClick={handleBack}>Назад к предыдущей странице</BackButton>
@@ -159,7 +167,7 @@ export const DetailCardMainSection = connect(mapStateToProps, {
       </div>
       <div className="detail-card-main-section__main-row">
         <div className="detail-card-main-section__slider">
-          <DetailSlider images={images} />
+          <DetailSlider images={images} video={data.videoUrl} />
         </div>
         <div className="detail-card-main-section__info">
           <div className="detail-card-main-section__buttons detail-card-main-section__buttons_mobile">
@@ -277,7 +285,7 @@ export const DetailCardMainSection = connect(mapStateToProps, {
                     target="_blank"
                     className="text text_type_main text_color_black detail-card-main-section__contact"
                   >
-                    {data.phone}
+                    {phoneNumber}
                   </a>
                 </Link>
               )}

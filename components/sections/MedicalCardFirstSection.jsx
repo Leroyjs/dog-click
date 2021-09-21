@@ -1,7 +1,11 @@
+import img from "../../media/medical-card/medical-card-first-section-img.png";
+import Image from "next/image";
 export const MedicalCardFirstSection = () => {
   return (
     <section className="medical-card-first-section main-padding">
-      <div className="medical-card-first-section__img"></div>
+      <div className="medical-card-img-section__column medical-card-first-section__img">
+        <Image src={img} alt="" />
+      </div>
       <div className="medical-card-first-section__main">
         <h2 className="text_type_h4 medical-card-first-section__title">
           Medstory.io — облачный профиль

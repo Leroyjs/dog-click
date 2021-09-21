@@ -1,5 +1,6 @@
 .first-section {
   height: 100vh;
+  height: calc(var(--vh-init, 1vh) * 100);
   display: flex;
   flex-direction: column;
   align-items: center;

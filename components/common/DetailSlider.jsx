@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Flickity from "react-flickity-component";
 import { config } from "../../config";
 
-export const DetailSlider = ({ images }) => {
+export const DetailSlider = ({ images, video }) => {
   const [flickity, setFlickity] = useState(false);
   const [flickityNav, setFlickityNav] = useState(false);
   const [arrowRightIsDisabled, setArrowRightIsDisabled] = useState(false);
@@ -18,6 +18,15 @@ export const DetailSlider = ({ images }) => {
     pageDots: false,
     prevNextButtons: false,
   };
+  let videoIndex = images.length;
+  if (videoIndex > 2) {
+    videoIndex = images.length - 1;
+  }
+  const cloneImagesArray = images.slice(0);
+  if (video) {
+    cloneImagesArray.splice(videoIndex, 0, video);
+  }
+  console.log(cloneImagesArray, videoIndex);
   useEffect(() => {
     if (flickity && flickityNav) {
       setArrows(0);
@@ -64,14 +73,28 @@ export const DetailSlider = ({ images }) => {
           elementType={"div"}
           options={flickityOptions}
         >
-          {images.map((img, index) => (
-            <div
-              key={img + index}
-              className="detail-slider__main-item"
-              style={{
-                backgroundImage: `url(https://res.cloudinary.com/leninsdo/image/upload/${config.imgID}/petstory/${img.guid})`,
-              }}
-            ></div>
+          {cloneImagesArray.map((img, index) => (
+            <>
+              {video && index === videoIndex ? (
+                <iframe
+                  key={img + index}
+                  className="detail-slider__main-item"
+                  src={video}
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              ) : (
+                <div
+                  key={img + index}
+                  className="detail-slider__main-item"
+                  style={{
+                    backgroundImage: `url(https://res.cloudinary.com/leninsdo/image/upload/${config.imgID}/petstory/${img.guid})`,
+                  }}
+                ></div>
+              )}
+            </>
           ))}
         </Flickity>
         {images.length > 1 && (
@@ -132,17 +155,50 @@ export const DetailSlider = ({ images }) => {
         className="detail-slider__nav"
         options={flickityNavOptions}
       >
-        {images.map((img, index) => (
-          <div
-            onClick={() => {
-              handleChengeNav(index);
-            }}
-            key={img + index}
-            className="detail-slider__nav-item"
-            style={{
-              backgroundImage: `url(https://res.cloudinary.com/leninsdo/image/upload/${config.imgID}/petstory/${img.guid})`,
-            }}
-          ></div>
+        {cloneImagesArray.map((img, index) => (
+          <>
+            {video && index === videoIndex ? (
+              <div
+                onClick={() => {
+                  handleChengeNav(videoIndex);
+                }}
+                key={img + index}
+                className="detail-slider__nav-item_video detail-slider__nav-item"
+              >
+                <div
+                  className="detail-slider__video-overlay"
+                  style={{
+                    backgroundImage: `url(https://img.youtube.com/vi/JMJXvsCLu6s/mqdefault.jpg)`,
+                  }}
+                ></div>
+                <div className="detail-slider__play-button">
+                  <svg
+                    width="17"
+                    height="20"
+                    viewBox="0 0 17 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.5 9.13398C17.1667 9.51888 17.1667 10.4811 16.5 10.866L1.5 19.5263C0.833335 19.9112 9.70611e-07 19.4301 1.00426e-06 18.6603L1.76136e-06 1.33975C1.79501e-06 0.569945 0.833336 0.0888202 1.5 0.47372L16.5 9.13398Z"
+                      fill="#AF5B29"
+                    />
+                  </svg>
+                </div>
+              </div>
+            ) : (
+              <div
+                onClick={() => {
+                  handleChengeNav(index);
+                }}
+                key={img + index}
+                className="detail-slider__nav-item"
+                style={{
+                  backgroundImage: `url(https://res.cloudinary.com/leninsdo/image/upload/${config.imgID}/petstory/${img.guid})`,
+                }}
+              ></div>
+            )}
+          </>
         ))}
       </Flickity>
     </div>

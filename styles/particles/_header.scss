@@ -9,6 +9,9 @@
   width: 100%;
   z-index: 100;
   transition: background-color 0.3s;
+  &__modal {
+    display: none;
+  }
 
   &_active {
     background-color: $grayBG;
@@ -63,6 +66,52 @@
   margin-left: 1.3125vw;
   display: flex;
   align-items: center;
+
+  &__wrapper {
+    position: relative;
+  }
+  &__close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+  }
+  &__modal {
+    position: absolute;
+    background-color: $white;
+    top: calc(100% + 15px);
+    display: flex;
+    padding: 15px;
+    border-radius: 10px;
+    width: 380px;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.3s, opacity 0.3s;
+    &_active {
+      opacity: 1;
+      visibility: visible;
+      transition: visibility 0, opacity 0.3s;
+    }
+    a:hover {
+      .header-sub-link__modal-arrow {
+        transform: translateX(4px);
+      }
+    }
+  }
+  &__modal-icon {
+    margin-right: 8px;
+  }
+  &__modal-arrow {
+    margin-left: 8px;
+    transition: 0.3s;
+  }
+
+  &__polygon {
+    position: absolute;
+    right: 15px;
+    bottom: calc(100% - 2px);
+  }
 
   &__text {
     margin-left: 0.5625vw;
@@ -151,6 +200,38 @@
 @media screen and (max-width: 1060px) {
   .header {
     flex-direction: row-reverse;
+    &__modal {
+      z-index: 999;
+      position: fixed;
+      background-color: $white;
+      top: 15px;
+      display: flex;
+      padding: 15px;
+      border-radius: 10px;
+      width: 380px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility 0.3s, opacity 0.3s;
+      &_active {
+        opacity: 1;
+        visibility: visible;
+        transition: visibility 0, opacity 0.3s;
+      }
+      a:hover {
+        .header-sub-link__modal-arrow {
+          transform: translateX(4px);
+        }
+      }
+    }
+    &__modal-icon {
+      margin-right: 8px;
+    }
+    &__modal-arrow {
+      margin-left: 8px;
+      transition: 0.3s;
+    }
     &__nav,
     &__sub-links {
       display: none;
@@ -166,6 +247,9 @@
   .header-sub-link {
     margin: 0;
     margin-top: 30px;
+    &__modal {
+      display: none;
+    }
   }
   .burger-menu {
     display: flex;
@@ -260,6 +344,9 @@
   .header {
     height: 56px;
     background-color: $grayBG;
+    &__modal {
+      width: calc(100% - 30px);
+    }
   }
 }
 @media screen and (max-height: 560px) {

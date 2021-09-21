@@ -8,6 +8,8 @@ import { makeMoney } from "../../makeMoney";
 import { DogName } from "./DogName";
 import { useMemo } from "react";
 import { config } from "../../config";
+import { useDispatch } from "react-redux";
+import { setModals } from "../../redux/actions";
 
 export const Card = ({
   breed,
@@ -27,12 +29,27 @@ export const Card = ({
   removeComparisonItem,
   deleteHandler,
 }) => {
+  const dispatch = useDispatch();
   function handleFavorite(e) {
     e.preventDefault();
     ym(config.metrikaId, "reachGoal", "click-favorites");
     if (isFavorite) {
       removeFavoriteItem();
     } else {
+      dispatch(
+        setModals({
+          comparison: false,
+          favorite: true,
+        })
+      );
+      setTimeout(() => {
+        dispatch(
+          setModals({
+            comparison: false,
+            favorite: false,
+          })
+        );
+      }, 5000);
       addFaforiteItem();
     }
   }
@@ -43,6 +60,20 @@ export const Card = ({
     if (isComparison) {
       removeComparisonItem();
     } else {
+      dispatch(
+        setModals({
+          comparison: true,
+          favorite: false,
+        })
+      );
+      setTimeout(() => {
+        dispatch(
+          setModals({
+            comparison: false,
+            favorite: false,
+          })
+        );
+      }, 5000);
       addComparisonItem();
     }
   }

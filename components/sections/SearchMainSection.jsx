@@ -50,7 +50,7 @@ export const SearchMainSection = connect(mapStateToProps, {
     }
     router.push(url);
   }
-  console.log(comparisonIdList);
+
   return (
     <section className="search-main-section main-padding">
       <div
@@ -112,25 +112,52 @@ export const SearchMainSection = connect(mapStateToProps, {
       </div>
       <div className="search-main-section__items-wrapper">
         <div className="search-main-section__filters-button">
-          <ButtonBorder onClick={handleOpenModal}>
+          <div onClick={handleOpenModal}>
             <svg
               className="search-main-section__button-img"
-              width="17"
-              height="16"
-              viewBox="0 0 17 16"
+              width="20"
+              height="14"
+              viewBox="0 0 20 14"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M8.0601 15.5H6.52632V7.93213L1 1.68212V0.5H16V1.67537L10.7368 7.92537V12.9571L8.0601 15.5ZM7.57895 14.5H7.62411L9.68421 12.5429V7.57463L14.7997 1.5H2.21382L7.57895 7.56787V14.5Z"
-                fill="#AF5B29"
+              <line
+                x1="0.75"
+                y1="3.25"
+                x2="19.25"
+                y2="3.25"
                 stroke="#AF5B29"
                 strokeWidth="1.5"
-                strokeLinejoin="round"
+                strokeLinecap="round"
+              />
+              <line
+                x1="0.75"
+                y1="11.25"
+                x2="19.25"
+                y2="11.25"
+                stroke="#AF5B29"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="5"
+                cy="3"
+                r="2.25"
+                fill="white"
+                stroke="#AF5B29"
+                strokeWidth="1.5"
+              />
+              <circle
+                cx="15"
+                cy="11"
+                r="2.25"
+                fill="white"
+                stroke="#AF5B29"
+                strokeWidth="1.5"
               />
             </svg>
             Фильтры
-          </ButtonBorder>
+          </div>
         </div>
         <div className="search-main-section__count text_type_main">
           Найдено {posts.total} объявлений
@@ -165,7 +192,7 @@ export const SearchMainSection = connect(mapStateToProps, {
             />
           </div>
         ))}
-        {posts.total >= config.pageSize && (
+        {posts.total > posts.items.length && (
           <div className="search-main-section__pagination-wrapper">
             <Pagination
               total={posts.total}
