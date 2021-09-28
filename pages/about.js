@@ -1,7 +1,7 @@
 import { Footer } from "../components/general/Footer";
 import { MainWrapper } from "../components/general/MainWrapper";
 import { AboutBreedersSection } from "../components/sections/AboutBreedersSection";
-import { AboutBuyersSection } from "../components/sections/aboutBuyersSection";
+import { AboutBuyersSection } from "../components/sections/AboutBuyersSection";
 import { AboutFirstSection } from "../components/sections/AboutFirstSection";
 import { AboutSecondSection } from "../components/sections/AboutSecondSection";
 import { TitleBlock } from "../components/sections/TitleBlock";
