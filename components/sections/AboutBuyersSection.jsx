@@ -48,16 +48,16 @@ export const AboutBuyersSection = () => {
                       <path
                         d="M17 5C10.7516 5 1 5 1 5"
                         stroke="#AF5B29"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
                         d="M13 1L17 5L13 9"
                         stroke="#AF5B29"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </a>
