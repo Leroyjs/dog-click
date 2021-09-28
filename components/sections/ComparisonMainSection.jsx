@@ -1,6 +1,6 @@
 import { BackButton } from "../../components/UI/BackButton";
 import { Description } from "../UI/Description";
-import Link from "next/link";
+
 import { ClearList } from "../UI/ClearList";
 import { Card } from "../common/Card";
 import { connect } from "react-redux";

@@ -385,7 +385,7 @@ export const Header = connect(
               </Link>
             </li>
             <li className="burger-menu__li" onClick={handleBurgerState}>
-              <Link href="/">
+              <Link href="/about">
                 <a className="burger-menu__link text text_type_nav text_color_black">
                   О нас
                 </a>
