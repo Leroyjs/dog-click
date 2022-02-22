@@ -52,17 +52,20 @@ export default function PersonalArea() {
   }, [petIds]);
 
   function handleClearAll() {
-    axios
-      .post(`${config.domain}/api/public/pet-owners/remove-my-pets`, {
-        token,
-      })
-      .then(function (response) {
-        setNewToken(false);
-        window.location.href = "/";
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    if (window.confirm("Вы действительно хотите удалить все данные?")) {
+      axios
+        .post(`${config.domain}/api/public/pet-owners/remove-my-pets`, {
+          token,
+        })
+        .then(function (response) {
+          window.alert("Ваши данные успешно удалены");
+          setNewToken(false);
+          window.location.href = "/";
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
   }
 
   function setNewToken(token) {

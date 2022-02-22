@@ -29,11 +29,9 @@ export const ConsentProcessing = ({ mainAction, token }) => {
       <div className="consent-processing__inner">
         <Checkbox isChecked={isChecked} onChange={() => setChecked(!isChecked)}>
           Для работе в личном кабинете Вам необходимо подтвердить{" "}
-          <Link href="/">
-            <a href="" className="text_color_main">
-              согласие на обработку персональных данных
-            </a>
-          </Link>
+          <a href="/agreement.pdf" className="text_color_main" target="_blank">
+            согласие на обработку персональных данных
+          </a>
         </Checkbox>
         <div className="consent-processing__button-wrapper">
           <ButtonMain onClick={handleClick} isDisabled={!isChecked}>

@@ -16,6 +16,10 @@
   &__input {
     padding-left: 16px;
     padding-right: 16px;
+
+    &::placeholder {
+      color: #888;
+    }
   }
 
   &__main {

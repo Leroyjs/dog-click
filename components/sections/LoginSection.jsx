@@ -73,7 +73,8 @@ export const LoginSection = ({ setNewToken }) => {
             <input
               value={code}
               onChange={(e) => setCode(e.target.value)}
-              type="password"
+              type="text"
+              placeholder="Введите код из смс"
               className="drop-down__input text text_type_main login-section__input"
             />
           </div>
