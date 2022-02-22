@@ -276,7 +276,7 @@ export const Header = connect(
               />
             </svg>
           </HeaderSubLink>
-          <HeaderSubLink href="/personal-area" text="Вход">
+          {/* <HeaderSubLink href="/personal-area" text="Вход">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -314,7 +314,7 @@ export const Header = connect(
                 />
               </g>
             </svg>
-          </HeaderSubLink>
+          </HeaderSubLink> */}
         </nav>
         <div
           onClick={handleBurgerState}
@@ -331,7 +331,7 @@ export const Header = connect(
           (burgerState ? " burger-menu_active" : "")
         }
       >
-        <HeaderSubLink
+        {/* <HeaderSubLink
           href="/personal-area"
           text="Вход"
           onClick={handleBurgerState}
@@ -373,7 +373,7 @@ export const Header = connect(
               />
             </g>
           </svg>
-        </HeaderSubLink>
+        </HeaderSubLink> */}
         <div className="burger-menu__separator"></div>
         <nav className="burger-menu__nav">
           <ul className="burger-menu__ul">

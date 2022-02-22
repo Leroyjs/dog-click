@@ -1,6 +1,4 @@
-import { BackButton } from "../../components/UI/BackButton";
 import { Description } from "../UI/Description";
-import Link from "next/link";
 import { ClearList } from "../UI/ClearList";
 import { Card } from "../common/Card";
 import { connect } from "react-redux";
@@ -11,7 +9,6 @@ import {
   removeComparisonItem,
   addComparisonItem,
 } from "../../redux/actions";
-import { useDispatch } from "react-redux";
 
 const mapStateToProps = (state) => {
   return {
@@ -21,33 +18,24 @@ const mapStateToProps = (state) => {
   };
 };
 
-export const FavoritesMainSection = connect(mapStateToProps, {
+export const PersonalAreaSection = connect(mapStateToProps, {
   setFaforiteItems,
   removeFavoriteItem,
   addFaforiteItem,
   removeComparisonItem,
   addComparisonItem,
-})(({ favoriteList, favoriteIdList, comparisonIdList }) => {
-  const dispatch = useDispatch();
-  function handleClearAll() {
-    dispatch(setFaforiteItems([]));
-  }
+})(({ pets = [], handleClearAll, favoriteIdList, comparisonIdList }) => {
   return (
     <section className="favorites-main-section main-padding">
-      <Link href="/">
-        <a>
-          <BackButton>Назад к предыдущей странице</BackButton>
-        </a>
-      </Link>
-      <h2 className="favorites-main-section__title text_type_h4">Избранное</h2>
+      <h2 className="favorites-main-section__title text_type_h4">
+        Мои объявления
+      </h2>
       <div className="favorites-main-section__row">
-        <Description>{favoriteList.length} объявлений</Description>
-        {favoriteList.length !== 0 && (
-          <ClearList onClick={handleClearAll}>Очистить список</ClearList>
-        )}
+        <Description>{pets.length} объявлений</Description>
+        {<ClearList onClick={handleClearAll}>Удалить все мои данные</ClearList>}
       </div>
       <div className="favorites-main-section__items-wrapper">
-        {favoriteList.map((item) => (
+        {pets.map((item) => (
           <div key={item.id} className="favorites-main-section__item-wrapper">
             <Card
               addFaforiteItem={() => {
@@ -62,7 +50,7 @@ export const FavoritesMainSection = connect(mapStateToProps, {
               addComparisonItem={() => dispatch(addComparisonItem(item))}
               id={item.id}
               breed={item.breed}
-              mainPhotoGuid={item.mainPhotoGuid}
+              mainPhotoGuid={item.mainImageGuid}
               city={item.city}
               createDate={item.createDate}
               gender={item.gender}

@@ -148,7 +148,6 @@ export const СomparisonMainSection = connect(mapStateToProps, {
     flickityHeader.options.cellAlign =
       comparisonIdList.length - 1 < maxCount ? "left" : "right";
     dispatch(removeComparisonItem(item));
-    console.log(flickity);
   }
 
   return (

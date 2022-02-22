@@ -10,12 +10,10 @@ export const BlogMainSection = ({ tags = [], newPosts, options }) => {
   const [search, setSearch] = useState(options.search);
   const [pageNum, setPageNum] = useState(options.pageNum);
   const router = useRouter();
-  console.log(newPosts);
   function handleTag(value) {
     handleTagChange(value);
   }
   function handleSearch(value) {
-    console.log("search");
     setFiltersURL();
   }
   useEffect(() => {

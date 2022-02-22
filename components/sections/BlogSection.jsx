@@ -2,7 +2,6 @@ import { NewsCard } from "../common/NewsCard";
 import { ButtonBorder } from "../UI/ButtonBorder";
 
 export const BlogSection = ({ newPostsBlog, tags }) => {
-  console.log(newPostsBlog, tags);
   const posts = newPostsBlog.slice(0, 4);
   return (
     <section className="blog-section main-padding">

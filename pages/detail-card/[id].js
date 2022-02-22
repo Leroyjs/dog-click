@@ -10,12 +10,6 @@ import Link from "next/link";
 import { config } from "../../config";
 
 export default function DetailCard({ post }) {
-  console.log(post);
-  if (post) {
-    console.log("true");
-  } else {
-    console.log("false");
-  }
   return (
     <MainWrapper>
       {post ? (

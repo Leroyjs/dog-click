@@ -1,0 +1,54 @@
+.personal-area__inner {
+  margin-top: 50px;
+  min-height: calc(100vh - 500px);
+}
+
+.login-section {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__code-input {
+    margin-top: 16px;
+  }
+
+  &__input {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  &__main {
+    display: flex;
+    flex-wrap: wrap;
+    width: 33%;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__desc {
+    margin-bottom: 30px;
+  }
+
+  &__button-wrapper {
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .login-section {
+    &__main {
+      width: 50%;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .login-section {
+    &__main {
+      width: 100%;
+    }
+  }
+}

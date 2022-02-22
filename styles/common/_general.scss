@@ -115,6 +115,10 @@
   align-items: center;
   justify-content: center;
 
+  &_disabled {
+    opacity: 0.4;
+  }
+
   &__arrow {
     transition: 0.3s;
     margin-left: 0.625vw;
@@ -128,7 +132,7 @@
       background-color: $mainColor;
       color: $white;
 
-      &:hover {
+      &:hover:not(.button_disabled) {
         border: 2px solid $mainHover;
         background-color: $mainHover;
         color: $white;

@@ -29,6 +29,7 @@ export const Card = ({
   removeComparisonItem,
   deleteHandler,
 }) => {
+  console.log(mainPhotoGuid);
   const dispatch = useDispatch();
   function handleFavorite(e) {
     e.preventDefault();

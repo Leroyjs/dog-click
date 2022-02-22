@@ -41,13 +41,24 @@ export const Footer = () => {
           </Link>
         </div>
         <Link href="/">
-          <a href="" className="text text_type_sub-desc text_color_main">
+          <a
+            href=""
+            className="footer__link text text_type_sub-desc text_color_main"
+          >
             Политика конфиденциальности
           </a>
         </Link>
       </div>
+      <Link href="/personal-area">
+        <a
+          href=""
+          className="text text_type_sub-desc text_color_main footer__personal-area"
+        >
+          Вход для заводчиков
+        </a>
+      </Link>
       <div className="footer__cop text text_type_sub-desc text_color_black">
-        © 2021 Dogclick. Все права защищены.
+        © 2022 Dogclick. Все права защищены.
       </div>
     </footer>
   );

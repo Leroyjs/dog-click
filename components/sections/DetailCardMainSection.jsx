@@ -86,7 +86,6 @@ export const DetailCardMainSection = connect(mapStateToProps, {
       data.phone[7] + data.phone[8]
     }-${data.phone[9] + data.phone[10]}`;
   }
-  console.log(data);
 
   return (
     <section className="detail-card-main-section main-padding">

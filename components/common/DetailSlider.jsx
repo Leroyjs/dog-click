@@ -18,22 +18,26 @@ export const DetailSlider = ({ images, video, preview }) => {
     pageDots: false,
     prevNextButtons: false,
   };
+
   let videoIndex = images.length;
+
   if (videoIndex > 2) {
     videoIndex = images.length - 1;
   }
+
   const cloneImagesArray = images.slice(0);
+
   if (video) {
     cloneImagesArray.splice(videoIndex, 0, video);
   }
-  console.log(cloneImagesArray, videoIndex);
+
   useEffect(() => {
     if (flickity && flickityNav) {
       setArrows(0);
       flickity.on("change", handleChengeMain);
     }
   }, [flickity, flickityNav]);
-  console.log();
+
   function setArrows(index) {
     if (index === 0) {
       setArrowLeftIsDisabled(true);
