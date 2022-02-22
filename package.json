@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "yarn run postbuild && next start",
+    "start": "npm run postbuild && next start",
     "postbuild": "next-sitemap",
     "lint": "next lint"
   },
