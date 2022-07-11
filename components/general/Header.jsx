@@ -276,7 +276,7 @@ export const Header = connect(
               />
             </svg>
           </HeaderSubLink>
-          {/* <HeaderSubLink href="/personal-area" text="Вход">
+          {/* <HeaderSubLink href="/personal-area/signin" text="Вход">
             <svg
               viewBox="0 0 24 24"
               fill="none"

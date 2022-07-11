@@ -5,7 +5,7 @@ import { ButtonMain } from "../UI/ButtonMain";
 import { Checkbox } from "../UI/Checkbox";
 import Link from "next/link";
 
-export const ConsentProcessing = ({ mainAction, token }) => {
+export const ConsentProcessing = ({ token }) => {
   const [isChecked, setChecked] = useState(false);
 
   function handleClick() {
@@ -16,7 +16,6 @@ export const ConsentProcessing = ({ mainAction, token }) => {
         })
         .then(function (response) {
           console.log(response);
-          mainAction(true);
         })
         .catch(function (error) {
           console.log(error);

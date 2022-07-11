@@ -36,8 +36,29 @@
     margin-bottom: 30px;
   }
 
+  &__desc2 {
+    margin: 20px 0;
+    text-align: center;
+  }
+
   &__button-wrapper {
     margin-top: 20px;
+    width: 100%;
+  }
+
+  &__sign-out {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-top: auto;
+  }
+
+  &__sign-up {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
     width: 100%;
   }
 }
@@ -49,6 +70,7 @@
     }
   }
 }
+
 @media screen and (max-width: 700px) {
   .login-section {
     &__main {
