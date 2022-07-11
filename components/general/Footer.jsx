@@ -49,7 +49,7 @@ export const Footer = () => {
           </a>
         </Link>
       </div>
-      <Link href="/personal-area">
+      <Link href="/personal-area/signin">
         <a
           href=""
           className="text text_type_sub-desc text_color_main footer__personal-area"

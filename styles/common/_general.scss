@@ -1,11 +1,13 @@
 * {
   font-family: $fontMain;
 }
+
 .no-scroll {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
 }
+
 .main-padding {
   padding-left: 10.25vw;
   padding-right: 10.25vw;
@@ -42,11 +44,13 @@
       font-weight: 600;
       font-size: 1.5vw;
     }
+
     &_h5 {
       font-style: normal;
       font-weight: 600;
       font-size: 1.125vw;
     }
+
     &_h6 {
       font-style: normal;
       font-weight: 500;
@@ -102,6 +106,10 @@
     &_black {
       color: $black;
     }
+
+    &_error {
+      color: red;
+    }
   }
 }
 
@@ -136,6 +144,7 @@
         border: 2px solid $mainHover;
         background-color: $mainHover;
         color: $white;
+
         path {
           fill: $white;
           stroke: $white;
@@ -146,6 +155,7 @@
         border: 2px solid $mainClick;
         background-color: $mainClick;
         color: $white;
+
         path {
           fill: $white;
           stroke: $white;
@@ -219,9 +229,11 @@
       &_h4 {
         font-size: 24px;
       }
+
       &_h5 {
         font-size: 18px;
       }
+
       &_h6 {
         font-size: 14px;
       }
@@ -264,12 +276,14 @@
     }
   }
 }
+
 @media screen and (max-width: 1360px) {
   .main-padding {
     padding-left: 120px;
     padding-right: 120px;
   }
 }
+
 @media screen and (max-width: 1280px) {
   .main-padding {
     padding-left: 100px;
@@ -296,9 +310,11 @@
       &_h4 {
         font-size: 21px;
       }
+
       &_h5 {
         font-size: 16px;
       }
+
       &_h6 {
         font-size: 12px;
       }
@@ -325,12 +341,14 @@
     }
   }
 }
+
 @media screen and (max-width: 1150px) {
   .main-padding {
     padding-left: 40px;
     padding-right: 40px;
   }
 }
+
 @media screen and (max-width: 1000px) {
   .main-padding {
     padding-left: 14px;
